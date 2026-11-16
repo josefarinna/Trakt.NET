@@ -12,322 +12,29 @@ namespace TraktNET.UsersModule
         private const TraktHiddenItemType HiddenItemType = TraktHiddenItemType.Movie;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetHiddenItems()
+        [Theory]
+        [InlineData(null, null, null, null, "users/hidden/calendar")]
+        [InlineData(HiddenItemType, null, null, null, "users/hidden/calendar?type=movie")]
+        [InlineData(null, ExtendedInfo, null, null, "users/hidden/calendar?extended=full")]
+        [InlineData(null, null, Page, null, "users/hidden/calendar?page=2")]
+        [InlineData(null, null, null, HiddenItemsLimit, "users/hidden/calendar?limit=4")]
+        [InlineData(HiddenItemType, ExtendedInfo, Page, HiddenItemsLimit, "users/hidden/calendar?type=movie" + $"&extended=full&page=2&limit=4")]
+        public async Task TestGetHiddenItems(TraktHiddenItemType? hiddenItemType, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetHiddenItemsUri, responseContent, 1, 1, 10, HiddenItemsCount);
 
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, HiddenItemsCount);
+
+            TraktPagedResponse<TraktUserHiddenItem> response = await client.Users.GetHiddenItemsAsync(HiddenItemsSection, hiddenItemType, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
+            response.Content.Count.ShouldBe((int)HiddenItemsCount);
             response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithType()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}",
-                responseContent, 1, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithTypeAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}&extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithTypeAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithTypeAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}&limit={HiddenItemsLimit}",
-                responseContent, 1, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, null, null, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithTypeAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}&page={Page}&limit={HiddenItemsLimit}",
-                responseContent, Page, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, null, Page, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?extended={ExtendedInfo.ToURI()}&limit={HiddenItemsLimit}",
-                responseContent, 1, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, ExtendedInfo, null, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={HiddenItemsLimit}",
-                responseContent, Page, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, ExtendedInfo, Page, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetHiddenItemsUri}?page={Page}", responseContent, Page, 1, 10, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?limit={HiddenItemsLimit}",
-                responseContent, 1, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, null, null, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?page={Page}&limit={HiddenItemsLimit}",
-                responseContent, Page, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, null, null, Page, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetHiddenItemsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\hiddenitems.json");
-			
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetHiddenItemsUri}?type={HiddenItemType.ToURI()}" +
-                $"&extended={ExtendedInfo.ToURI()}&page={Page}&limit={HiddenItemsLimit}",
-                responseContent, Page, 1, HiddenItemsLimit, HiddenItemsCount);
-
-            TraktPagedResponse<TraktUserHiddenItem> response =
-                await client.Users.GetHiddenItemsAsync(HiddenItemsSection, HiddenItemType, ExtendedInfo, Page, HiddenItemsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)HiddenItemsCount);
-            response.ItemCount.ShouldBe(HiddenItemsCount);
-            response.Limit.ShouldBe(HiddenItemsLimit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -527,31 +234,7 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetHiddenItemsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetHiddenItemsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetHiddenItemsUri, statusCode);
 

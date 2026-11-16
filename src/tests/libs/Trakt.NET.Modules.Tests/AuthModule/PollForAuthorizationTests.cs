@@ -138,27 +138,14 @@ namespace TraktNET.AuthModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiAuthenticationDeviceException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiAuthenticationDeviceException))]
         [InlineData(HttpStatusCode.Gone, typeof(TraktApiAuthenticationDeviceException))]
         [InlineData((HttpStatusCode)418, typeof(TraktApiAuthenticationDeviceException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
         [InlineData((HttpStatusCode)429, typeof(TraktApiAuthenticationDeviceException))]
 #else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiAuthenticationDeviceException))]
 #endif
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestPollForAuthorizationThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, statusCode, true);

@@ -84,6 +84,7 @@ namespace TraktNET.Json.Syncs
             JsonSerializer.Deserialize<TraktCollectedAt>("\"unknown\"", options).ShouldBe(TraktCollectedAt.Unknown);
             JsonSerializer.Deserialize<TraktCollectedAt>("\"now\"", options).ShouldBe(TraktCollectedAt.Now);
             JsonSerializer.Deserialize<TraktCollectedAt>("\"2014-09-01T09:10:11.000Z\"", options).ShouldBe(new TraktCollectedAt(timestamp));
+            JsonSerializer.Deserialize<TraktCollectedAt>("\"2014-09-01 09:10:11\"", options).ShouldBe(new TraktCollectedAt(timestamp));
             JsonSerializer.Deserialize<TraktCollectedAt>("\"\"", options).ShouldBe(default);
             JsonSerializer.Deserialize<TraktCollectedAt>("null", options).ShouldBe(default);
         }

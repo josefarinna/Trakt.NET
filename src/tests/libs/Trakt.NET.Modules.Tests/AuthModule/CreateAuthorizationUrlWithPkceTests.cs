@@ -30,6 +30,16 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
+        public async Task TestCreateAuthorizationUrlWithPkceWithoutCodeChallengeMethodUsesS256()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
+            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
+                null, null, null, CodeChallenge);
+
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, CodeChallenge, null!));
+            createdUrl.ShouldBe(encodedUrl);
+        }
+        [Fact]
         public async Task TestCreateAuthorizationUrlWithPkceWithSignupAndForceLogin()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
@@ -122,6 +132,9 @@ namespace TraktNET.AuthModule
             act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, "invalid challenge"));
             act.ShouldThrow<ArgumentException>();
 
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, ""));
+            act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("codeChallenge");
+
             act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, CodeChallenge, ""));
             act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("codeChallengeMethod");
 
@@ -136,6 +149,9 @@ namespace TraktNET.AuthModule
 
             act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID, "redirect uri");
             act.ShouldThrow<ArgumentException>();
+
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID, string.Empty);
+            act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("redirectUri");
         }
 
         [Fact]

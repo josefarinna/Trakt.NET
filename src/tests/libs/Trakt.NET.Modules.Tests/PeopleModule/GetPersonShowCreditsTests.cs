@@ -9,7 +9,7 @@ namespace TraktNET.PeopleModule
         private const string PersonSlug = "harrison-ford";
 
         [Fact]
-        public async Task TestGetPersonShowCredits()
+        public async Task TestGetPersonShowCreditsWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personshowcredits.json");
 
@@ -135,45 +135,7 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetPersonShowCreditsWithPersonIdsTraktID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personshowcredits.json");
-
-            var personIds = new TraktPersonIDs
-            {
-                Trakt = PersonID
-            };
-
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonShowCreditsUri, responseContent);
-            TraktResponse<TraktPersonShowCredits> response = await client.People.GetPersonShowCreditsAsync(personIds, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetPersonShowCreditsWithPersonIdsSlug()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personshowcredits.json");
-
-            var personIds = new TraktPersonIDs
-            {
-                Slug = PersonSlug
-            };
-
-            TraktClient client = ModuleTestUtility.GetClient($"people/{PersonSlug}/shows", responseContent);
-            TraktResponse<TraktPersonShowCredits> response = await client.People.GetPersonShowCreditsAsync(personIds, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetPersonShowCreditsWithPersonIds()
+        public async Task TestGetPersonShowCreditsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personshowcredits.json");
 
@@ -329,31 +291,7 @@ namespace TraktNET.PeopleModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiPersonNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetPersonShowCreditsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetPersonShowCreditsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonShowCreditsUri, statusCode);
 
@@ -362,7 +300,7 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetPersonShowCreditsThrowsArgumentExceptions()
+        public async Task TestGetPersonShowCreditsWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonShowCreditsUri, HttpStatusCode.OK);
 

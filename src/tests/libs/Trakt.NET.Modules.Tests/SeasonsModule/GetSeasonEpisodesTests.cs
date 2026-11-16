@@ -68,49 +68,7 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonEpisodesWithShowIDsTraktID()
-        {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonepisodes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonEpisodesUri, responseContent, 1, 1, 10, ItemCount);
-
-            TraktListResponse<TraktEpisode> response = await client.Seasons.GetSeasonEpisodesAsync(showIds, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonEpisodesWithShowIDsSlug()
-        {
-            var showIds = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonepisodes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/1", responseContent, 1, 1, 10, ItemCount);
-
-            TraktListResponse<TraktEpisode> response = await client.Seasons.GetSeasonEpisodesAsync(showIds, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonEpisodesWithShowIDs()
+        public async Task TestGetSeasonEpisodesWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonepisodes.json");
 
@@ -148,35 +106,11 @@ namespace TraktNET.SeasonsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetSeasonEpisodesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonEpisodesUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktEpisode>>> act = () => client.Seasons.GetSeasonEpisodesAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktEpisode>>> act = () => client.Seasons.GetSeasonEpisodesAsync(TestConstants.Shows.TraktShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

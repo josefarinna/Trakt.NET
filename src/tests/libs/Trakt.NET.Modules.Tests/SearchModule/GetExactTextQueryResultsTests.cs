@@ -15,15 +15,19 @@ namespace TraktNET.SearchModule
         private const TraktSearchResultType TextQueryTypeShow = TraktSearchResultType.Show;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetExactTextQueryResults()
+        [Theory]
+        [InlineData(null, null, null, $"search/movie/exact?query={TextQuery}")]
+        [InlineData(ExtendedInfo, null, null, $"search/movie/exact?query={TextQuery}&extended=full")]
+        [InlineData(null, Page, null, $"search/movie/exact?query={TextQuery}&page=2")]
+        [InlineData(null, null, Limit, $"search/movie/exact?query={TextQuery}&limit=4")]
+        [InlineData(ExtendedInfo, Page, Limit, $"search/movie/exact?query={TextQuery}&extended=full&page=2&limit=4")]
+        public async Task TestGetExactTextQueryResults(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetExactTextQueryUri, responseContent, 1, 1, 10, TextQueryItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, TextQueryItemCount);
 
-            TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSearchResult> response = await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -31,8 +35,8 @@ namespace TraktNET.SearchModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)TextQueryItemCount);
             response.ItemCount.ShouldBe(TextQueryItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -54,92 +58,6 @@ namespace TraktNET.SearchModule
             response.ItemCount.ShouldBe(TextQueryItemCount);
             response.Limit.ShouldBe(10U);
             response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetExactTextQueryResultsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetExactTextQueryUri}&extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, TextQueryItemCount);
-
-            TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)TextQueryItemCount);
-            response.ItemCount.ShouldBe(TextQueryItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetExactTextQueryResultsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetExactTextQueryUri}&page={Page}", responseContent, Page, 1, 10, TextQueryItemCount);
-
-            TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)TextQueryItemCount);
-            response.ItemCount.ShouldBe(TextQueryItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetExactTextQueryResultsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetExactTextQueryUri}&limit={Limit}", responseContent, 1, 1, Limit, TextQueryItemCount);
-
-            TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)TextQueryItemCount);
-            response.ItemCount.ShouldBe(TextQueryItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetExactTextQueryResultsWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetExactTextQueryUri}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, TextQueryItemCount);
-
-            TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetExactTextQueryResultsAsync(TextQueryTypeMovie, TextQuery, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)TextQueryItemCount);
-            response.ItemCount.ShouldBe(TextQueryItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -331,30 +249,6 @@ namespace TraktNET.SearchModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetExactTextQueryResultsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetExactTextQueryUri, statusCode);

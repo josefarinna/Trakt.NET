@@ -12,14 +12,14 @@ namespace TraktNET.UsersModule
         private readonly TraktUserPersonalListItemsRemovePost RemovePersonalListItemsPost = SetupRemovePersonalListItemsPost();
 
         [Fact]
-        public async Task TestRemovePersonalListItems()
+        public async Task TestRemovePersonalListItemsWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistitemsremovepostresponse.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemovePersonalListItemsUri, responseContent, null, null, null, null);
 
             TraktResponse<TraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(Username, ListID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
+                await client.Users.RemovePersonalListItemsAsync(Username, TraktListID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -57,57 +57,15 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestRemovePersonalListItemsWithTraktID()
+        public async Task TestRemovePersonalListItemsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistitemsremovepostresponse.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RemovePersonalListItemsUri, responseContent, null, null, null, null);
-
-            TraktResponse<TraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(Username, TraktListID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestRemovePersonalListItemsWithListIdsTraktID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistitemsremovepostresponse.json");
-
-            var listIds = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RemovePersonalListItemsUri, responseContent, null, null, null, null);
-
-            TraktResponse<TraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(Username, listIds, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestRemovePersonalListItemsWithListIdsSlug()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistitemsremovepostresponse.json");
-
-            var listIds = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}/items/remove",
                 responseContent, null, null, null, null);
 
             TraktResponse<TraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(Username, listIds, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
+                await client.Users.RemovePersonalListItemsAsync(Username, ListSlug, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -116,7 +74,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestRemovePersonalListItemsWithListIds()
+        public async Task TestRemovePersonalListItemsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistitemsremovepostresponse.json");
 
@@ -166,40 +124,16 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestRemovePersonalListItemsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestRemovePersonalListItemsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemovePersonalListItemsUri, statusCode);
 
-            Func<Task<TraktResponse<TraktUserPersonalListItemsRemovePostResponse>>> act = () => client.Users.RemovePersonalListItemsAsync(Username, ListID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktUserPersonalListItemsRemovePostResponse>>> act = () => client.Users.RemovePersonalListItemsAsync(Username, TraktListID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestRemovePersonalListItemsThrowsArgumentExceptions()
+        public async Task TestRemovePersonalListItemsWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemovePersonalListItemsUri, HttpStatusCode.OK);
 

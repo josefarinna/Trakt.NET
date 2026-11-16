@@ -12,15 +12,25 @@ namespace TraktNET.UsersModule
         private const uint Limit = 4;
         private const uint ItemCount = 1;
 
-        [Fact]
-        public async Task TestGetActivities()
+        [Theory]
+        [InlineData(null, null, null, null, GetActivitiesUri)]
+        [InlineData(ExtendedInfo, null, null, null, $"{GetActivitiesUri}?extended=full")]
+        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images | TraktExtendedInfo.Colors | TraktExtendedInfo.StreamingIDs | TraktExtendedInfo.Rating, null, null, null,
+                    $"{GetActivitiesUri}?extended=full,images,colors,streaming_ids,rating")]
+        [InlineData(null, "breaking", null, null, $"{GetActivitiesUri}?query=breaking")]
+        [InlineData(null, null, Page, null, $"{GetActivitiesUri}?page=2")]
+        [InlineData(null, null, null, Limit, $"{GetActivitiesUri}?limit=4")]
+        [InlineData(ExtendedInfo, null, Page, Limit, $"{GetActivitiesUri}?extended=full&page=2&limit=4")]
+        public async Task TestGetActivities(TraktExtendedInfo? extendedInfo, string? query, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetActivitiesUri, responseContent, 1, 1, 10, ItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page ?? 1U, 1, limit ?? 10U, ItemCount);
+
+            TraktFilter? filter = query is not null ? new TraktFilter { Query = query } : null;
 
             TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, cancellationToken: TestContext.Current.CancellationToken);
+                Username, ActivityType, extendedInfo, filter: filter, page: page, limit: limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,8 +38,8 @@ namespace TraktNET.UsersModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1u);
 
             TraktUserActivity item = response.Content[0];
@@ -86,211 +96,6 @@ namespace TraktNET.UsersModule
             response.Limit.ShouldBe(10u);
             response.Page.ShouldBe(1u);
             response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithExtendedInfoRating()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-            const TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full | TraktExtendedInfo.Images | TraktExtendedInfo.Colors | TraktExtendedInfo.StreamingIDs | TraktExtendedInfo.Rating;
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?{extendedInfo.AsQuery()}",
-                responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, extendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?page={Page}",
-                responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?limit={Limit}",
-                responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, ExtendedInfo, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}",
-                responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, ExtendedInfo, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1u);
-        }
-
-        [Fact]
-        public async Task TestGetActivitiesWithFilter()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
-            var filter = new TraktFilter { Query = "breaking" };
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetActivitiesUri}?{filter}",
-                responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
-                Username, ActivityType, filter: filter, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
         }
 
         [Fact]
@@ -481,31 +286,7 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetActivitiesThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetActivitiesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetActivitiesUri, statusCode);
 

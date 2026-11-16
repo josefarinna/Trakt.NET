@@ -13,14 +13,21 @@ namespace TraktNET.SyncModule
         private const TraktSortHow SortHow = TraktSortHow.Ascending;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetFavorites()
+        [Theory]
+        [InlineData(null, null, null, null, Page, Limit, $"{GetFavoritesUri}?page=2&limit=4")]
+        [InlineData(FavoriteType, null, null, null, Page, Limit, $"{GetFavoritesUri}/movies?page=2&limit=4")]
+        [InlineData(null, SortBy, null, null, Page, Limit, $"{GetFavoritesUri}/rank?page=2&limit=4")]
+        [InlineData(null, SortBy, SortHow, null, Page, Limit, $"{GetFavoritesUri}/rank/asc?page=2&limit=4")]
+        [InlineData(null, null, null, ExtendedInfo, Page, Limit, $"{GetFavoritesUri}?extended=full&page=2&limit=4")]
+        [InlineData(TraktFavoriteObjectType.Show, SortBy, null, null, Page, Limit, $"{GetFavoritesUri}/shows/rank?page=2&limit=4")]
+        [InlineData(TraktFavoriteObjectType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, $"{GetFavoritesUri}/movies/added/desc?extended=full&page=3&limit=10")]
+        public async Task TestGetFavorites(TraktFavoriteObjectType? favoriteObjectType, TraktSortBy? sortBy, TraktSortHow? sortHow, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, ItemCount);
 
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(favoriteObjectType, sortBy, sortHow, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,128 +35,8 @@ namespace TraktNET.SyncModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithFavoriteType()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/{FavoriteType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(FavoriteType, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithSort()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/{SortBy.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(null, SortBy, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithSortHow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/{SortBy.ToURI()}/{SortHow.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(null, SortBy, SortHow, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(null, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithFavoriteTypeAndSort()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/shows/{SortBy.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(TraktFavoriteObjectType.Show, SortBy, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetFavoritesWithFavoriteTypeAndSortAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/movies/added/desc?extended=full&page=3&limit=10", responseContent, 3, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktFavorite> response = await client.Sync.GetFavoritesAsync(TraktFavoriteObjectType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(3U);
+            response.Limit.ShouldBe(limit ?? Limit);
+            response.Page.ShouldBe(page ?? Page);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -319,30 +206,6 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetFavoritesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}?page=1&limit=10", statusCode);
@@ -352,7 +215,7 @@ namespace TraktNET.SyncModule
         }
 
         [Fact]
-        public async Task TestGetFavoritesThrowsArgumentExceptions()
+        public async Task TestGetFavoritesThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetFavoritesUri, HttpStatusCode.OK);
 

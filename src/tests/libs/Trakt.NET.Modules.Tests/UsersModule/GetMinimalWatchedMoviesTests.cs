@@ -10,14 +10,18 @@ namespace TraktNET.UsersModule
         private const uint Limit = 4U;
         private const uint MoviesCount = 1U;
 
-        [Fact]
-        public async Task TestGetMinimalWatchedMovies()
+        [Theory]
+        [InlineData(null, null, $"{GetMinimalWatchedMoviesUri}?extended=min")]
+        [InlineData(Page, null, $"{GetMinimalWatchedMoviesUri}?extended=min&page=2")]
+        [InlineData(null, Limit, $"{GetMinimalWatchedMoviesUri}?extended=min&limit=4")]
+        [InlineData(Page, Limit, $"{GetMinimalWatchedMoviesUri}?extended=min&page=2&limit=4")]
+        public async Task TestGetMinimalWatchedMovies(uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\getwatchedmoviesminimal.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMinimalWatchedMoviesUri}?extended=min", responseContent, Page, 1, Limit, MoviesCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, MoviesCount);
 
-            TraktResponse<Dictionary<string, List<string>>> response = await client.Users.GetMinimalWatchedMoviesAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<Dictionary<string, List<string>>> response = await client.Users.GetMinimalWatchedMoviesAsync(Username, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -27,8 +31,8 @@ namespace TraktNET.UsersModule
             response.Content["94024"].ShouldNotBeNull();
             response.Content["94024"].Count.ShouldBe(1);
             response.Content["94024"][0].ShouldBe("2014-10-11T17:00:54.000Z");
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
         }
 
         [Fact]
@@ -74,87 +78,9 @@ namespace TraktNET.UsersModule
             response.Page.ShouldBe(Page);
         }
 
-        [Fact]
-        public async Task TestGetMinimalWatchedMoviesWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\getwatchedmoviesminimal.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMinimalWatchedMoviesUri}?extended=min&page={Page}", responseContent, Page, 1, Limit, MoviesCount);
-
-            TraktResponse<Dictionary<string, List<string>>> response = await client.Users.GetMinimalWatchedMoviesAsync(Username, Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)MoviesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-        }
-
-        [Fact]
-        public async Task TestGetMinimalWatchedMoviesWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\getwatchedmoviesminimal.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMinimalWatchedMoviesUri}?extended=min&limit={Limit}", responseContent, Page, 1, Limit, MoviesCount);
-
-            TraktResponse<Dictionary<string, List<string>>> response = await client.Users.GetMinimalWatchedMoviesAsync(Username, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)MoviesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-        }
-
-        [Fact]
-        public async Task TestGetMinimalWatchedMoviesWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\getwatchedmoviesminimal.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMinimalWatchedMoviesUri}?extended=min&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, MoviesCount);
-
-            TraktResponse<Dictionary<string, List<string>>> response = await client.Users.GetMinimalWatchedMoviesAsync(Username, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)MoviesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-        }
-
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMinimalWatchedMoviesThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMinimalWatchedMoviesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMinimalWatchedMoviesUri, statusCode);
 

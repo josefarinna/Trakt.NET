@@ -15,63 +15,13 @@ namespace TraktNET.ListsModule
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetListItemsWithTraktIDPageAndLimit()
+        public async Task TestGetListItemsWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(TraktListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsWithListIDsTraktIDPageAndLimit()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsWithListIDsSlugPageAndLimit()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}/items?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(ListSlug, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -85,7 +35,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsWithListIDsPageAndLimit()
+        public async Task TestGetListItemsWithIDs()
         {
             var listIDs = new TraktListIDs
             {
@@ -111,7 +61,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsWithListPageAndLimit()
+        public async Task TestGetListItemsWithList()
         {
             var list = new TraktList
             {
@@ -139,14 +89,21 @@ namespace TraktNET.ListsModule
             response.PageCount.ShouldBe(1U);
         }
 
-        [Fact]
-        public async Task TestGetListItemsWithPageAndLimit()
+        [Theory]
+        [InlineData(null, null, null, $"{GetListItemsUri}?page=2&limit=4")]
+        [InlineData(ListItemType, null, null, $"{GetListItemsUri}/movie?page=2&limit=4")]
+        [InlineData(null, "batman", null, $"{GetListItemsUri}?query=batman&page=2&limit=4")]
+        [InlineData(null, null, ExtendedInfo, $"{GetListItemsUri}?extended=full&page=2&limit=4")]
+        [InlineData(ListItemType, "batman", ExtendedInfo, $"{GetListItemsUri}/movie?query=batman&extended=full&page=2&limit=4")]
+        public async Task TestGetListItemsWithID(TraktListItemType? listItemType, string? query, TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(ListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktFilter? filter = query is not null ? new TraktFilter { Query = query } : null;
+
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(TraktListID, listItemType, filter, extendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -160,99 +117,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsWithTypePageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}/{ListItemType.ToURI()}" +
-                $"?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsWithFilter()
-        {
-            var filter = new TraktFilter { Query = "batman" };
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListItemsUri}?query=batman&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsWithExtendedInfoPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListItemsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListItemsUri}/{ListItemType.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListItemsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetListItemsWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -261,7 +126,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 5, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -277,7 +142,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsPagingOnlyHasPreviousPage()
+        public async Task TestGetListItemsWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -286,7 +151,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -302,7 +167,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsPagingOnlyHasNextPage()
+        public async Task TestGetListItemsWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -311,7 +176,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -327,7 +192,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetListItemsWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -336,7 +201,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -352,7 +217,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsPagingGetPreviousPage()
+        public async Task TestGetListItemsWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -361,7 +226,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -395,7 +260,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListItemsPagingGetNextPage()
+        public async Task TestGetListItemsWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
@@ -404,7 +269,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(TraktListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -439,40 +304,16 @@ namespace TraktNET.ListsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetListItemsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetListItemsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListItemsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Lists.GetListItemsAsync(ListID, page: 1, limit: 10, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Lists.GetListItemsAsync(TraktListID, page: 1, limit: 10, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetListItemsThrowsArgumentExceptions()
+        public async Task TestGetListItemsWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListItemsUri, HttpStatusCode.OK);
 

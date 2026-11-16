@@ -11,20 +11,9 @@ namespace TraktNET.UsersModule
         private const string ListSlug = "sci-fi-movies";
 
         [Fact]
-        public async Task TestDeleteSmartList()
+        public async Task TestDeleteSmartListWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeleteSmartListUri, HttpStatusCode.NoContent);
-
-            TraktResponse response = await client.Users.DeleteSmartListAsync(Username, ListID, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestDeleteSmartListWithTraktID()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/smart-lists/{TraktListID}", HttpStatusCode.NoContent);
 
             TraktResponse response = await client.Users.DeleteSmartListAsync(Username, TraktListID, TestContext.Current.CancellationToken);
 
@@ -33,32 +22,11 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestDeleteSmartListWithListIdsTraktID()
+        public async Task TestDeleteSmartListWithSlug()
         {
-            var listIds = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/smart-lists/{TraktListID}", HttpStatusCode.NoContent);
-
-            TraktResponse response = await client.Users.DeleteSmartListAsync(Username, listIds, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestDeleteSmartListWithListIdsSlug()
-        {
-            var listIds = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/smart-lists/{ListSlug}", HttpStatusCode.NoContent);
 
-            TraktResponse response = await client.Users.DeleteSmartListAsync(Username, listIds, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Users.DeleteSmartListAsync(Username, ListSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -86,39 +54,15 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestDeleteSmartListThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestDeleteSmartListWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeleteSmartListUri, statusCode);
-            Func<Task<TraktResponse>> act = () => client.Users.DeleteSmartListAsync(Username, ListID, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Users.DeleteSmartListAsync(Username, TraktListID, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestDeleteSmartListArgumentExceptions()
+        public async Task TestDeleteSmartListWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeleteSmartListUri, HttpStatusCode.NoContent);
 

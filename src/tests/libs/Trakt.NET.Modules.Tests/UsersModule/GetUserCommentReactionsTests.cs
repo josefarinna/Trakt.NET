@@ -9,13 +9,18 @@ namespace TraktNET.UsersModule
         private const uint Page = 2U;
         private const uint Limit = 10U;
 
-        [Fact]
-        public async Task TestGetCommentReactions()
+        [Theory]
+        [InlineData(null, null, URIPath)]
+        [InlineData(Page, null, $"{URIPath}?page=2")]
+        [InlineData(null, Limit, $"{URIPath}?limit=10")]
+        [InlineData(Page, Limit, $"{URIPath}?page=2&limit=10")]
+        public async Task TestGetCommentReactions(uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, responseContent, 1, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktCommentReaction> response = await client.Users.GetCommentReactionsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, ItemCount);
+
+            TraktPagedResponse<TraktCommentReaction> response = await client.Users.GetCommentReactionsAsync(page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -23,8 +28,8 @@ namespace TraktNET.UsersModule
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -41,49 +46,6 @@ namespace TraktNET.UsersModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetCommentReactionsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{URIPath}?page={Page}", responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktCommentReaction> response = await client.Users.GetCommentReactionsAsync(Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Page.ShouldBe(Page);
-        }
-
-        [Fact]
-        public async Task TestGetCommentReactionsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{URIPath}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktCommentReaction> response = await client.Users.GetCommentReactionsAsync(null, Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Limit.ShouldBe(Limit);
-        }
-
-        [Fact]
-        public async Task TestGetCommentReactionsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{URIPath}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktCommentReaction> response = await client.Users.GetCommentReactionsAsync(Page, Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
         }
 
         [Fact]
@@ -190,30 +152,6 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetCommentReactionsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, statusCode);

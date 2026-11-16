@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Net;
+﻿using System.Net;
 
 namespace TraktNET.RecommendationsModule
 {
@@ -8,17 +7,7 @@ namespace TraktNET.RecommendationsModule
         private readonly string HideMovieRecommendationUri = $"recommendations/movies/{TestConstants.Movies.TraktMovieID}";
 
         [Fact]
-        public async Task TestHideMovieRecommendation()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.TraktMovieID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestHideMovieRecommendationRatingsWithTraktID()
+        public async Task TestHideMovieRecommendationWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
             TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
@@ -28,37 +17,17 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestHideMovieRecommendationRatingsWithMovieIdsTraktID()
+        public async Task TestHideMovieRecommendationWithSlug()
         {
-            var movieIds = new TraktMovieIDs
-            {
-                Trakt = TestConstants.Movies.TraktMovieID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(movieIds, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestHideMovieRecommendationRatingsWithMovieIdsSlug()
-        {
-            var movieIds = new TraktMovieIDs
-            {
-                Slug = TestConstants.Movies.MovieSlug
-            };
-
             TraktClient client = ModuleTestUtility.GetOAuthClient($"recommendations/movies/{TestConstants.Movies.MovieSlug}", HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(movieIds, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
         }
 
         [Fact]
-        public async Task TestHideMovieRecommendationRatingsWithMovieIds()
+        public async Task TestHideMovieRecommendationWithIDs()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"recommendations/movies/{TestConstants.Movies.MovieSlug}", HttpStatusCode.NoContent);
             TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
@@ -68,7 +37,7 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestHideMovieRecommendationRatingsWithMovie()
+        public async Task TestHideMovieRecommendationWithMovie()
         {
             var movie = new TraktMovie
             {
@@ -84,31 +53,7 @@ namespace TraktNET.RecommendationsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowRecommendationsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestHideMovieRecommendationWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, statusCode);
 
@@ -117,7 +62,7 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestGetMovieRatingsThrowsArgumentExceptions()
+        public async Task TestHideMovieRecommendationWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
 

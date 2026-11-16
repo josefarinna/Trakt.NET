@@ -6,18 +6,20 @@ namespace TraktNET.ShowsModule
     {
         private const string ResetShowWatchedProgressUri = $"shows/{TestConstants.Shows.ShowID}/progress/watched/reset";
         private const string ResetShowWatchedProgressUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/progress/watched/reset";
-
-        private static readonly DateTime ResetAt = new(2024, 9, 23, 19, 8, 15, DateTimeKind.Utc);
         private const string ResetAtValue = "2024-09-23T19:08:15.000Z";
 
-        [Fact]
-        public async Task TestResetShowWatchedProgressWithID()
+        private static readonly DateTime ResetAt = TestUtility.ParseUTCDateTime(ResetAtValue);
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData(ResetAtValue)]
+        public async Task TestResetShowWatchedProgressWithID(string? resetAt)
         {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showresetwatchedprogress.json");
             TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUri, responseContent, null, null, null, null);
 
-            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
-                TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID,
+                resetAt is not null ? TestUtility.ParseUTCDateTime(resetAt) : null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -29,7 +31,7 @@ namespace TraktNET.ShowsModule
         [Fact]
         public async Task TestResetShowWatchedProgressWithSlug()
         {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showresetwatchedprogress.json");
             TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, responseContent, null, null, null, null);
 
             TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
@@ -45,7 +47,7 @@ namespace TraktNET.ShowsModule
         [Fact]
         public async Task TestResetShowWatchedProgressWithIDs()
         {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showresetwatchedprogress.json");
             TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, responseContent, null, null, null, null);
 
             TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
@@ -58,85 +60,13 @@ namespace TraktNET.ShowsModule
             response.Content!.ResetAt.ShouldBe(ResetAt);
         }
 
-        [Fact]
-        public async Task TestResetShowWatchedProgressWithResetAt()
-        {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, responseContent, null, null, null, null);
-
-            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowSlug, ResetAt, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
-        }
-
-        [Fact]
-        public async Task TestResetShowWatchedProgressWithIDAndResetAt()
-        {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUri, responseContent, null, null, null, null);
-
-            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
-                TestConstants.Shows.TraktShowID, ResetAt, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
-        }
-
-        [Fact]
-        public async Task TestResetShowWatchedProgressWithIDsAndResetAt()
-        {
-            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, responseContent, null, null, null, null);
-
-            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowIDs, ResetAt, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
-        }
-
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestResetShowWatchedProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestResetShowWatchedProgressWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUri, statusCode);
 
-            Func<Task<TraktResponse<TraktShowResetWatchedProgress>>> act = () => client.Shows.ResetShowWatchedProgressAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktShowResetWatchedProgress>>> act = () => client.Shows.ResetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

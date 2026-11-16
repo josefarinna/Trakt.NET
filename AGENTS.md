@@ -107,16 +107,17 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
 Whenever creating or modifying functionality, **unit tests MUST be written or updated** across the corresponding test projects under `src/tests/libs/`:
 
 ### 1. API Modules Tests (`Trakt.NET.Modules.Tests/<ModuleName>/`)
-Every API endpoint method must include comprehensive test cases covering all input permutations:
-- **Default Request**: Test execution without optional parameters.
-- **Extended Info**: Test with `TraktExtendedInfo` options (`Full`, `Images`, etc.).
-- **Pagination Parameters & Navigation**: For paged endpoints (`TraktPagedResponse<T>`), explicitly test `Page`, `Limit`, and `Page` + `Limit` parameter combinations, asserting `Page`, `Limit`, `PageCount`, and `ItemCount` response headers. Crucially, **always write dedicated tests for `GetPreviousPageAsync()` and `GetNextPageAsync()` navigation methods**, asserting `HasPreviousPage` and `HasNextPage` flags.
-- **Filters & Options**: Test filter objects (`TraktShowFilter`, `TraktMovieFilter`, etc.) and query options when supported.
-- **Parameter Combinations**: Test combined permutations (Extended Info + Pagination + Filters).
+Every API endpoint method must be tested following the same convention in all modules (see `MoviesModule/` for reference):
+- **Main Theory with the Numeric ID**: The main test is `Test<Method>WithID` (or `Test<Method>` for endpoints without an identifier), a `[Theory]` that calls the `uint` ID overload. Its `[InlineData]` rows cover the request without optional parameters, **each optional parameter alone**, and **one row with all of them together**. Do not add rows or facts for intermediate combinations: the URI building of every combination is already tested in `Trakt.NET.Requests.Tests`.
+- **Other Identifier Overloads**: The slug, IDs and object overloads get a single basic case each: `Test<Method>WithSlug`, `Test<Method>WithIDs` and `Test<Method>WithShow` / `WithList` / `WithMovie` / `WithPerson`.
+- **Pagination & Navigation**: For paged endpoints (`TraktPagedResponse<T>`), `page` and `limit` are parameters of the main theory and the assertions use `response.Page.ShouldBe(page ?? 1U)` and `response.Limit.ShouldBe(limit ?? 10U)`, plus `PageCount` and `ItemCount`. Always write dedicated `Test<Method>WithIDPaging...` tests for `GetPreviousPageAsync()` and `GetNextPageAsync()`, asserting `HasPreviousPage` and `HasNextPage`.
+- **Parameters that are not constants**: `[InlineData]` only accepts constants, so dates are passed as ISO strings and converted with `TestUtility.ParseUTCDateTime(...)`, arrays as `new uint[] { ... }`, and a filter either as simple parameters (e.g. `string? query`) that build the `TraktFilter` inside the test or, for a fixed complex filter, in a separate `Test<Method>WithFilter` theory.
 - **OAuth Enforcement & Alias "me"**: Test OAuth requirements (`client.IgnoreOAuthIfOptional = false`) and URI template substitution when using the `"me"` shortcut (`users/me/...`).
+- **Response Content**: Mock responses MUST be loaded from JSON fixture files in `src/tests/libs/JsonData/<ModuleName>/` with `TestUtility.GetJsonFileContentAsync(...)`; never build the response JSON inside the test.
 - **Internal Request Validation vs. API Exception Handling**:
-  - Request validation failures (null/empty/whitespace required parameters, invalid IDs) MUST be tested for throwing `TraktRequestValidationException`.
-  - HTTP error status codes (`400`, `401`, `403`, `404`, `420`, `422`, `423`, `429`, `500`, `502`, `503`, `504`, `520`, `521`, `522`) MUST be tested using `ModuleTestUtility.GetClient(uri, statusCode)` with `[Theory]` to verify that the appropriate `TraktApiException` subclass is thrown.
+  - Request validation failures (null/empty/whitespace required parameters, invalid IDs) MUST be tested in `Test<Method>WithIDsThrowsArgumentException` (or `Test<Method>ThrowsArgumentException`).
+  - The mapping of every HTTP error status code to its `TraktApiException` subclass is tested once in `RequestHandlerTests.TestThrowsApiException`. Each endpoint only tests, in `Test<Method>WithIDThrowsApiException` with `ModuleTestUtility.GetClient(uri, statusCode)`, the `404` (whose exception depends on the requested object type) and any status code with an endpoint-specific exception (e.g. OAuth errors in `AuthModule`, `409` in `CheckinModule`).
+- **Naming**: Use `IDs` (not `Ids`), `ThrowsApiException` and `ThrowsArgumentException` in test names.
 
 ### 2. JSON Serialization Tests (`Trakt.NET.Json.Tests/`)
 Every new or modified data model class or DTO must include JSON unit tests:

@@ -27,6 +27,15 @@
         }
 
         [Fact]
+        public void TestTraktEpisodeMinimalToString()
+        {
+            new TraktEpisodeMinimal().ToString().ShouldBeEmpty();
+            new TraktEpisodeMinimal { Number = 1U, Title = "Winter Is Coming" }.ToString().ShouldBe("Winter Is Coming");
+            new TraktEpisodeMinimal { Season = 1U, Title = "Winter Is Coming" }.ToString().ShouldBe("Winter Is Coming");
+            new TraktEpisodeMinimal { Season = 1U, Number = 1U }.ToString().ShouldBe("S01E01: ");
+        }
+
+        [Fact]
         public async Task TestTraktEpisodeFromJsonMinimal()
         {
             TraktEpisodeMinimal? episode = await TestUtility.DeserializeJsonAsync<TraktEpisodeMinimal>("Episodes\\episode_minimal.json");

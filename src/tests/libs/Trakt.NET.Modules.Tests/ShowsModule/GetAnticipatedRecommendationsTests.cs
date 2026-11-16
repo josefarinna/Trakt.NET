@@ -10,15 +10,19 @@ namespace TraktNET.ShowsModule
         private const uint ItemsCount = 2U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetAnticipatedRecommendations()
+        [Theory]
+        [InlineData(null, null, null, GetAnticipatedRecommendationsUri)]
+        [InlineData(null, Page, null, $"{GetAnticipatedRecommendationsUri}?page=2")]
+        [InlineData(null, null, Limit, $"{GetAnticipatedRecommendationsUri}?limit=4")]
+        [InlineData(null, Page, Limit, $"{GetAnticipatedRecommendationsUri}?page=2&limit=4")]
+        [InlineData(ExtendedInfo, null, null, $"{GetAnticipatedRecommendationsUri}?extended=full")]
+        public async Task TestGetAnticipatedRecommendations(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\anticipatedshowrecommendations.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAnticipatedRecommendationsUri,
-                                                                responseContent, 1, 1, 10, ItemsCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, ItemsCount);
 
-            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -26,10 +30,9 @@ namespace TraktNET.ShowsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemsCount);
             response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
-
             TraktAnticipatedShowRecommendation item = response.Content[0];
             item.Show.ShouldNotBeNull();
             item.Show.Title.ShouldBe("Euphoria");
@@ -52,90 +55,6 @@ namespace TraktNET.ShowsModule
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemsCount);
-        }
-
-        [Fact]
-        public async Task TestGetAnticipatedRecommendationsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\anticipatedshowrecommendations.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetAnticipatedRecommendationsUri}?page={Page}",
-                                                                responseContent, Page, 1, 10, ItemsCount);
-
-            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetAnticipatedRecommendationsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\anticipatedshowrecommendations.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetAnticipatedRecommendationsUri}?limit={Limit}",
-                                                                responseContent, 1, 1, Limit, ItemsCount);
-
-            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetAnticipatedRecommendationsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\anticipatedshowrecommendations.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetAnticipatedRecommendationsUri}?page={Page}&limit={Limit}",
-                                                                responseContent, Page, 1, Limit, ItemsCount);
-
-            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetAnticipatedRecommendationsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\anticipatedshowrecommendations.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetAnticipatedRecommendationsUri}?extended={ExtendedInfo.ToURI()}",
-                                                                responseContent, 1, 1, 10, ItemsCount);
-
-            TraktPagedResponse<TraktAnticipatedShowRecommendation> response = await client.Shows.GetAnticipatedRecommendationsAsync(extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
@@ -194,31 +113,7 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetAnticipatedRecommendationsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetAnticipatedRecommendationsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAnticipatedRecommendationsUri, statusCode);
 

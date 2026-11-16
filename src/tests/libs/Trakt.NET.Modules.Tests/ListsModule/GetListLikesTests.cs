@@ -13,15 +13,19 @@ namespace TraktNET.ListsModule
         private const uint Limit = 4U;
         private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetListLikes()
+        [Theory]
+        [InlineData(null, null, null, GetListLikesUri)]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetListLikesUri}?extended=full")]
+        [InlineData(null, Page, null, $"{GetListLikesUri}?page=2")]
+        [InlineData(null, null, Limit, $"{GetListLikesUri}?limit=4")]
+        [InlineData(TraktExtendedInfo.Full, Page, Limit, $"{GetListLikesUri}?extended=full&page=2&limit=4")]
+        public async Task TestGetListLikesWithID(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetListLikesUri,
-                responseContent, 1, 1, 10, ListLikesCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -29,72 +33,20 @@ namespace TraktNET.ListsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListLikesCount);
             response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
-        public async Task TestGetListLikesWithTraktID()
+        public async Task TestGetListLikesWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"lists/{TraktListID}/likes",
-                responseContent, 1, 1, 10, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithListIDsTraktID()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"lists/{TraktListID}/likes",
-                responseContent, 1, 1, 10, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithListIDsSlug()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}/likes",
                 responseContent, 1, 1, 10, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -108,7 +60,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesWithListIDs()
+        public async Task TestGetListLikesWithIDs()
         {
             var listIDs = new TraktListIDs
             {
@@ -164,162 +116,15 @@ namespace TraktNET.ListsModule
             response.PageCount.ShouldBe(1U);
         }
 
-            [Fact]
-        public async Task TestGetListLikesWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
         [Fact]
-        public async Task TestGetListLikesWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page={Page}",
-                responseContent, Page, 1, 10, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?limit={Limit}",
-                responseContent, 1, 1, Limit, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}",
-                responseContent, 1, 1, Limit, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListLikesCount);
-
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListLikesCount);
-            response.ItemCount.ShouldBe(ListLikesCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListLikesPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetListLikesWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=2&limit={Limit}",
                 responseContent, 2, 5, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -335,14 +140,14 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesPagingOnlyHasPreviousPage()
+        public async Task TestGetListLikesWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=2&limit={Limit}",
                 responseContent, 2, 2, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -358,14 +163,14 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesPagingOnlyHasNextPage()
+        public async Task TestGetListLikesWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=1&limit={Limit}",
                 responseContent, 1, 2, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -381,14 +186,14 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetListLikesWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=1&limit={Limit}",
                 responseContent, 1, 1, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -404,14 +209,14 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesPagingGetPreviousPage()
+        public async Task TestGetListLikesWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=2&limit={Limit}",
                 responseContent, 2, 2, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -444,14 +249,14 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListLikesPagingGetNextPage()
+        public async Task TestGetListLikesWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListLikesUri}?page=1&limit={Limit}",
                 responseContent, 1, 2, Limit, ListLikesCount);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(TraktListID, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -485,40 +290,16 @@ namespace TraktNET.ListsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetListLikesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetListLikesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListLikesUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktListLike>>> act = () => client.Lists.GetListLikesAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktListLike>>> act = () => client.Lists.GetListLikesAsync(TraktListID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetListLikesThrowsArgumentExceptions()
+        public async Task TestGetListLikesWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListLikesUri, HttpStatusCode.OK);
 

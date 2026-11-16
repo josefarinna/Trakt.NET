@@ -13,17 +13,7 @@ namespace TraktNET.UsersModule
         private const uint ListItemID = 1U;
 
         [Fact]
-        public async Task TestUpdatePersonalListItem()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdatePersonalListItemUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Users.UpdatePersonalListItemAsync(Username, ListID, ListItemID, Notes, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestUpdatePersonalListItemWithTraktID()
+        public async Task TestUpdatePersonalListItemWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdatePersonalListItemUri, HttpStatusCode.NoContent);
             TraktResponse response = await client.Users.UpdatePersonalListItemAsync(Username, TraktListID, ListItemID, Notes, TestContext.Current.CancellationToken);
@@ -33,37 +23,17 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestUpdatePersonalListItemWithListIdsTraktID()
+        public async Task TestUpdatePersonalListItemWithSlug()
         {
-            var listIds = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdatePersonalListItemUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Users.UpdatePersonalListItemAsync(Username, listIds, ListItemID, Notes, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestUpdatePersonalListItemWithListIdsSlug()
-        {
-            var listIds = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}/items/{ListItemID}", HttpStatusCode.NoContent);
-            TraktResponse response = await client.Users.UpdatePersonalListItemAsync(Username, listIds, ListItemID, Notes, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Users.UpdatePersonalListItemAsync(Username, ListSlug, ListItemID, Notes, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
         }
 
         [Fact]
-        public async Task TestUpdatePersonalListItemWithListIds()
+        public async Task TestUpdatePersonalListItemWithIDs()
         {
             var listIds = new TraktListIDs
             {
@@ -99,40 +69,16 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestUpdatePersonalListItemThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestUpdatePersonalListItemWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdatePersonalListItemUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Users.UpdatePersonalListItemAsync(Username, ListID, ListItemID, Notes, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Users.UpdatePersonalListItemAsync(Username, TraktListID, ListItemID, Notes, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestUpdatePersonalListItemThrowsArgumentExceptions()
+        public async Task TestUpdatePersonalListItemWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdatePersonalListItemUri, HttpStatusCode.NoContent);
 

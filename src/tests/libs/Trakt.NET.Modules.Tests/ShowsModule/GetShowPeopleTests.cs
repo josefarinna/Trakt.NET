@@ -8,27 +8,16 @@ namespace TraktNET.ShowsModule
         private const string GetShowPeopleUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/people";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetShowPeopleWithID()
+        [Theory]
+        [InlineData(null, GetShowPeopleUri)]
+        [InlineData(ExtendedInfo, $"{GetShowPeopleUri}?extended=full")]
+        public async Task TestGetShowPeopleWithID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUri, responseContent);
 
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowPeopleWithIDAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUri}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, ExtendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -51,20 +40,6 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowPeopleWithSlugAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
         public async Task TestGetShowPeopleWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
@@ -78,46 +53,8 @@ namespace TraktNET.ShowsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetShowPeopleWithIDsAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowPeopleWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUri, statusCode);

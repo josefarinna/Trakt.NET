@@ -16,6 +16,8 @@ namespace TraktNET
         private const string RateLimitHeader = "X-Ratelimit";
         private const string RateLimitJson = """{"name":"UNAUTHED_API_GET_LIMIT","period":300,"limit":1000,"remaining":0,"until":"2026-01-01T12:00:00Z"}""";
         private const string InvalidJson = "not valid json";
+        private const uint SmartListID = 123456U;
+        private const string SmartListUri = "smart-lists/123456";
 
         private static readonly TraktMovieCheckin s_movieCheckin = new() { Movie = new TraktMovie { IDs = new TraktMovieIDs { Trakt = 28U } } };
 
@@ -104,6 +106,40 @@ namespace TraktNET
         }
 
         [Theory]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
+        public async Task TestThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        {
+            TraktClient client = ModuleTestUtility.GetClient(MovieGenresUri, statusCode);
+
+            Func<Task<TraktListResponse<TraktGenre>>> act = () => client.Genres.GetMovieGenresAsync(cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
+        }
+
+        [Theory]
         [InlineData("Not Found", "Resource not found - Reason Phrase: Not Found")]
         [InlineData("", "Resource not found")]
         public async Task TestNotFoundExceptionMessage(string reasonPhrase, string expectedMessage)
@@ -144,6 +180,90 @@ namespace TraktNET
             hasAuthorizationHeader.ShouldBe(expectAuthorizationHeader);
         }
 
+        [Fact]
+        public async Task TestResponseContainsParsedHeaders()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetFriendsUri, _ =>
+            {
+                HttpResponseMessage response = CreateResponse(HttpStatusCode.OK, "[]");
+                response.Headers.TryAddWithoutValidation("X-Sort-By", "rank");
+                response.Headers.TryAddWithoutValidation("X-Sort-How", "asc");
+                response.Headers.TryAddWithoutValidation("X-Applied-Sort-By", "added");
+                response.Headers.TryAddWithoutValidation("X-Applied-Sort-How", "desc");
+                response.Headers.TryAddWithoutValidation("X-Start-Date", "2026-01-01T00:00:00Z");
+                response.Headers.TryAddWithoutValidation("X-Private-User", "true");
+                return response;
+            });
+
+            TraktListResponse<TraktUserFriend> response = await client.Users.GetFriendsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.SortBy.ShouldBe(TraktSortBy.Rank);
+            response.SortHow.ShouldBe(TraktSortHow.Ascending);
+            response.AppliedSortBy.ShouldBe(TraktSortBy.Added);
+            response.AppliedSortHow.ShouldBe(TraktSortHow.Descending);
+            response.StartDate.ShouldBe(TestUtility.ParseUTCDateTime("2026-01-01T00:00:00Z"));
+            response.IsPrivateUser.ShouldBe(true);
+        }
+
+        [Fact]
+        public async Task TestResponseIgnoresInvalidHeaderValues()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetFriendsUri, _ =>
+            {
+                HttpResponseMessage response = CreateResponse(HttpStatusCode.OK, "[]");
+                response.Headers.TryAddWithoutValidation("X-Start-Date", InvalidJson);
+                response.Headers.TryAddWithoutValidation("X-Private-User", InvalidJson);
+                response.Headers.TryAddWithoutValidation("X-Pagination-Page", InvalidJson);
+                return response;
+            });
+
+            TraktListResponse<TraktUserFriend> response = await client.Users.GetFriendsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.StartDate.ShouldBeNull();
+            response.IsPrivateUser.ShouldBeNull();
+            response.Page.ShouldBeNull();
+        }
+
+        [Theory]
+        [InlineData(true, false)]
+        [InlineData(false, true)]
+        public async Task TestOptionalButMightBeRequiredOAuthAuthorizationHeader(bool ignoreOAuthIfOptional, bool expectAuthorizationHeader)
+        {
+            bool hasAuthorizationHeader = false;
+
+            TraktClient client = ModuleTestUtility.GetClient(SmartListUri, request =>
+            {
+                hasAuthorizationHeader = request.Headers.Authorization != null;
+                return CreateResponse(HttpStatusCode.OK, "{}");
+            });
+
+            client.Authorization = TestConstants.MockAuthorization;
+            client.IgnoreOAuthIfOptional = ignoreOAuthIfOptional;
+
+            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(SmartListID, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.IsSuccess.ShouldBeTrue();
+            hasAuthorizationHeader.ShouldBe(expectAuthorizationHeader);
+        }
+        [Fact]
+        public async Task TestRequiredOAuthAuthorizationHeaderWithIgnoreOAuthIfOptional()
+        {
+            bool hasAuthorizationHeader = false;
+
+            TraktClient client = ModuleTestUtility.GetClient("sync/last_activities", request =>
+            {
+                hasAuthorizationHeader = request.Headers.Authorization != null;
+                return CreateResponse(HttpStatusCode.OK, "{}");
+            });
+
+            client.Authorization = TestConstants.MockAuthorization;
+            client.IgnoreOAuthIfOptional = true;
+
+            TraktResponse<TraktSyncLastActivities> response = await client.Sync.GetLastActivitiesAsync(TestContext.Current.CancellationToken);
+
+            response.IsSuccess.ShouldBeTrue();
+            hasAuthorizationHeader.ShouldBeTrue();
+        }
         private static HttpResponseMessage CreateResponse(HttpStatusCode statusCode, string content)
             => new()
             {

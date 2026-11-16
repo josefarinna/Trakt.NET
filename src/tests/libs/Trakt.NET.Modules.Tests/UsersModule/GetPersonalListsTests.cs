@@ -13,14 +13,21 @@ namespace TraktNET.UsersModule
         private const TraktSortHow SortHow = TraktSortHow.Ascending;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetPersonalLists()
+        [Theory]
+        [InlineData(null, null, null, null, null, GetPersonalListsUri)]
+        [InlineData(SortBy, null, null, null, null, $"{GetPersonalListsUri}?sort_by=rank")]
+        [InlineData(null, SortHow, null, null, null, $"{GetPersonalListsUri}?sort_how=asc")]
+        [InlineData(null, null, ExtendedInfo, null, null, $"{GetPersonalListsUri}?extended=full")]
+        [InlineData(null, null, null, Page, null, $"{GetPersonalListsUri}?page=4")]
+        [InlineData(null, null, null, null, Limit, $"{GetPersonalListsUri}?limit=20")]
+        [InlineData(SortBy, SortHow, ExtendedInfo, Page, Limit, $"{GetPersonalListsUri}?sort_by=rank&sort_how=asc&extended=full&page=4&limit=20")]
+        public async Task TestGetPersonalLists(TraktSortBy? sortBy, TraktSortHow? sortHow, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, sortBy, sortHow, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,171 +35,8 @@ namespace TraktNET.UsersModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListItemCount);
             response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithSortBy()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, sortBy: SortBy, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithSortHow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_how={SortHow.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, sortHow: SortHow, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithSortByAndSortHow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}&sort_how={SortHow.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPersonalListsWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}&sort_how={SortHow.ToURI()}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username,
-                SortBy, SortHow, ExtendedInfo, Page, Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -331,31 +175,7 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetPersonalListsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetPersonalListsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, statusCode);
 

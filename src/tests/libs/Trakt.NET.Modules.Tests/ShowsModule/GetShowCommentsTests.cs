@@ -12,13 +12,39 @@ namespace TraktNET.ShowsModule
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private const TraktCommentSortOrder SortOrder = TraktCommentSortOrder.Newest;
 
-        [Fact]
-        public async Task TestGetShowComments()
+        [Theory]
+        [InlineData(null, null, null, null, GetShowCommentsUri)]
+        [InlineData(SortOrder, null, null, null, $"{GetShowCommentsUri}/newest")]
+        [InlineData(null, ExtendedInfo, null, null, $"{GetShowCommentsUri}?extended=full")]
+        [InlineData(null, null, Page, null, $"{GetShowCommentsUri}?page=2")]
+        [InlineData(null, null, null, Limit, $"{GetShowCommentsUri}?limit=4")]
+        [InlineData(SortOrder, ExtendedInfo, Page, Limit, $"{GetShowCommentsUri}/newest?extended=full&page=2&limit=4")]
+        public async Task TestGetShowCommentsWithID(TraktCommentSortOrder? commentSortOrder, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetShowCommentsWithSlug()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
+            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
+
             TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -33,77 +59,7 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsWithID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUri, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithShowIDsTraktID()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUri, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithShowIDsSlug()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithShowIDs()
+        public async Task TestGetShowCommentsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
@@ -123,275 +79,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsWithSortOrder()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
         public async Task TaskTestGetShowCommentsWithExtendedInfoAndLimit()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderAndExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsWithSortOrderAndExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -405,34 +99,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsComplete()
+        public async Task TestGetShowCommentsWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowCommentsPagingHasPreviousPageAndHasNextPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -448,13 +121,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsPagingOnlyHasPreviousPage()
+        public async Task TestGetShowCommentsWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -470,13 +143,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsPagingOnlyHasNextPage()
+        public async Task TestGetShowCommentsWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -492,13 +165,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetShowCommentsWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -514,13 +187,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsPagingGetPreviousPage()
+        public async Task TestGetShowCommentsWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -534,7 +207,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
 
-            ModuleTestUtility.SetClient(client, $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
@@ -552,13 +225,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowCommentsPagingGetNextPage()
+        public async Task TestGetShowCommentsWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -572,7 +245,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetShowCommentsUri}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -590,14 +263,14 @@ namespace TraktNET.ShowsModule
         }
 
         [Theory]
-        [InlineData("es", $"{GetShowCommentsUriWithSlug}?language=es", "Shows\\showcomments.json")]
-        [InlineData("en", $"{GetShowCommentsUriWithSlug}?language=en", "Shows\\showcomments.json")]
+        [InlineData("es", $"{GetShowCommentsUri}?language=es", "Shows\\showcomments.json")]
+        [InlineData("en", $"{GetShowCommentsUri}?language=en", "Shows\\showcomments.json")]
         public async Task TestGetShowCommentsWithLanguage(string language, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, language: language, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, language: language, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -608,35 +281,11 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowCommentsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetShowCommentsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
