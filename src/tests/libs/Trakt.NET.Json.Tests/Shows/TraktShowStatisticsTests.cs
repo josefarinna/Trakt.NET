@@ -25,15 +25,15 @@
 
             showStatistics.ShouldNotBeNull();
 
-            showStatistics!.Watchers.ShouldBe(343626U);
-            showStatistics!.Plays.ShouldBe(26909587U);
-            showStatistics!.Collectors.ShouldBe(1778445U);
-            showStatistics!.CollectedEpisodes.ShouldBe(1853440U);
-            showStatistics!.Comments.ShouldBe(449U);
-            showStatistics!.Lists.ShouldBe(368247U);
-            showStatistics!.Votes.ShouldBe(145026U);
-            showStatistics!.Favorited.ShouldBe(13892U);
-            showStatistics!.Recommended.ShouldBe(13892U);
+            showStatistics.Watchers.ShouldBe(343626U);
+            showStatistics.Plays.ShouldBe(26909587U);
+            showStatistics.Collectors.ShouldBe(1778445U);
+            showStatistics.CollectedEpisodes.ShouldBe(1853440U);
+            showStatistics.Comments.ShouldBe(449U);
+            showStatistics.Lists.ShouldBe(368247U);
+            showStatistics.Votes.ShouldBe(145026U);
+            showStatistics.Favorited.ShouldBe(13892U);
+            showStatistics.Recommended.ShouldBe(13892U);
         }
     }
 }

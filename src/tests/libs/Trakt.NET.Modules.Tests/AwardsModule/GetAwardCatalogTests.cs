@@ -15,15 +15,15 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktAwardCatalogCeremony> response = await client.Awards.GetAwardCatalogAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktAwardCatalogCeremony> ceremonies = response.Content!;
+            IReadOnlyList<TraktAwardCatalogCeremony> ceremonies = response.Content;
 
             TraktAwardCatalogCeremony ceremony = ceremonies[0];
             ceremony.Slug.ShouldBe("golden-globes");
@@ -71,8 +71,8 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktAwardCatalogCeremony> response = await client.Awards.GetCatalogAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }

@@ -23,7 +23,7 @@ namespace TraktNET.SeasonsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            TraktSeason responseValue = response.Content!;
+            TraktSeason responseValue = response.Content;
             responseValue.Number.ShouldBe(SeasonNr);
             responseValue.IDs.ShouldNotBeNull();
             responseValue.IDs.Trakt.ShouldBe(3963U);

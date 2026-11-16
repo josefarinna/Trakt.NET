@@ -13,7 +13,7 @@
             showIDs.IMDB.ShouldBeNull();
             showIDs.TMDB.ShouldBeNull();
 
-            showIDs.HasAnyID.ShouldBe(false);
+            showIDs.HasAnyID.ShouldBeFalse();
             showIDs.BestID.ShouldBeEmpty();
         }
 
@@ -157,7 +157,7 @@
             showIDs.IMDB.ShouldBe("tt0944947");
             showIDs.TMDB.ShouldBe(1399U);
 
-            showIDs.HasAnyID.ShouldBe(true);
+            showIDs.HasAnyID.ShouldBeTrue();
             showIDs.BestID.ShouldBe("game-of-thrones");
         }
     }

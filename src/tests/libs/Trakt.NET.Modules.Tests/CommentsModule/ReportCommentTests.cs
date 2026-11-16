@@ -15,7 +15,7 @@ namespace TraktNET.CommentsModule
             TraktResponse response = await client.Comments.ReportCommentAsync(CommentID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

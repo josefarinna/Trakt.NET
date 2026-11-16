@@ -18,8 +18,8 @@
 
             showAlias.ShouldNotBeNull();
 
-            showAlias!.Title.ShouldBe("Juego de Tronos");
-            showAlias!.Country.ShouldBe("es");
+            showAlias.Title.ShouldBe("Juego de Tronos");
+            showAlias.Country.ShouldBe("es");
         }
 
         [Fact]
@@ -28,9 +28,9 @@
             IReadOnlyList<TraktShowAlias>? showAliases = await TestUtility.DeserializeJsonListAsync<TraktShowAlias>("Shows\\showaliases.json");
 
             showAliases.ShouldNotBeNull();
-            showAliases!.Count.ShouldBe(3);
+            showAliases.Count.ShouldBe(3);
 
-            TraktShowAlias showAlias = showAliases![0];
+            TraktShowAlias showAlias = showAliases[0];
 
             showAlias.ShouldNotBeNull();
             showAlias.Title.ShouldBe("Juego de Tronos");
@@ -38,7 +38,7 @@
 
             // --------------------------------------------------------------------------------------------
 
-            showAlias = showAliases![1];
+            showAlias = showAliases[1];
 
             showAlias.ShouldNotBeNull();
             showAlias.Title.ShouldBe("Game of Thrones - Das Lied von Eis und Feuer");
@@ -46,7 +46,7 @@
 
             // --------------------------------------------------------------------------------------------
 
-            showAlias = showAliases![2];
+            showAlias = showAliases[2];
 
             showAlias.ShouldNotBeNull();
             showAlias.Title.ShouldBe("Le Trône de fer");

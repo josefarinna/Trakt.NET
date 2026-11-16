@@ -21,15 +21,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.TraktMovieID, country, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 
@@ -52,15 +52,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieSlug, country, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 
@@ -83,15 +83,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieIDs, country, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 

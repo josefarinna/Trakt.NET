@@ -19,14 +19,14 @@
 
             studio.ShouldNotBeNull();
 
-            studio!.Name.ShouldBe("Marvel Studios");
-            studio!.Country.ShouldBe("us");
+            studio.Name.ShouldBe("Marvel Studios");
+            studio.Country.ShouldBe("us");
 
             studio!.IDs!.Trakt.ShouldBe(181U);
-            studio!.IDs!.Slug.ShouldBe("marvel-studios");
-            studio!.IDs!.TMDB.ShouldBe(420U);
-            studio!.IDs!.HasAnyID.ShouldBe(true);
-            studio!.IDs!.BestID.ShouldBe("marvel-studios");
+            studio.IDs.Slug.ShouldBe("marvel-studios");
+            studio.IDs.TMDB.ShouldBe(420U);
+            studio.IDs.HasAnyID.ShouldBeTrue();
+            studio.IDs.BestID.ShouldBe("marvel-studios");
         }
     }
 }

@@ -37,7 +37,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithCodeAndClientId()
+        public async Task TestGetAuthorizationWithCodeAndClientID()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
@@ -48,7 +48,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithCodeClientIdAndClientSecret()
+        public async Task TestGetAuthorizationWithCodeClientIDAndClientSecret()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
@@ -63,7 +63,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithCodeClientIdAndClientSecretWithoutContextClientSecret()
+        public async Task TestGetAuthorizationWithCodeClientIDAndClientSecretWithoutContextClientSecret()
         {
             // The explicitly given client secret must be used, not the (missing) one of the context.
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
@@ -84,7 +84,7 @@ namespace TraktNET.AuthModule
         [InlineData("")]
         [InlineData("   ")]
         [InlineData("client secret with spaces")]
-        public async Task TestGetAuthorizationWithCodeClientIdAndClientSecretThrowsOnInvalidClientSecret(string? clientSecret)
+        public async Task TestGetAuthorizationWithCodeClientIDAndClientSecretThrowsOnInvalidClientSecret(string? clientSecret)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, "{}", null, null, null, null, true);
 

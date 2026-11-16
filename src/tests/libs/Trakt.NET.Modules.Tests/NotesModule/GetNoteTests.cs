@@ -21,7 +21,7 @@ namespace TraktNET.NotesModule
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktNote note = response.Content!;
+            TraktNote note = response.Content;
             note.ID.ShouldBe(NoteID);
             note.Notes.ShouldBe("Watch this in IMAX!");
             note.Privacy.ShouldBe(TraktListPrivacy.Private);

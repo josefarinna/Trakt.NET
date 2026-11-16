@@ -17,7 +17,7 @@ namespace TraktNET.PeopleModule
             TraktResponse response = await client.People.ReportPersonAsync(PersonID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -30,7 +30,7 @@ namespace TraktNET.PeopleModule
             TraktResponse response = await client.People.ReportPersonAsync(PersonSlug, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -49,7 +49,7 @@ namespace TraktNET.PeopleModule
             TraktResponse response = await client.People.ReportPersonAsync(personIDs, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

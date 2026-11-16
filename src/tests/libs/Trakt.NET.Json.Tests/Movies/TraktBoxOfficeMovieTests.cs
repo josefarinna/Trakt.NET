@@ -48,7 +48,7 @@
             boxOfficeMovie.IDs.Slug.ShouldBe("beetlejuice-beetlejuice-2024");
             boxOfficeMovie.IDs.IMDB.ShouldBe("tt2049403");
             boxOfficeMovie.IDs.TMDB.ShouldBe(917496U);
-            boxOfficeMovie.IDs.HasAnyID.ShouldBe(true);
+            boxOfficeMovie.IDs.HasAnyID.ShouldBeTrue();
             boxOfficeMovie.IDs.BestID.ShouldBe("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie.ToString().ShouldBe("Beetlejuice Beetlejuice (2024)");
@@ -70,7 +70,7 @@
             boxOfficeMovie.IDs.Slug.ShouldBe("beetlejuice-beetlejuice-2024");
             boxOfficeMovie.IDs.IMDB.ShouldBe("tt2049403");
             boxOfficeMovie.IDs.TMDB.ShouldBe(917496U);
-            boxOfficeMovie.IDs.HasAnyID.ShouldBe(true);
+            boxOfficeMovie.IDs.HasAnyID.ShouldBeTrue();
             boxOfficeMovie.IDs.BestID.ShouldBe("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie.ToString().ShouldBe("Beetlejuice Beetlejuice (2024)");

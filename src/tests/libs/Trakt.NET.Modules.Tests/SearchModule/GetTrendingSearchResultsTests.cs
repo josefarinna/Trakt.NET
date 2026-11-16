@@ -38,7 +38,7 @@ namespace TraktNET.SearchModule
             firstResult.Count.ShouldBe(120U);
             firstResult.Type.ShouldBe(TraktSearchResultType.Movie);
             firstResult.Movie.ShouldNotBeNull();
-            firstResult.Movie!.Title.ShouldBe("Batman Begins");
+            firstResult.Movie.Title.ShouldBe("Batman Begins");
             response.ItemCount.ShouldBe(SearchResultItemCount);
             response.Limit.ShouldBe(limit ?? 10U);
             response.Page.ShouldBe(page ?? 1U);

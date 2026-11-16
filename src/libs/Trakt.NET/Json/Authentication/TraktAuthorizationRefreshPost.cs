@@ -11,7 +11,7 @@ namespace TraktNET
 
         /// <summary>Gets or sets the client ID.</summary>
         [JsonPropertyName("client_id")]
-        public string? ClientId { get; set; }
+        public string? ClientID { get; set; }
 
         /// <summary>Gets or sets the client secret.</summary>
         [JsonPropertyName("client_secret")]
@@ -30,7 +30,7 @@ namespace TraktNET
         public void Validate()
         {
             ArgumentValidator.ThrowIfNullOrWhiteSpace(RefreshToken, "refresh token not valid", true);
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
+            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientID, "client id not valid", true);
 
             ArgumentValidator.ThrowIfProvidedAndInvalid(ClientSecret, "client secret not valid");
 

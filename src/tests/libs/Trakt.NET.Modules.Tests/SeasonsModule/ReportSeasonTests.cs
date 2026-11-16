@@ -14,7 +14,7 @@ namespace TraktNET.SeasonsModule
             TraktResponse response = await client.Seasons.ReportSeasonAsync(TestConstants.Seasons.TraktSeasonID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -27,7 +27,7 @@ namespace TraktNET.SeasonsModule
             TraktResponse response = await client.Seasons.ReportSeasonAsync(TestConstants.Seasons.SeasonID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -40,7 +40,7 @@ namespace TraktNET.SeasonsModule
             TraktResponse response = await client.Seasons.ReportSeasonAsync(TestConstants.Seasons.SeasonIDs, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

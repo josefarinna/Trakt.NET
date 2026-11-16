@@ -48,22 +48,22 @@ namespace TraktNET.Json.Shows
             TraktMostPlayedShow? mostPlayedShow = await TestUtility.DeserializeJsonAsync<TraktMostPlayedShow>("Shows\\mostpwcshow_minimal.json");
 
             mostPlayedShow.ShouldNotBeNull();
-            mostPlayedShow!.WatcherCount.ShouldBe(3910U);
-            mostPlayedShow!.PlayCount.ShouldBe(69164U);
-            mostPlayedShow!.CollectedCount.ShouldBe(1000U);
+            mostPlayedShow.WatcherCount.ShouldBe(3910U);
+            mostPlayedShow.PlayCount.ShouldBe(69164U);
+            mostPlayedShow.CollectedCount.ShouldBe(1000U);
 
-            mostPlayedShow!.Title.ShouldBe("Game of Thrones");
-            mostPlayedShow!.Year.ShouldBe(2011U);
+            mostPlayedShow.Title.ShouldBe("Game of Thrones");
+            mostPlayedShow.Year.ShouldBe(2011U);
 
             mostPlayedShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostPlayedShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostPlayedShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostPlayedShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostPlayedShow!.IDs!.TVDB.ShouldBe(121361U);
-            mostPlayedShow!.IDs!.HasAnyID.ShouldBe(true);
-            mostPlayedShow!.IDs!.BestID.ShouldBe("game-of-thrones");
+            mostPlayedShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostPlayedShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostPlayedShow.IDs.TMDB.ShouldBe(1399U);
+            mostPlayedShow.IDs.TVDB.ShouldBe(121361U);
+            mostPlayedShow.IDs.HasAnyID.ShouldBeTrue();
+            mostPlayedShow.IDs.BestID.ShouldBe("game-of-thrones");
 
-            mostPlayedShow!.ToString().ShouldBe("Game of Thrones (2011)");
+            mostPlayedShow.ToString().ShouldBe("Game of Thrones (2011)");
         }
 
         [Fact]
@@ -79,7 +79,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostPlayedShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostPlayedShow>("Shows\\mostpwcshows_minimal.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             var show0 = shows[0];
             show0.WatcherCount.ShouldBe(3910U);
@@ -99,7 +99,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostPlayedShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostPlayedShow>("Shows\\mostpwcshows.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             ValidateMostPlayedShow(shows[0]);
 
@@ -115,60 +115,60 @@ namespace TraktNET.Json.Shows
         private static void ValidateMostPlayedShow(TraktMostPlayedShow? mostPlayedShow)
         {
             mostPlayedShow.ShouldNotBeNull();
-            mostPlayedShow!.WatcherCount.ShouldBe(3910U);
-            mostPlayedShow!.PlayCount.ShouldBe(69164U);
+            mostPlayedShow.WatcherCount.ShouldBe(3910U);
+            mostPlayedShow.PlayCount.ShouldBe(69164U);
 
-            mostPlayedShow!.Title.ShouldBe("Game of Thrones");
-            mostPlayedShow!.Year.ShouldBe(2011U);
+            mostPlayedShow.Title.ShouldBe("Game of Thrones");
+            mostPlayedShow.Year.ShouldBe(2011U);
 
-            mostPlayedShow!.IDs.ShouldNotBeNull();
-            mostPlayedShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostPlayedShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostPlayedShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostPlayedShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostPlayedShow!.IDs!.TVDB.ShouldBe(121361U);
+            mostPlayedShow.IDs.ShouldNotBeNull();
+            mostPlayedShow.IDs.Trakt.ShouldBe(1390U);
+            mostPlayedShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostPlayedShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostPlayedShow.IDs.TMDB.ShouldBe(1399U);
+            mostPlayedShow.IDs.TVDB.ShouldBe(121361U);
 
-            mostPlayedShow!.Tagline.ShouldBe("Winter is coming.");
-            mostPlayedShow!.Overview.ShouldStartWith("Seven noble families fight");
-            mostPlayedShow!.Runtime.ShouldBe(55U);
-            mostPlayedShow!.Certification.ShouldBe("TV-MA");
-            mostPlayedShow!.Country.ShouldBe("us");
-            mostPlayedShow!.Trailer.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
-            mostPlayedShow!.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
-            mostPlayedShow!.Status.ShouldBe(TraktShowStatus.Ended);
-            mostPlayedShow!.Rating.ShouldBe(8.89122f);
-            mostPlayedShow!.Votes.ShouldBe(145017U);
-            mostPlayedShow!.CommentCount.ShouldBe(449U);
-            mostPlayedShow!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
-            mostPlayedShow!.Language.ShouldBe("en");
+            mostPlayedShow.Tagline.ShouldBe("Winter is coming.");
+            mostPlayedShow.Overview.ShouldStartWith("Seven noble families fight");
+            mostPlayedShow.Runtime.ShouldBe(55U);
+            mostPlayedShow.Certification.ShouldBe("TV-MA");
+            mostPlayedShow.Country.ShouldBe("us");
+            mostPlayedShow.Trailer.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
+            mostPlayedShow.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
+            mostPlayedShow.Status.ShouldBe(TraktShowStatus.Ended);
+            mostPlayedShow.Rating.ShouldBe(8.89122f);
+            mostPlayedShow.Votes.ShouldBe(145017U);
+            mostPlayedShow.CommentCount.ShouldBe(449U);
+            mostPlayedShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
+            mostPlayedShow.Language.ShouldBe("en");
 
-            mostPlayedShow!.Languages.ShouldNotBeNull();
-            mostPlayedShow!.Languages!.Count.ShouldBe(1);
-            mostPlayedShow!.Languages.ShouldBe(["en"], Case.Sensitive);
+            mostPlayedShow.Languages.ShouldNotBeNull();
+            mostPlayedShow.Languages.Count.ShouldBe(1);
+            mostPlayedShow.Languages.ShouldBe(["en"], Case.Sensitive);
 
-            mostPlayedShow!.AvailableTranslations.ShouldNotBeNull();
-            mostPlayedShow!.AvailableTranslations!.Count.ShouldBe(48);
-            mostPlayedShow!.AvailableTranslations!.ShouldContain("es");
-            mostPlayedShow!.AvailableTranslations!.ShouldContain("en");
+            mostPlayedShow.AvailableTranslations.ShouldNotBeNull();
+            mostPlayedShow.AvailableTranslations.Count.ShouldBe(48);
+            mostPlayedShow.AvailableTranslations.ShouldContain("es");
+            mostPlayedShow.AvailableTranslations.ShouldContain("en");
 
-            mostPlayedShow!.Genres.ShouldNotBeNull();
-            mostPlayedShow!.Genres!.Count.ShouldBe(4);
-            mostPlayedShow!.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
+            mostPlayedShow.Genres.ShouldNotBeNull();
+            mostPlayedShow.Genres.Count.ShouldBe(4);
+            mostPlayedShow.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
 
-            mostPlayedShow!.OriginalTitle.ShouldBe("Game of Thrones");
+            mostPlayedShow.OriginalTitle.ShouldBe("Game of Thrones");
 
-            mostPlayedShow!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            mostPlayedShow.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
 
-            mostPlayedShow!.Airs.ShouldNotBeNull();
-            mostPlayedShow!.Airs!.Day.ShouldBe(TraktDayOfWeek.Sunday);
+            mostPlayedShow.Airs.ShouldNotBeNull();
+            mostPlayedShow.Airs.Day.ShouldBe(TraktDayOfWeek.Sunday);
 #if NET7_0_OR_GREATER
-            mostPlayedShow!.Airs!.Time.ShouldBe(TestUtility.ParseTime("21:00"));
+            mostPlayedShow.Airs.Time.ShouldBe(TestUtility.ParseTime("21:00"));
 #else
-            mostPlayedShow!.Airs!.Time.ShouldBe("21:00");
+            mostPlayedShow.Airs.Time.ShouldBe("21:00");
 #endif
-            mostPlayedShow!.Airs!.Timezone.ShouldBe("America/New_York");
+            mostPlayedShow.Airs.Timezone.ShouldBe("America/New_York");
 
-            mostPlayedShow!.Network.ShouldBe("HBO");
+            mostPlayedShow.Network.ShouldBe("HBO");
         }
     }
 }

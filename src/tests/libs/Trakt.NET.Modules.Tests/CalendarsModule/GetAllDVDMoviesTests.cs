@@ -20,14 +20,14 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarMovie> response = await client.Calendar.GetAllDVDMoviesAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            List<TraktCalendarMovie> calendarMovies = [.. response.Content!];
+            List<TraktCalendarMovie> calendarMovies = [.. response.Content];
             calendarMovies.ShouldNotBeEmpty();
 
             TraktCalendarMovie calendarMovie = calendarMovies[0];
@@ -35,11 +35,11 @@ namespace TraktNET.CalendarsModule
             calendarMovie.Movie.ShouldNotBeNull();
 
             calendarMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
-            calendarMovie.Movie!.Title.ShouldBe("The Avengers");
-            calendarMovie.Movie!.Year.ShouldBe(2012U);
-            calendarMovie.Movie!.IDs.ShouldNotBeNull();
-            calendarMovie.Movie!.IDs!.Trakt.ShouldBe(14701U);
-            calendarMovie.Movie!.IDs!.Slug.ShouldBe("the-avengers-2012");
+            calendarMovie.Movie.Title.ShouldBe("The Avengers");
+            calendarMovie.Movie.Year.ShouldBe(2012U);
+            calendarMovie.Movie.IDs.ShouldNotBeNull();
+            calendarMovie.Movie.IDs.Trakt.ShouldBe(14701U);
+            calendarMovie.Movie.IDs.Slug.ShouldBe("the-avengers-2012");
         }
 
         [Fact]
@@ -60,11 +60,11 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarMovie> response = await client.Calendar.GetAllDVDMoviesAsync(date, 7U, filter, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            List<TraktCalendarMovie> items = [.. response.Content!];
+            List<TraktCalendarMovie> items = [.. response.Content];
             items.ShouldNotBeEmpty();
         }
 

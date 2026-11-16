@@ -101,10 +101,10 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.Runtimes[0].ShouldBe(90U);
             smartList.Filters.Runtimes[1].ShouldBe(150U);
 
-            smartList.Filters.ImdbRatings.ShouldNotBeNull();
-            smartList.Filters.ImdbRatings.Length.ShouldBe(2);
-            smartList.Filters.ImdbRatings[0].ShouldBe(7.5f);
-            smartList.Filters.ImdbRatings[1].ShouldBe(9.8f);
+            smartList.Filters.IMDBRatings.ShouldNotBeNull();
+            smartList.Filters.IMDBRatings.Length.ShouldBe(2);
+            smartList.Filters.IMDBRatings[0].ShouldBe(7.5f);
+            smartList.Filters.IMDBRatings[1].ShouldBe(9.8f);
 
             smartList.Filters.RtMeters.ShouldNotBeNull();
             smartList.Filters.RtMeters.Length.ShouldBe(2);
@@ -174,10 +174,10 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.PeopleRole.ShouldBe(TraktPeopleRole.Directing);
             smartList.Filters.ReleasedWithinDays.ShouldBe(30U);
 
-            smartList.Filters.TmdbRatings.ShouldNotBeNull();
-            smartList.Filters.TmdbRatings.Length.ShouldBe(2);
-            smartList.Filters.TmdbRatings[0].ShouldBe(7.0f);
-            smartList.Filters.TmdbRatings[1].ShouldBe(9.0f);
+            smartList.Filters.TMDBRatings.ShouldNotBeNull();
+            smartList.Filters.TMDBRatings.Length.ShouldBe(2);
+            smartList.Filters.TMDBRatings[0].ShouldBe(7.0f);
+            smartList.Filters.TMDBRatings[1].ShouldBe(9.0f);
 
             smartList.Filters.Metascores.ShouldNotBeNull();
             smartList.Filters.Metascores.Length.ShouldBe(2);
@@ -189,10 +189,10 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.Votes[0].ShouldBe(10000U);
             smartList.Filters.Votes[1].ShouldBe(50000U);
 
-            smartList.Filters.ImdbVotes.ShouldNotBeNull();
-            smartList.Filters.ImdbVotes.Length.ShouldBe(2);
-            smartList.Filters.ImdbVotes[0].ShouldBe(20000U);
-            smartList.Filters.ImdbVotes[1].ShouldBe(100000U);
+            smartList.Filters.IMDBVotes.ShouldNotBeNull();
+            smartList.Filters.IMDBVotes.Length.ShouldBe(2);
+            smartList.Filters.IMDBVotes[0].ShouldBe(20000U);
+            smartList.Filters.IMDBVotes[1].ShouldBe(100000U);
         }
 
         [Fact]

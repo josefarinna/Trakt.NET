@@ -21,17 +21,17 @@
 
             movieRelease.ShouldNotBeNull();
 
-            movieRelease!.Country.ShouldBe("fr");
-            movieRelease!.Certification.ShouldBe("12");
+            movieRelease.Country.ShouldBe("fr");
+            movieRelease.Certification.ShouldBe("12");
 
 #if NET7_0_OR_GREATER
-            movieRelease!.ReleaseDate.ShouldBe(TestUtility.ParseDate("2023-04-22"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseDate("2023-04-22"));
 #else
-            movieRelease!.ReleaseDate.ShouldBe(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
 #endif
 
-            movieRelease!.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
-            movieRelease!.Note.ShouldBe("Disneyland Paris");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
+            movieRelease.Note.ShouldBe("Disneyland Paris");
         }
 
         [Fact]
@@ -40,9 +40,9 @@
             IReadOnlyList<TraktMovieRelease>? movieReleases = await TestUtility.DeserializeJsonListAsync<TraktMovieRelease>("Movies\\moviereleases.json");
 
             movieReleases.ShouldNotBeNull();
-            movieReleases!.Count.ShouldBe(2);
+            movieReleases.Count.ShouldBe(2);
 
-            TraktMovieRelease movieRelease = movieReleases![0];
+            TraktMovieRelease movieRelease = movieReleases[0];
 
             movieRelease.ShouldNotBeNull();
 
@@ -60,7 +60,7 @@
 
             // --------------------------------------------------------------------------------------------
 
-            movieRelease = movieReleases![1];
+            movieRelease = movieReleases[1];
 
             movieRelease.ShouldNotBeNull();
 

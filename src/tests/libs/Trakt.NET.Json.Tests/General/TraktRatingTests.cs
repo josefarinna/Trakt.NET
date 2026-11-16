@@ -43,12 +43,12 @@ namespace TraktNET.Json.General
 
             rating.ShouldNotBeNull();
 
-            rating!.Rating.ShouldBe(7.96017f);
-            rating!.Votes.ShouldBe(18906U);
-            rating!.Distribution.ShouldNotBeNull();
-            rating!.Distribution!.Count.ShouldBe(10);
+            rating.Rating.ShouldBe(7.96017f);
+            rating.Votes.ShouldBe(18906U);
+            rating.Distribution.ShouldNotBeNull();
+            rating.Distribution.Count.ShouldBe(10);
 
-            rating!.Distribution!.ShouldBe(new Dictionary<string, uint>
+            rating.Distribution.ShouldBe(new Dictionary<string, uint>
             {
                 { "1", 91 },
                 { "2", 55 },
@@ -62,15 +62,15 @@ namespace TraktNET.Json.General
                 { "10", 2734 }
             });
 
-            rating!.Trakt.ShouldBeNull();
-            rating!.TMDB.ShouldBeNull();
-            rating!.IMDB.ShouldBeNull();
-            rating!.Metascore.ShouldBeNull();
-            rating!.RottenTomatoes.ShouldBeNull();
-            rating!.Letterboxd.ShouldBeNull();
-            rating!.MAL.ShouldBeNull();
+            rating.Trakt.ShouldBeNull();
+            rating.TMDB.ShouldBeNull();
+            rating.IMDB.ShouldBeNull();
+            rating.Metascore.ShouldBeNull();
+            rating.RottenTomatoes.ShouldBeNull();
+            rating.Letterboxd.ShouldBeNull();
+            rating.MAL.ShouldBeNull();
 
-            rating!.ToString().ShouldBe("7.96017, 18906");
+            rating.ToString().ShouldBe("7.96017, 18906");
         }
 
         [Fact]
@@ -80,16 +80,16 @@ namespace TraktNET.Json.General
 
             rating.ShouldNotBeNull();
 
-            rating!.Rating.ShouldBeNull();
-            rating!.Votes.ShouldBeNull();
-            rating!.Distribution.ShouldBeNull();
+            rating.Rating.ShouldBeNull();
+            rating.Votes.ShouldBeNull();
+            rating.Distribution.ShouldBeNull();
 
-            rating!.Trakt.ShouldNotBeNull();
-            rating!.Trakt!.Rating.ShouldBe(8.29481f);
-            rating!.Trakt!.Votes.ShouldBe(24789U);
-            rating!.Trakt!.Distribution.ShouldNotBeNull();
-            rating!.Trakt!.Distribution!.Count.ShouldBe(10);
-            rating!.Trakt!.Distribution!.ShouldBe(new Dictionary<string, uint>
+            rating.Trakt.ShouldNotBeNull();
+            rating.Trakt.Rating.ShouldBe(8.29481f);
+            rating.Trakt.Votes.ShouldBe(24789U);
+            rating.Trakt.Distribution.ShouldNotBeNull();
+            rating.Trakt.Distribution.Count.ShouldBe(10);
+            rating.Trakt.Distribution.ShouldBe(new Dictionary<string, uint>
             {
                 { "1", 143 },
                 { "2", 239 },
@@ -103,38 +103,38 @@ namespace TraktNET.Json.General
                 { "10", 8567 }
             });
 
-            rating!.TMDB.ShouldNotBeNull();
-            rating!.TMDB!.Rating.ShouldBe(8.251f);
-            rating!.TMDB!.Votes.ShouldBe(3739U);
-            rating!.TMDB!.Link.ShouldBe("https://www.themoviedb.org/movie/1339713");
+            rating.TMDB.ShouldNotBeNull();
+            rating.TMDB.Rating.ShouldBe(8.251f);
+            rating.TMDB.Votes.ShouldBe(3739U);
+            rating.TMDB.Link.ShouldBe("https://www.themoviedb.org/movie/1339713");
 
-            rating!.IMDB.ShouldNotBeNull();
-            rating!.IMDB!.Rating.ShouldBe(7.9f);
-            rating!.IMDB!.Votes.ShouldBe(269113U);
-            rating!.IMDB!.Link.ShouldBe("https://www.imdb.com/title/tt37287335");
+            rating.IMDB.ShouldNotBeNull();
+            rating.IMDB.Rating.ShouldBe(7.9f);
+            rating.IMDB.Votes.ShouldBe(269113U);
+            rating.IMDB.Link.ShouldBe("https://www.imdb.com/title/tt37287335");
 
-            rating!.Metascore.ShouldNotBeNull();
-            rating!.Metascore!.Rating.ShouldBe(77);
-            rating!.Metascore!.Link.ShouldBe("https://www.imdb.com/title/tt37287335/criticreviews");
+            rating.Metascore.ShouldNotBeNull();
+            rating.Metascore.Rating.ShouldBe(77);
+            rating.Metascore.Link.ShouldBe("https://www.imdb.com/title/tt37287335/criticreviews");
 
-            rating!.RottenTomatoes.ShouldNotBeNull();
-            rating!.RottenTomatoes!.Rating.ShouldBe(94.0f);
-            rating!.RottenTomatoes!.UserRating.ShouldBe(94U);
-            rating!.RottenTomatoes!.State.ShouldBe("fresh");
-            rating!.RottenTomatoes!.UserState.ShouldBe("upright");
-            rating!.RottenTomatoes!.Link.ShouldBe("https://www.rottentomatoes.com/m/obsession_2025");
+            rating.RottenTomatoes.ShouldNotBeNull();
+            rating.RottenTomatoes.Rating.ShouldBe(94.0f);
+            rating.RottenTomatoes.UserRating.ShouldBe(94U);
+            rating.RottenTomatoes.State.ShouldBe("fresh");
+            rating.RottenTomatoes.UserState.ShouldBe("upright");
+            rating.RottenTomatoes.Link.ShouldBe("https://www.rottentomatoes.com/m/obsession_2025");
 
-            rating!.Letterboxd.ShouldNotBeNull();
-            rating!.Letterboxd!.Rating.ShouldBe(4.12f);
-            rating!.Letterboxd!.Votes.ShouldBe(3633569U);
-            rating!.Letterboxd!.Link.ShouldBe("https://letterboxd.com/film/obsession-2025");
+            rating.Letterboxd.ShouldNotBeNull();
+            rating.Letterboxd.Rating.ShouldBe(4.12f);
+            rating.Letterboxd.Votes.ShouldBe(3633569U);
+            rating.Letterboxd.Link.ShouldBe("https://letterboxd.com/film/obsession-2025");
 
-            rating!.MAL.ShouldNotBeNull();
-            rating!.MAL!.Rating.ShouldBeNull();
-            rating!.MAL!.Votes.ShouldBe(0U);
-            rating!.MAL!.Link.ShouldBeNull();
+            rating.MAL.ShouldNotBeNull();
+            rating.MAL.Rating.ShouldBeNull();
+            rating.MAL.Votes.ShouldBe(0U);
+            rating.MAL.Link.ShouldBeNull();
 
-            rating!.ToString().ShouldBe("8.29481, 24789");
+            rating.ToString().ShouldBe("8.29481, 24789");
         }
     }
 }

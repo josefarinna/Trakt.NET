@@ -26,8 +26,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(period, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -38,7 +38,7 @@ namespace TraktNET.MoviesModule
             response.PageCount.ShouldBe(1U);
             response.ItemCount.ShouldBe(2U);
 
-            IReadOnlyList<TraktMostCollectedMovie> collectedMovies = response.Content!;
+            IReadOnlyList<TraktMostCollectedMovie> collectedMovies = response.Content;
 
             TraktMostCollectedMovie collectedMovie = collectedMovies[0];
 
@@ -73,8 +73,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(period, extendedInfo, TestConstants.Movies.Filter, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -85,7 +85,7 @@ namespace TraktNET.MoviesModule
             response.PageCount.ShouldBe(1U);
             response.ItemCount.ShouldBe(2U);
 
-            IReadOnlyList<TraktMostCollectedMovie> collectedMovies = response.Content!;
+            IReadOnlyList<TraktMostCollectedMovie> collectedMovies = response.Content;
 
             TraktMostCollectedMovie collectedMovie = collectedMovies[0];
 
@@ -109,8 +109,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -120,8 +120,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(true);
-            response.HasNextPage.ShouldBe(false);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Fact]
@@ -133,8 +133,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -144,8 +144,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(false);
-            response.HasNextPage.ShouldBe(true);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
         }
 
         [Fact]
@@ -157,8 +157,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -168,8 +168,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(3U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(true);
-            response.HasNextPage.ShouldBe(true);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
         }
 
         [Fact]
@@ -181,8 +181,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -192,8 +192,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(1U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(false);
-            response.HasNextPage.ShouldBe(false);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Fact]
@@ -205,8 +205,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -216,16 +216,16 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(true);
-            response.HasNextPage.ShouldBe(false);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
 
             ModuleTestUtility.SetClient(client, $"{GetMostCollectedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -235,8 +235,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(false);
-            response.HasNextPage.ShouldBe(true);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
         }
 
         [Fact]
@@ -248,8 +248,8 @@ namespace TraktNET.MoviesModule
             TraktPagedResponse<TraktMostCollectedMovie> response = await client.Movies.GetMostCollectedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -259,16 +259,16 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(false);
-            response.HasNextPage.ShouldBe(true);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
 
             ModuleTestUtility.SetClient(client, $"{GetMostCollectedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -278,8 +278,8 @@ namespace TraktNET.MoviesModule
             response.Limit.ShouldBe(10U);
             response.PageCount.ShouldBe(2U);
             response.ItemCount.ShouldBe(2U);
-            response.HasPreviousPage.ShouldBe(true);
-            response.HasNextPage.ShouldBe(false);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]

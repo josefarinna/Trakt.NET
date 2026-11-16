@@ -167,7 +167,7 @@ namespace TraktNET.UsersModule
             Func<Task<TraktResponse<TraktList>>> act = () => client.Users.GetPersonalListAsync(Username, default(TraktListIDs)!);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.GetPersonalListAsync(Username, new TraktListIDs()!);
+            act = () => client.Users.GetPersonalListAsync(Username, new TraktListIDs());
             await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Users.GetPersonalListAsync(Username, 0);

@@ -18,21 +18,21 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktSentiments> response = await client.Movies.GetMovieSentimentsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktSentiments movieSentiments = response.Content!;
+            TraktSentiments movieSentiments = response.Content;
 
             movieSentiments.Good.ShouldNotBeNull();
-            movieSentiments.Good!.Count.ShouldBe(1);
-            movieSentiments.Good![0].Sentiment.ShouldBe("funny");
+            movieSentiments.Good.Count.ShouldBe(1);
+            movieSentiments.Good[0].Sentiment.ShouldBe("funny");
             movieSentiments.Bad.ShouldNotBeNull();
-            movieSentiments.Bad!.Count.ShouldBe(1);
-            movieSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            movieSentiments.Bad.Count.ShouldBe(1);
+            movieSentiments.Bad[0].Sentiment.ShouldBe("boring");
             movieSentiments.CommentCount.ShouldBe(100U);
         }
 
@@ -45,18 +45,18 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktSentiments> response = await client.Movies.GetMovieSentimentsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktSentiments movieSentiments = response.Content!;
+            TraktSentiments movieSentiments = response.Content;
 
             movieSentiments.Good.ShouldNotBeNull();
-            movieSentiments.Good!.Count.ShouldBe(1);
-            movieSentiments.Good![0].Sentiment.ShouldBe("funny");
+            movieSentiments.Good.Count.ShouldBe(1);
+            movieSentiments.Good[0].Sentiment.ShouldBe("funny");
             movieSentiments.Bad.ShouldNotBeNull();
-            movieSentiments.Bad!.Count.ShouldBe(1);
-            movieSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            movieSentiments.Bad.Count.ShouldBe(1);
+            movieSentiments.Bad[0].Sentiment.ShouldBe("boring");
             movieSentiments.CommentCount.ShouldBe(100U);
         }
 
@@ -69,18 +69,18 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktSentiments> response = await client.Movies.GetMovieSentimentsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktSentiments movieSentiments = response.Content!;
+            TraktSentiments movieSentiments = response.Content;
 
             movieSentiments.Good.ShouldNotBeNull();
-            movieSentiments.Good!.Count.ShouldBe(1);
-            movieSentiments.Good![0].Sentiment.ShouldBe("funny");
+            movieSentiments.Good.Count.ShouldBe(1);
+            movieSentiments.Good[0].Sentiment.ShouldBe("funny");
             movieSentiments.Bad.ShouldNotBeNull();
-            movieSentiments.Bad!.Count.ShouldBe(1);
-            movieSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            movieSentiments.Bad.Count.ShouldBe(1);
+            movieSentiments.Bad[0].Sentiment.ShouldBe("boring");
             movieSentiments.CommentCount.ShouldBe(100U);
         }
 

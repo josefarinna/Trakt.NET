@@ -23,13 +23,13 @@ namespace TraktNET.Json.Shows
 
             showTranslation.ShouldNotBeNull();
 
-            showTranslation!.Title.ShouldBe("Juego de tronos");
-            showTranslation!.Overview.ShouldStartWith("En una tierra donde los veranos duran décadas");
-            showTranslation!.Tagline.ShouldBe("Se acerca el invierno");
-            showTranslation!.Language.ShouldBe("es");
-            showTranslation!.Country.ShouldBe("es");
+            showTranslation.Title.ShouldBe("Juego de tronos");
+            showTranslation.Overview.ShouldStartWith("En una tierra donde los veranos duran décadas");
+            showTranslation.Tagline.ShouldBe("Se acerca el invierno");
+            showTranslation.Language.ShouldBe("es");
+            showTranslation.Country.ShouldBe("es");
 
-            showTranslation!.ToString().ShouldBe("es-ES=Juego de tronos");
+            showTranslation.ToString().ShouldBe("es-ES=Juego de tronos");
         }
 
         [Fact]

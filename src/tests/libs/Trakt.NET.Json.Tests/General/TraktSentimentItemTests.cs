@@ -16,10 +16,10 @@ namespace TraktNET.Json.General
             TraktSentimentItem? item = await TestUtility.DeserializeJsonAsync<TraktSentimentItem>("General\\sentimentitem.json");
 
             item.ShouldNotBeNull();
-            item!.Sentiment.ShouldBe("funny");
-            item!.CommentIDs.ShouldNotBeNull();
-            item!.CommentIDs!.Count.ShouldBe(2);
-            item!.CommentIDs!.ShouldBe([123U, 456U]);
+            item.Sentiment.ShouldBe("funny");
+            item.CommentIDs.ShouldNotBeNull();
+            item.CommentIDs.Count.ShouldBe(2);
+            item.CommentIDs.ShouldBe([123U, 456U]);
         }
     }
 }

@@ -20,21 +20,21 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetHotPremieresAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            List<TraktCalendarShow> items = [.. response.Content!];
+            List<TraktCalendarShow> items = [.. response.Content];
             items.ShouldNotBeEmpty();
 
             TraktCalendarShow showItem = items[0];
             showItem.FirstAired.ShouldNotBeNull();
             showItem.Show.ShouldNotBeNull();
             showItem.Episode.ShouldNotBeNull();
-            showItem.Show!.Title.ShouldBe("Game of Thrones");
+            showItem.Show.Title.ShouldBe("Game of Thrones");
         }
 
         [Fact]
@@ -50,11 +50,11 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetHotPremieresAsync(date, 7U, filterObj, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            List<TraktCalendarShow> items = [.. response.Content!];
+            List<TraktCalendarShow> items = [.. response.Content];
             items.ShouldNotBeEmpty();
         }
 

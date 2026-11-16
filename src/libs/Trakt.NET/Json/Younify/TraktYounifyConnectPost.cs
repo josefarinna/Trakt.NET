@@ -4,7 +4,7 @@ namespace TraktNET
     public record class TraktYounifyConnectPost
     {
         /// <summary>Gets or sets the streaming service to connect (e.g. "netflix").</summary>
-        public string? ServiceId { get; set; }
+        public string? ServiceID { get; set; }
 
         /// <summary>
         /// Gets or sets the return URL after the Younify web-auth flow completes.
@@ -15,7 +15,7 @@ namespace TraktNET
         /// <summary>Validates the post data.</summary>
         public void Validate()
         {
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ServiceId, "ServiceId must not be null or empty.");
+            ArgumentValidator.ThrowIfNullOrWhiteSpace(ServiceID, "ServiceID must not be null or empty.");
             ArgumentValidator.ThrowIfNullOrWhiteSpace(ReturnUrl, "ReturnUrl must not be null or empty.");
         }
     }

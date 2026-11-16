@@ -18,15 +18,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktStudio> movieStudios = response.Content!;
+            IReadOnlyList<TraktStudio> movieStudios = response.Content;
 
             TraktStudio movieStudio = movieStudios[0];
 
@@ -48,15 +48,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktStudio> movieStudios = response.Content!;
+            IReadOnlyList<TraktStudio> movieStudios = response.Content;
 
             TraktStudio movieStudio = movieStudios[0];
 
@@ -78,15 +78,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktStudio> movieStudios = response.Content!;
+            IReadOnlyList<TraktStudio> movieStudios = response.Content;
 
             TraktStudio movieStudio = movieStudios[0];
 

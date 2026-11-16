@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.ReportMovieAsync(TestConstants.Movies.TraktMovieID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -28,7 +28,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.ReportMovieAsync(TestConstants.Movies.MovieSlug, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -41,7 +41,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.ReportMovieAsync(TestConstants.Movies.MovieIDs, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

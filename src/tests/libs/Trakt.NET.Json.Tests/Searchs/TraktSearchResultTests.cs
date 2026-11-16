@@ -29,12 +29,12 @@
             firstResult.Score.ShouldBe(578730123365189800f);
 
             firstResult.Movie.ShouldNotBeNull();
-            TraktMovie movie = firstResult.Movie!;
+            TraktMovie movie = firstResult.Movie;
             movie.Title.ShouldBe("Avengers: Endgame");
             movie.Year.ShouldBe(2019U);
 
             movie.IDs.ShouldNotBeNull();
-            movie.IDs!.Trakt.ShouldBe(191798U);
+            movie.IDs.Trakt.ShouldBe(191798U);
             movie.IDs.Slug.ShouldBe("avengers-endgame-2019");
             movie.IDs.IMDB.ShouldBe("tt4154796");
             movie.IDs.TMDB.ShouldBe(299534U);
@@ -49,18 +49,18 @@
             TraktSearchResult secondResult = results[1];
             secondResult.Type.ShouldBe(TraktSearchResultType.Movie);
             secondResult.Movie.ShouldNotBeNull();
-            secondResult.Movie!.Title.ShouldBe("The Avengers");
+            secondResult.Movie.Title.ShouldBe("The Avengers");
             secondResult.Movie.Year.ShouldBe(2012U);
             secondResult.Movie.IDs!.Trakt.ShouldBe(14701U);
 
             TraktSearchResult thirdResult = results[2];
             thirdResult.Type.ShouldBe(TraktSearchResultType.Movie);
             thirdResult.Movie.ShouldNotBeNull();
-            thirdResult.Movie!.Title.ShouldBe("Avengers: Infinity War");
+            thirdResult.Movie.Title.ShouldBe("Avengers: Infinity War");
             thirdResult.Movie.Year.ShouldBe(2018U);
 
             thirdResult.Movie.Genres.ShouldNotBeNull();
-            thirdResult.Movie.Genres!.Count.ShouldBe(4);
+            thirdResult.Movie.Genres.Count.ShouldBe(4);
             thirdResult.Movie.Genres.ShouldContain("action");
             thirdResult.Movie.Genres.ShouldContain("science-fiction");
         }

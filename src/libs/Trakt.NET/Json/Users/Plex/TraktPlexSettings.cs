@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -68,20 +69,23 @@ namespace TraktNET
     public record class TraktPlexSelection
     {
         /// <summary>Gets or sets the server IDs.</summary>
-        public List<string>? ServerIds { get; set; }
+        [JsonPropertyName("server_ids")]
+        public List<string>? ServerIDs { get; set; }
 
         /// <summary>Gets or sets the library IDs.</summary>
-        public List<TraktPlexLibrary>? LibraryIds { get; set; }
+        [JsonPropertyName("library_ids")]
+        public List<TraktPlexLibrary>? LibraryIDs { get; set; }
 
         /// <summary>Gets or sets the user IDs.</summary>
-        public List<string>? UserIds { get; set; }
+        [JsonPropertyName("user_ids")]
+        public List<string>? UserIDs { get; set; }
     }
 
     /// <summary>Represents a Plex library identifier.</summary>
     public record class TraktPlexLibrary
     {
         /// <summary>Gets or sets the server ID.</summary>
-        public string? ServerId { get; set; }
+        public string? ServerID { get; set; }
 
         /// <summary>Gets or sets the UUID.</summary>
         public string? Uuid { get; set; }

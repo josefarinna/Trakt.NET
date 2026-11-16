@@ -25,15 +25,15 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktPersonAward> response = await client.Awards.GetPersonAwardsAsync(PersonID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktPersonAward> personAwards = response.Content!;
+            IReadOnlyList<TraktPersonAward> personAwards = response.Content;
 
             TraktPersonAward award = personAwards[0];
             award.Year.ShouldBe(2024U);
@@ -67,8 +67,8 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktPersonAward> response = await client.Awards.GetPersonAwardsAsync(PersonSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -85,8 +85,8 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktPersonAward> response = await client.Awards.GetPersonAwardsAsync(PersonIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();

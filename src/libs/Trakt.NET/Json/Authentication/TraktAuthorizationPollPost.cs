@@ -21,7 +21,7 @@ namespace TraktNET
 
         /// <summary>Gets or sets the client ID.</summary>
         [JsonPropertyName("client_id")]
-        public string? ClientId { get; set; }
+        public string? ClientID { get; set; }
 
         /// <summary>Gets or sets the client secret. Optional: the device token endpoint only requires <c>code</c> and <c>client_id</c>.</summary>
         [JsonPropertyName("client_secret")]
@@ -41,7 +41,7 @@ namespace TraktNET
                 throw new TraktRequestValidationException(nameof(Device), "device not valid");
 
             ArgumentValidator.ThrowIfNullOrWhiteSpace(Device.DeviceCode, "device code not valid", true);
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
+            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientID, "client id not valid", true);
 
             ArgumentValidator.ThrowIfProvidedAndInvalid(ClientSecret, "client secret not valid");
         }

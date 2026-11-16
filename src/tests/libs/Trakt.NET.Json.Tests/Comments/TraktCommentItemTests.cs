@@ -24,7 +24,7 @@
             commentItem.Type.ShouldBe(TraktCommentObjectType.Movie);
 
             commentItem.Movie.ShouldNotBeNull();
-            commentItem.Movie!.Title.ShouldBe("Star Wars: The Force Awakens");
+            commentItem.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
             commentItem.Movie.Year.ShouldBe(2015U);
             commentItem.Movie.IDs.ShouldNotBeNull();
             commentItem.Movie.IDs.Trakt.ShouldBe(94024U);

@@ -180,11 +180,11 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, TraktWatchnowSources>>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIdWatchnowImplAsync(
+        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIDWatchnowImplAsync(
             string globalEpisodeID, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
-            var request = new EpisodeByIdWatchnowGetRequest
+            var request = new EpisodeByIDWatchnowGetRequest
             {
                 Id = globalEpisodeID,
                 Country = country,

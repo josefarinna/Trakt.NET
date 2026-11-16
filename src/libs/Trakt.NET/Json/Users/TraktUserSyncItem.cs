@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>Represents a paused or skipped item in a data sync.</summary>
@@ -22,19 +24,20 @@ namespace TraktNET
         public TraktEpisode? Episode { get; set; }
 
         /// <summary>Gets or sets the service ID.</summary>
-        public string? ServiceId { get; set; }
+        public string? ServiceID { get; set; }
 
         /// <summary>Gets or sets the content ID.</summary>
-        public string? ContentId { get; set; }
+        public string? ContentID { get; set; }
 
         /// <summary>Gets or sets the profile ID.</summary>
-        public string? ProfileId { get; set; }
+        public string? ProfileID { get; set; }
 
         /// <summary>Gets or sets the TMDB ID.</summary>
-        public uint? TmdbId { get; set; }
+        [JsonPropertyName("tmdb_id")]
+        public uint? TMDBID { get; set; }
 
         /// <summary>Gets or sets the TMDB series ID.</summary>
-        public uint? TmdbSeriesId { get; set; }
+        public uint? TMDBSeriesID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime when watched.</summary>
         public DateTime? WatchedAt { get; set; }

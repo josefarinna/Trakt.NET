@@ -15,7 +15,7 @@ namespace TraktNET.YounifyModule
 
             var post = new TraktYounifyRefreshServicePost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 SkipSync = true
             };
 
@@ -40,7 +40,7 @@ namespace TraktNET.YounifyModule
         {
             var post = new TraktYounifyRefreshServicePost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 SkipSync = true
             };
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshServiceUri, statusCode);

@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Younify
             {
                 TraktYounifyConnectPost = new TraktYounifyConnectPost
                 {
-                    ServiceId = "netflix",
+                    ServiceID = "netflix",
                     ReturnUrl = "https://trakt.tv/return"
                 }
             };

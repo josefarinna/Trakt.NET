@@ -30,7 +30,7 @@ namespace TraktNET.Exceptions
             var vipValidationException = exception as TraktApiVipValidationException;
 
             vipValidationException.ShouldNotBeNull();
-            vipValidationException!.UpgradeURL.ShouldBe("upgrade/url");
+            vipValidationException.UpgradeURL.ShouldBe("upgrade/url");
         }
     }
 }

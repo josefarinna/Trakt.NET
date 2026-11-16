@@ -18,14 +18,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovieStatistics movieStatistics = response.Content!;
+            TraktMovieStatistics movieStatistics = response.Content;
 
             movieStatistics.Watchers.ShouldBe(164943U);
             movieStatistics.Plays.ShouldBe(219925U);
@@ -40,14 +40,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovieStatistics movieStatistics = response.Content!;
+            TraktMovieStatistics movieStatistics = response.Content;
 
             movieStatistics.Watchers.ShouldBe(164943U);
             movieStatistics.Plays.ShouldBe(219925U);
@@ -62,14 +62,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovieStatistics movieStatistics = response.Content!;
+            TraktMovieStatistics movieStatistics = response.Content;
 
             movieStatistics.Watchers.ShouldBe(164943U);
             movieStatistics.Plays.ShouldBe(219925U);

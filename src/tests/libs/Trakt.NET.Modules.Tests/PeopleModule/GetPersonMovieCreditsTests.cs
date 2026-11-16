@@ -53,15 +53,15 @@ namespace TraktNET.PeopleModule
 
             responseValue.Crew.ShouldNotBeNull();
             responseValue.Crew.Art.ShouldNotBeNull();
-            responseValue.Crew.Art!.Count.ShouldBe(2);
+            responseValue.Crew.Art.Count.ShouldBe(2);
             responseValue.Crew.Camera.ShouldNotBeNull();
-            responseValue.Crew.Camera!.Count.ShouldBe(2);
+            responseValue.Crew.Camera.Count.ShouldBe(2);
             responseValue.Crew.CostumeAndMakeup.ShouldNotBeNull();
-            responseValue.Crew.CostumeAndMakeup!.Count.ShouldBe(2);
+            responseValue.Crew.CostumeAndMakeup.Count.ShouldBe(2);
             responseValue.Crew.Crew.ShouldNotBeNull();
-            responseValue.Crew.Crew!.Count.ShouldBe(2);
+            responseValue.Crew.Crew.Count.ShouldBe(2);
             responseValue.Crew.Directing.ShouldNotBeNull();
-            responseValue.Crew.Directing!.Count.ShouldBe(2);
+            responseValue.Crew.Directing.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] directing = [.. responseValue.Crew.Directing];
 
@@ -78,11 +78,11 @@ namespace TraktNET.PeopleModule
             directing[0].Movie!.IDs!.TMDB.ShouldBe(140607U);
 
             responseValue.Crew.Editing.ShouldNotBeNull();
-            responseValue.Crew.Editing!.Count.ShouldBe(2);
+            responseValue.Crew.Editing.Count.ShouldBe(2);
             responseValue.Crew.Lighting.ShouldNotBeNull();
-            responseValue.Crew.Lighting!.Count.ShouldBe(2);
+            responseValue.Crew.Lighting.Count.ShouldBe(2);
             responseValue.Crew.Production.ShouldNotBeNull();
-            responseValue.Crew.Production!.Count.ShouldBe(2);
+            responseValue.Crew.Production.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] production = [.. responseValue.Crew.Production];
 
@@ -99,11 +99,11 @@ namespace TraktNET.PeopleModule
             production[0].Movie!.IDs!.TMDB.ShouldBe(140607U);
 
             responseValue.Crew.Sound.ShouldNotBeNull();
-            responseValue.Crew.Sound!.Count.ShouldBe(2);
+            responseValue.Crew.Sound.Count.ShouldBe(2);
             responseValue.Crew.VisualEffects.ShouldNotBeNull();
-            responseValue.Crew.VisualEffects!.Count.ShouldBe(2);
+            responseValue.Crew.VisualEffects.Count.ShouldBe(2);
             responseValue.Crew.Writing.ShouldNotBeNull();
-            responseValue.Crew.Writing!.Count.ShouldBe(2);
+            responseValue.Crew.Writing.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] writing = [.. responseValue.Crew.Writing];
 
@@ -192,7 +192,7 @@ namespace TraktNET.PeopleModule
 
             TraktPersonMovieCredits responseValue = response.Content;
             responseValue.Cast.ShouldNotBeNull();
-            responseValue.Cast!.Count.ShouldBe(2);
+            responseValue.Cast.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCastItem[] cast = [.. responseValue.Cast];
 
@@ -222,15 +222,15 @@ namespace TraktNET.PeopleModule
 
             responseValue.Crew.ShouldNotBeNull();
             responseValue.Crew.Art.ShouldNotBeNull();
-            responseValue.Crew.Art!.Count.ShouldBe(2);
+            responseValue.Crew.Art.Count.ShouldBe(2);
             responseValue.Crew.Camera.ShouldNotBeNull();
-            responseValue.Crew.Camera!.Count.ShouldBe(2);
+            responseValue.Crew.Camera.Count.ShouldBe(2);
             responseValue.Crew.CostumeAndMakeup.ShouldNotBeNull();
-            responseValue.Crew.CostumeAndMakeup!.Count.ShouldBe(2);
+            responseValue.Crew.CostumeAndMakeup.Count.ShouldBe(2);
             responseValue.Crew.Crew.ShouldNotBeNull();
-            responseValue.Crew.Crew!.Count.ShouldBe(2);
+            responseValue.Crew.Crew.Count.ShouldBe(2);
             responseValue.Crew.Directing.ShouldNotBeNull();
-            responseValue.Crew.Directing!.Count.ShouldBe(2);
+            responseValue.Crew.Directing.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] directing = [.. responseValue.Crew.Directing];
 
@@ -247,11 +247,11 @@ namespace TraktNET.PeopleModule
             directing[0].Movie!.IDs!.TMDB.ShouldBe(140607U);
 
             responseValue.Crew.Editing.ShouldNotBeNull();
-            responseValue.Crew.Editing!.Count.ShouldBe(2);
+            responseValue.Crew.Editing.Count.ShouldBe(2);
             responseValue.Crew.Lighting.ShouldNotBeNull();
-            responseValue.Crew.Lighting!.Count.ShouldBe(2);
+            responseValue.Crew.Lighting.Count.ShouldBe(2);
             responseValue.Crew.Production.ShouldNotBeNull();
-            responseValue.Crew.Production!.Count.ShouldBe(2);
+            responseValue.Crew.Production.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] production = [.. responseValue.Crew.Production];
 
@@ -268,11 +268,11 @@ namespace TraktNET.PeopleModule
             production[0].Movie!.IDs!.TMDB.ShouldBe(140607U);
 
             responseValue.Crew.Sound.ShouldNotBeNull();
-            responseValue.Crew.Sound!.Count.ShouldBe(2);
+            responseValue.Crew.Sound.Count.ShouldBe(2);
             responseValue.Crew.VisualEffects.ShouldNotBeNull();
-            responseValue.Crew.VisualEffects!.Count.ShouldBe(2);
+            responseValue.Crew.VisualEffects.Count.ShouldBe(2);
             responseValue.Crew.Writing.ShouldNotBeNull();
-            responseValue.Crew.Writing!.Count.ShouldBe(2);
+            responseValue.Crew.Writing.Count.ShouldBe(2);
 
             TraktPersonMovieCreditsCrewItem[] writing = [.. responseValue.Crew.Writing];
 

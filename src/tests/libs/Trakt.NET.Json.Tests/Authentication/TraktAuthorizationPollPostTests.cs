@@ -9,7 +9,7 @@ namespace TraktNET.Json.Authentication
 
             post.Device.ShouldBeNull();
             post.Code.ShouldBeNull();
-            post.ClientId.ShouldBeNull();
+            post.ClientID.ShouldBeNull();
             post.ClientSecret.ShouldBeNull();
         }
 
@@ -47,7 +47,7 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = TestConstants.DeviceExpiresIn,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             };
 
@@ -61,7 +61,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationPollPost
             {
                 Device = null!,
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             };
 
@@ -82,7 +82,7 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = 0,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             };
 
@@ -103,7 +103,7 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = TestConstants.DeviceExpiresIn,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             };
 
@@ -116,7 +116,7 @@ namespace TraktNET.Json.Authentication
         [InlineData("")]
         [InlineData("   ")]
         [InlineData("client id with spaces")]
-        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenClientIdIsInvalid(string? clientId)
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenClientIDIsInvalid(string? clientId)
         {
             var post = new TraktAuthorizationPollPost
             {
@@ -128,7 +128,7 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = TestConstants.DeviceExpiresIn,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = clientId!,
+                ClientID = clientId,
                 ClientSecret = TestConstants.ClientSecret
             };
 
@@ -149,7 +149,7 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = TestConstants.DeviceExpiresIn,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = null
             };
 
@@ -163,7 +163,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationPollPost
             {
                 Code = TestConstants.MockDeviceCode,
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = null
             };
 
@@ -190,8 +190,8 @@ namespace TraktNET.Json.Authentication
                     ExpiresIn = TestConstants.DeviceExpiresIn,
                     Interval = TestConstants.DeviceInterval
                 },
-                ClientId = TestConstants.ClientID,
-                ClientSecret = clientSecret!
+                ClientID = TestConstants.ClientID,
+                ClientSecret = clientSecret
             };
 
             Action act = () => post.Validate();

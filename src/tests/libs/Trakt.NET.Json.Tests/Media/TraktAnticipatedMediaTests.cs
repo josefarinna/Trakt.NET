@@ -19,7 +19,7 @@ namespace TraktNET.Json.Media
             IReadOnlyList<TraktAnticipatedMedia>? media = await TestUtility.DeserializeJsonListAsync<TraktAnticipatedMedia>("Media\\anticipatedmedia.json");
 
             media.ShouldNotBeNull();
-            media!.Count.ShouldBe(2);
+            media.Count.ShouldBe(2);
 
             media[0].ListCount.ShouldBe(50U);
             media[0].Type.ShouldBe(TraktSearchResultType.Movie);

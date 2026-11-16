@@ -26,7 +26,7 @@ var client = new TraktClient("Your Trakt Client Id");
 
 var client = new TraktClient
 {
-    ClientId = "Your Trakt Client Id"
+    ClientID = "Your Trakt Client Id"
 };
 ```
 
@@ -58,7 +58,7 @@ var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret")
 
 var client = new TraktClient
 {
-    ClientId = "Your Trakt Client Id",
+    ClientID = "Your Trakt Client Id",
     ClientSecret = "Your Trakt Client Secret"
 };
 ```
@@ -96,7 +96,7 @@ var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret")
 
 var client = new TraktClient
 {
-    ClientId = "Your Trakt Client Id",
+    ClientID = "Your Trakt Client Id",
     ClientSecret = "Your Trakt Client Secret",
     Authorization = TraktAuthorization.CreateWith("An existing access token")
 };

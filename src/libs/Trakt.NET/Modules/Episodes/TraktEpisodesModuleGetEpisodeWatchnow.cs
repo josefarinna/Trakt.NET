@@ -142,10 +142,10 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIdWatchnowAsync(
+        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIDWatchnowAsync(
             string traktEpisodeIDOrUniqueId, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-            => GetEpisodeByIdWatchnowImplAsync(traktEpisodeIDOrUniqueId, country, links, extendedInfo, cancellationToken);
+            => GetEpisodeByIDWatchnowImplAsync(traktEpisodeIDOrUniqueId, country, links, extendedInfo, cancellationToken);
 
         /// <summary>Gets watch now sources for a <see cref="TraktEpisode" /> with the specified global Trakt-ID.</summary>
         /// <param name="traktEpisodeID">The episode's global Trakt-ID.</param>
@@ -174,10 +174,10 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIdWatchnowAsync(
+        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIDWatchnowAsync(
             uint traktEpisodeID, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-                => GetEpisodeByIdWatchnowAsync(traktEpisodeID.ToInvariantCultureString(), country, links, extendedInfo, cancellationToken);
+                => GetEpisodeByIDWatchnowAsync(traktEpisodeID.ToInvariantCultureString(), country, links, extendedInfo, cancellationToken);
 
         /// <summary>Gets watch now sources for a <see cref="TraktEpisode" /> with the specified <see cref="TraktEpisodeIDs" />.</summary>
         /// <param name="episodeIDs">The episode's IDs. See also <seealso cref="TraktEpisodeIDs" />.</param>
@@ -208,7 +208,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         /// <exception cref="ArgumentException">Throw if the given <paramref name="episodeIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="episodeIDs" /> is null.</exception>
-        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIdWatchnowAsync(
+        public Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIDWatchnowAsync(
             TraktEpisodeIDs episodeIDs, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
@@ -219,7 +219,7 @@ namespace TraktNET
                 throw new ArgumentException($"{nameof(episodeIDs)} has not any IDs set", nameof(episodeIDs));
             }
 
-            return GetEpisodeByIdWatchnowAsync(episodeIDs.BestID, country, links, extendedInfo, cancellationToken);
+            return GetEpisodeByIDWatchnowAsync(episodeIDs.BestID, country, links, extendedInfo, cancellationToken);
         }
     }
 }

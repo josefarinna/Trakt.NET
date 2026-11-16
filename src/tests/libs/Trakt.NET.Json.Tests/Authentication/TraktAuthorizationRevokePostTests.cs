@@ -8,7 +8,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationRevokePost();
 
             post.Token.ShouldBeNull();
-            post.ClientId.ShouldBeNull();
+            post.ClientID.ShouldBeNull();
             post.ClientSecret.ShouldBeNull();
         }
 
@@ -18,7 +18,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationRevokePost
             {
                 Token = "accessToken",
-                ClientId = "clientId",
+                ClientID = "clientId",
                 ClientSecret = "clientSecret"
             };
 
@@ -41,20 +41,20 @@ namespace TraktNET.Json.Authentication
 
             post.Token = "accessToken";
 
-            // ClientId validation
-            post.ClientId = null;
+            // ClientID validation
+            post.ClientID = null;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = string.Empty;
+            post.ClientID = string.Empty;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "   ";
+            post.ClientID = "   ";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId with spaces";
+            post.ClientID = "clientId with spaces";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId";
+            post.ClientID = "clientId";
 
             // ClientSecret is optional (valid when null for public/PKCE clients)
             post.ClientSecret = null;

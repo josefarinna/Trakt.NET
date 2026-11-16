@@ -21,7 +21,7 @@ namespace TraktNET.NotesModule
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktNoteItem note = response.Content!;
+            TraktNoteItem note = response.Content;
             note.AttachedTo.ShouldNotBeNull();
             note.AttachedTo.Type.ShouldBe(TraktNotesObjectType.Movie);
             note.Type.ShouldBe(TraktListItemType.Movie);

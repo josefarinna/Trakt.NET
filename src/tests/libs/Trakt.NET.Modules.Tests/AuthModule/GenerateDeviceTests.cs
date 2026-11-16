@@ -19,7 +19,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGenerateDeviceWithClientId()
+        public async Task TestGenerateDeviceWithClientID()
         {
             string deviceJson = TestUtility.SerializeObject(TestConstants.MockDevice);
             deviceJson.ShouldNotBeNullOrEmpty();

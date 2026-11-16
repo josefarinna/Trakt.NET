@@ -30,8 +30,8 @@ namespace TraktNET.Json.Watchnow
             watchnowOffer.Currency.ShouldBe("USD");
 
             watchnowOffer.Prices.ShouldNotBeNull();
-            watchnowOffer.Prices!.Rent.ShouldBe("1.99");
-            watchnowOffer.Prices!.Purchase.ShouldBe("9.99");
+            watchnowOffer.Prices.Rent.ShouldBe("1.99");
+            watchnowOffer.Prices.Purchase.ShouldBe("9.99");
 
             watchnowOffer.LinkTvos.ShouldBe("netflix-tvos://watch");
             watchnowOffer.LinkDirect.ShouldBe("https://netflix.com/direct");
@@ -40,7 +40,7 @@ namespace TraktNET.Json.Watchnow
             watchnowOffer.LinkWebos.ShouldNotBeNull();
             watchnowOffer.LinkWebos.ID.ShouldBe("com.netflix.webos");
             watchnowOffer.LinkWebos.Params.ShouldNotBeNull();
-            watchnowOffer.LinkWebos.Params!.ContentTarget.ShouldBe("netflix://watch/12345");
+            watchnowOffer.LinkWebos.Params.ContentTarget.ShouldBe("netflix://watch/12345");
         }
 
         [Fact]
@@ -49,28 +49,28 @@ namespace TraktNET.Json.Watchnow
             IReadOnlyList<TraktWatchnowOffer>? watchnowOffers = await TestUtility.DeserializeJsonListAsync<TraktWatchnowOffer>("Watchnow\\watchnowoffers.json");
 
             watchnowOffers.ShouldNotBeNull();
-            watchnowOffers!.Count.ShouldBe(2);
+            watchnowOffers.Count.ShouldBe(2);
 
-            TraktWatchnowOffer watchnowOffer = watchnowOffers![0];
+            TraktWatchnowOffer watchnowOffer = watchnowOffers[0];
             watchnowOffer.ShouldNotBeNull();
             watchnowOffer.Source.ShouldBe("netflix");
             watchnowOffer.Link.ShouldBe("https://netflix.com");
             watchnowOffer.Uhd.ShouldBeTrue();
             watchnowOffer.Currency.ShouldBe("USD");
             watchnowOffer.Prices.ShouldNotBeNull();
-            watchnowOffer.Prices!.Rent.ShouldBe("1.99");
-            watchnowOffer.Prices!.Purchase.ShouldBe("9.99");
+            watchnowOffer.Prices.Rent.ShouldBe("1.99");
+            watchnowOffer.Prices.Purchase.ShouldBe("9.99");
             watchnowOffer.LinkTvos.ShouldBe("netflix-tvos://watch");
             watchnowOffer.LinkDirect.ShouldBe("https://netflix.com/direct");
             watchnowOffer.LinkAndroid.ShouldBe("netflix-android://watch");
             watchnowOffer.LinkWebos.ShouldNotBeNull();
             watchnowOffer.LinkWebos.ID.ShouldBe("com.netflix.webos");
             watchnowOffer.LinkWebos.Params.ShouldNotBeNull();
-            watchnowOffer.LinkWebos.Params!.ContentTarget.ShouldBe("netflix://watch/12345");
+            watchnowOffer.LinkWebos.Params.ContentTarget.ShouldBe("netflix://watch/12345");
 
             // --------------------------------------------------------------------------------------------
 
-            watchnowOffer = watchnowOffers![1];
+            watchnowOffer = watchnowOffers[1];
             watchnowOffer.ShouldNotBeNull();
             watchnowOffer.Source.ShouldBe("hulu");
             watchnowOffer.Link.ShouldBe("https://hulu.com");

@@ -16,8 +16,8 @@
             device.IntervalInMilliseconds.ShouldBe(0U);
             device.IntervalInSeconds.ShouldBe(0U);
             device.CreatedAt.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(1));
-            device.IsValid.ShouldBe(false);
-            device.IsExpiredUnused.ShouldBe(true);
+            device.IsValid.ShouldBeFalse();
+            device.IsExpiredUnused.ShouldBeTrue();
         }
 
         [Fact]
@@ -27,17 +27,17 @@
 
             device.ShouldNotBeNull();
 
-            device!.DeviceCode.ShouldBe("d9c126a7706328d808914cfd1e40274b6e009f684b1aca271b9b3f90b3630d64");
-            device!.UserCode.ShouldBe("5055CC52");
-            device!.VerificationUrl.ShouldBe("https://trakt.tv/activate");
-            device!.ExpiresIn.ShouldBe(600U);
-            device!.ExpiresInSeconds.ShouldBe(600U);
-            device!.Interval.ShouldBe(5U);
-            device!.IntervalInMilliseconds.ShouldBe(5000U);
-            device!.IntervalInSeconds.ShouldBe(5U);
-            device!.CreatedAt.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(1));
-            device!.IsValid.ShouldBe(true);
-            device!.IsExpiredUnused.ShouldBe(false);
+            device.DeviceCode.ShouldBe("d9c126a7706328d808914cfd1e40274b6e009f684b1aca271b9b3f90b3630d64");
+            device.UserCode.ShouldBe("5055CC52");
+            device.VerificationUrl.ShouldBe("https://trakt.tv/activate");
+            device.ExpiresIn.ShouldBe(600U);
+            device.ExpiresInSeconds.ShouldBe(600U);
+            device.Interval.ShouldBe(5U);
+            device.IntervalInMilliseconds.ShouldBe(5000U);
+            device.IntervalInSeconds.ShouldBe(5U);
+            device.CreatedAt.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(1));
+            device.IsValid.ShouldBeTrue();
+            device.IsExpiredUnused.ShouldBeFalse();
         }
 
         [Fact]
@@ -45,23 +45,23 @@
         {
             var device = new TraktDevice();
 
-            device.IsValid.ShouldBe(false);
+            device.IsValid.ShouldBeFalse();
 
             device.DeviceCode = "deviceCode";
-            device.IsValid.ShouldBe(false);
+            device.IsValid.ShouldBeFalse();
 
             device.UserCode = "userCode";
-            device.IsValid.ShouldBe(false);
+            device.IsValid.ShouldBeFalse();
 
             device.VerificationUrl = "verificationUrl";
-            device.IsValid.ShouldBe(false);
+            device.IsValid.ShouldBeFalse();
 
             device.Interval = 1;
-            device.IsValid.ShouldBe(false);
+            device.IsValid.ShouldBeFalse();
 
             device.ExpiresIn = 600;
-            device.IsExpiredUnused.ShouldBe(false);
-            device.IsValid.ShouldBe(true);
+            device.IsExpiredUnused.ShouldBeFalse();
+            device.IsValid.ShouldBeTrue();
         }
 
         [Fact]
@@ -69,10 +69,10 @@
         {
             var device = new TraktDevice();
 
-            device.IsExpiredUnused.ShouldBe(true);
+            device.IsExpiredUnused.ShouldBeTrue();
 
             device.ExpiresIn = 600;
-            device.IsExpiredUnused.ShouldBe(false);
+            device.IsExpiredUnused.ShouldBeFalse();
         }
 
         [Fact]
@@ -89,7 +89,7 @@
             device.ToString().ShouldBe("no valid device code (expired unused)");
 
             device.ExpiresIn = 600;
-            device.IsExpiredUnused.ShouldBe(false);
+            device.IsExpiredUnused.ShouldBeFalse();
             device.ToString().ShouldBe($"{device.DeviceCode} (valid until {device.CreatedAt.AddSeconds(device.ExpiresInSeconds)})");
         }
     }

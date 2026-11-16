@@ -23,19 +23,19 @@ namespace TraktNET.Json.Shows
 
             collectionProgress.ShouldNotBeNull();
 
-            collectionProgress!.Aired.ShouldBe(73U);
+            collectionProgress.Aired.ShouldBe(73U);
             collectionProgress.Completed.ShouldBe(0U);
             collectionProgress.LastCollectedAt.ShouldBeNull();
 
             collectionProgress.NextEpisode.ShouldNotBeNull();
-            collectionProgress.NextEpisode!.Season.ShouldBe(1U);
-            collectionProgress.NextEpisode!.Number.ShouldBe(1U);
-            collectionProgress.NextEpisode!.Title.ShouldBe("Winter Is Coming");
-            collectionProgress.NextEpisode!.IDs.ShouldNotBeNull();
-            collectionProgress.NextEpisode!.IDs!.Trakt.ShouldBe(73640U);
+            collectionProgress.NextEpisode.Season.ShouldBe(1U);
+            collectionProgress.NextEpisode.Number.ShouldBe(1U);
+            collectionProgress.NextEpisode.Title.ShouldBe("Winter Is Coming");
+            collectionProgress.NextEpisode.IDs.ShouldNotBeNull();
+            collectionProgress.NextEpisode.IDs.Trakt.ShouldBe(73640U);
 
             collectionProgress.Seasons.ShouldNotBeNull();
-            collectionProgress.Seasons!.Count.ShouldBe(8);
+            collectionProgress.Seasons.Count.ShouldBe(8);
 
             TraktSeasonCollectionProgress season1 = collectionProgress.Seasons[0];
             season1.ShouldNotBeNull();
@@ -43,7 +43,7 @@ namespace TraktNET.Json.Shows
             season1.Aired.ShouldBe(10U);
             season1.Completed.ShouldBe(0U);
             season1.Episodes.ShouldNotBeNull();
-            season1.Episodes!.Count.ShouldBe(10);
+            season1.Episodes.Count.ShouldBe(10);
 
             TraktEpisodeCollectionProgress episode1 = season1.Episodes[0];
             episode1.ShouldNotBeNull();
@@ -63,7 +63,7 @@ namespace TraktNET.Json.Shows
             season8.Aired.ShouldBe(6U);
             season8.Completed.ShouldBe(0U);
             season8.Episodes.ShouldNotBeNull();
-            season8.Episodes!.Count.ShouldBe(6);
+            season8.Episodes.Count.ShouldBe(6);
         }
     }
 }

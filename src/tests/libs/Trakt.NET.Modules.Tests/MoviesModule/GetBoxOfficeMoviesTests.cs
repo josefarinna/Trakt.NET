@@ -18,15 +18,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktBoxOfficeMovie> response = await client.Movies.GetBoxOfficeMoviesAsync(extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktBoxOfficeMovie> boxOfficeMovies = response.Content!;
+            IReadOnlyList<TraktBoxOfficeMovie> boxOfficeMovies = response.Content;
 
             TraktBoxOfficeMovie boxOfficeMovie = boxOfficeMovies[0];
 

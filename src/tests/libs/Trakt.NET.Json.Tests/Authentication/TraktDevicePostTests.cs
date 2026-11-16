@@ -7,7 +7,7 @@ namespace TraktNET.Json.Authentication
         {
             var post = new TraktDevicePost();
 
-            post.ClientId.ShouldBeNull();
+            post.ClientID.ShouldBeNull();
         }
 
         [Fact]
@@ -15,27 +15,27 @@ namespace TraktNET.Json.Authentication
         {
             var post = new TraktDevicePost
             {
-                ClientId = "clientId"
+                ClientID = "clientId"
             };
 
             // Valid post
             Action act = () => post.Validate();
             act.ShouldNotThrow();
 
-            // ClientId validation
-            post.ClientId = null;
+            // ClientID validation
+            post.ClientID = null;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = string.Empty;
+            post.ClientID = string.Empty;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "   ";
+            post.ClientID = "   ";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId with spaces";
+            post.ClientID = "clientId with spaces";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId";
+            post.ClientID = "clientId";
             act.ShouldNotThrow();
         }
     }

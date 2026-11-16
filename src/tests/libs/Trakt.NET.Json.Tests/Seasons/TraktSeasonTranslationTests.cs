@@ -22,12 +22,12 @@ namespace TraktNET.Json.Seasons
 
             seasonTranslation.ShouldNotBeNull();
 
-            seasonTranslation!.Title.ShouldBe("Temporada 1");
-            seasonTranslation!.Overview.ShouldStartWith("Se avecinan problemas en los Siete Reinos de Poniente.");
-            seasonTranslation!.Language.ShouldBe("es");
-            seasonTranslation!.Country.ShouldBe("es");
+            seasonTranslation.Title.ShouldBe("Temporada 1");
+            seasonTranslation.Overview.ShouldStartWith("Se avecinan problemas en los Siete Reinos de Poniente.");
+            seasonTranslation.Language.ShouldBe("es");
+            seasonTranslation.Country.ShouldBe("es");
 
-            seasonTranslation!.ToString().ShouldBe("es-ES=Temporada 1");
+            seasonTranslation.ToString().ShouldBe("es-ES=Temporada 1");
         }
 
         [Fact]

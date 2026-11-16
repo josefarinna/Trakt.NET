@@ -38,10 +38,10 @@ namespace TraktNET.ScrobbleModule
             responseValue.Movie.Title.ShouldBe("Guardians of the Galaxy");
             responseValue.Movie.Year.ShouldBe(2014U);
             responseValue.Movie.IDs.ShouldNotBeNull();
-            responseValue.Movie.IDs!.Trakt.ShouldBe(28U);
-            responseValue.Movie.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-2014");
-            responseValue.Movie.IDs!.IMDB.ShouldBe("tt2015381");
-            responseValue.Movie.IDs!.TMDB.ShouldBe(118340U);
+            responseValue.Movie.IDs.Trakt.ShouldBe(28U);
+            responseValue.Movie.IDs.Slug.ShouldBe("guardians-of-the-galaxy-2014");
+            responseValue.Movie.IDs.IMDB.ShouldBe("tt2015381");
+            responseValue.Movie.IDs.TMDB.ShouldBe(118340U);
         }
 
         [Theory]

@@ -18,17 +18,17 @@
 
             crewMember.ShouldNotBeNull();
 
-            crewMember!.Jobs.ShouldNotBeNull();
-            crewMember!.Jobs!.Count.ShouldBe(1);
-            crewMember!.Jobs!.ShouldBe(["Original Music Composer"], Case.Sensitive);
+            crewMember.Jobs.ShouldNotBeNull();
+            crewMember.Jobs.Count.ShouldBe(1);
+            crewMember.Jobs.ShouldBe(["Original Music Composer"], Case.Sensitive);
 
-            crewMember!.Person.ShouldNotBeNull();
-            crewMember!.Person!.Name.ShouldBe("John Murphy");
-            crewMember!.Person!.IDs.ShouldNotBeNull();
-            crewMember!.Person!.IDs!.Trakt.ShouldBe(1005U);
-            crewMember!.Person!.IDs!.Slug.ShouldBe("john-murphy");
-            crewMember!.Person!.IDs!.IMDB.ShouldBe("nm0614373");
-            crewMember!.Person!.IDs!.TMDB.ShouldBe(960U);
+            crewMember.Person.ShouldNotBeNull();
+            crewMember.Person.Name.ShouldBe("John Murphy");
+            crewMember.Person.IDs.ShouldNotBeNull();
+            crewMember.Person.IDs.Trakt.ShouldBe(1005U);
+            crewMember.Person.IDs.Slug.ShouldBe("john-murphy");
+            crewMember.Person.IDs.IMDB.ShouldBe("nm0614373");
+            crewMember.Person.IDs.TMDB.ShouldBe(960U);
         }
     }
 }

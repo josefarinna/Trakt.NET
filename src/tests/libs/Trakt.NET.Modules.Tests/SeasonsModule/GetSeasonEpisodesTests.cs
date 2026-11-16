@@ -23,8 +23,8 @@ namespace TraktNET.SeasonsModule
                 await client.Seasons.GetSeasonEpisodesAsync(TestConstants.Shows.TraktShowID, SeasonNr, translations, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
             var episodes = response.Content.ToList();
@@ -35,7 +35,7 @@ namespace TraktNET.SeasonsModule
             firstEpisode.Season.ShouldBe(1U);
             firstEpisode.Title.ShouldBe("Winter Is Coming");
             firstEpisode.IDs!.Trakt.ShouldBe(73640U);
-            firstEpisode.IDs!.IMDB.ShouldBe("tt1480055");
+            firstEpisode.IDs.IMDB.ShouldBe("tt1480055");
             firstEpisode.Runtime.ShouldBe(62U);
             firstEpisode.EpisodeType.ShouldBe(TraktEpisodeType.SeriesPremiere);
 
@@ -61,7 +61,7 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(10);
 
-            TraktEpisode lastEpisode = response.Content![response.Content.Count - 1];
+            TraktEpisode lastEpisode = response.Content[response.Content.Count - 1];
             lastEpisode.Number.ShouldBe(10U);
             lastEpisode.Title.ShouldBe("Fire and Blood");
             lastEpisode.EpisodeType.ShouldBe(TraktEpisodeType.SeasonFinale);

@@ -36,8 +36,8 @@
             note.User.VIP.ShouldBe(true);
             note.User.VIPEP.ShouldBe(true);
 
-            note.User!.IDs.ShouldNotBeNull();
-            note.User!.IDs!.Slug.ShouldBe("justin");
+            note.User.IDs.ShouldNotBeNull();
+            note.User.IDs.Slug.ShouldBe("justin");
         }
     }
 }

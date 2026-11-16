@@ -11,7 +11,7 @@
             studioIDs.Slug.ShouldBeNull();
             studioIDs.TMDB.ShouldBeNull();
 
-            studioIDs.HasAnyID.ShouldBe(false);
+            studioIDs.HasAnyID.ShouldBeFalse();
             studioIDs.BestID.ShouldBeEmpty();
         }
 
@@ -96,12 +96,12 @@
 
             studioIDs.ShouldNotBeNull();
 
-            studioIDs!.Trakt.ShouldBe(181U);
-            studioIDs!.Slug.ShouldBe("marvel-studios");
-            studioIDs!.TMDB.ShouldBe(420U);
+            studioIDs.Trakt.ShouldBe(181U);
+            studioIDs.Slug.ShouldBe("marvel-studios");
+            studioIDs.TMDB.ShouldBe(420U);
 
-            studioIDs!.HasAnyID.ShouldBe(true);
-            studioIDs!.BestID.ShouldBe("marvel-studios");
+            studioIDs.HasAnyID.ShouldBeTrue();
+            studioIDs.BestID.ShouldBe("marvel-studios");
         }
     }
 }

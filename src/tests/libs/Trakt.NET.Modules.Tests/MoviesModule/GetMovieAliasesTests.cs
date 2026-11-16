@@ -18,15 +18,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
+            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 
@@ -48,15 +48,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
+            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 
@@ -78,15 +78,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
+            IReadOnlyList<TraktMovieAlias> movieAliases = response.Content;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 

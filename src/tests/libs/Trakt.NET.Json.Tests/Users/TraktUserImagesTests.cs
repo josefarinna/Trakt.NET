@@ -17,8 +17,8 @@
 
             userImages.ShouldNotBeNull();
 
-            userImages!.Avatar.ShouldNotBeNull();
-            userImages!.Avatar!.Full.ShouldBe("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
+            userImages.Avatar.ShouldNotBeNull();
+            userImages.Avatar.Full.ShouldBe("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
         }
     }
 }

@@ -17,8 +17,8 @@ namespace TraktNET.Json.Comments
             TraktCommentGif? commentGif = await TestUtility.DeserializeJsonAsync<TraktCommentGif>("Comments\\commentgif.json");
 
             commentGif.ShouldNotBeNull();
-            commentGif!.Url.ShouldBe("https://example.com/image.gif");
-            commentGif!.Slug.ShouldBe("funny-cat");
+            commentGif.Url.ShouldBe("https://example.com/image.gif");
+            commentGif.Slug.ShouldBe("funny-cat");
         }
 
         [Fact]
@@ -27,8 +27,8 @@ namespace TraktNET.Json.Comments
             TraktCommentGif? commentGif = await TestUtility.DeserializeJsonAsync<TraktCommentGif>("Comments\\commentgif_minimal.json");
 
             commentGif.ShouldNotBeNull();
-            commentGif!.Url.ShouldBe("https://example.com/image.gif");
-            commentGif!.Slug.ShouldBeNull();
+            commentGif.Url.ShouldBe("https://example.com/image.gif");
+            commentGif.Slug.ShouldBeNull();
         }
     }
 }

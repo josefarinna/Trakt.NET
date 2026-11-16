@@ -17,7 +17,7 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.ReportShowEpisodeAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -30,7 +30,7 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.ReportShowEpisodeAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -43,7 +43,7 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.ReportShowEpisodeAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

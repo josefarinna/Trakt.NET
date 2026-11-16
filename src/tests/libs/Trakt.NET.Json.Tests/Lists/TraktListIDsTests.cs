@@ -10,7 +10,7 @@
             listIDs.Trakt.ShouldBeNull();
             listIDs.Slug.ShouldBeNull();
 
-            listIDs.HasAnyID.ShouldBe(false);
+            listIDs.HasAnyID.ShouldBeFalse();
             listIDs.BestID.ShouldBeEmpty();
         }
 
@@ -61,11 +61,11 @@
 
             listIDs.ShouldNotBeNull();
 
-            listIDs!.Trakt.ShouldBe(1248149U);
-            listIDs!.Slug.ShouldBe("marvel-cinematic-universe");
+            listIDs.Trakt.ShouldBe(1248149U);
+            listIDs.Slug.ShouldBe("marvel-cinematic-universe");
 
-            listIDs!.HasAnyID.ShouldBe(true);
-            listIDs!.BestID.ShouldBe("marvel-cinematic-universe");
+            listIDs.HasAnyID.ShouldBeTrue();
+            listIDs.BestID.ShouldBe("marvel-cinematic-universe");
         }
     }
 }

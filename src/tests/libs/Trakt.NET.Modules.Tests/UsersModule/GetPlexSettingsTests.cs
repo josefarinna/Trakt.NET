@@ -34,11 +34,11 @@ namespace TraktNET.UsersModule
             settings.Sync.Error.ShouldBeFalse();
             settings.Sync.ServerLimit.ShouldBe(1U);
             settings.Sync.Selection.ShouldNotBeNull();
-            settings.Sync.Selection.ServerIds.ShouldNotBeNull();
-            settings.Sync.Selection.ServerIds[0].ShouldBe("server1");
-            settings.Sync.Selection.LibraryIds.ShouldNotBeNull();
-            settings.Sync.Selection.LibraryIds[0].ServerId.ShouldBe("server1");
-            settings.Sync.Selection.LibraryIds[0].Uuid.ShouldBe("uuid1");
+            settings.Sync.Selection.ServerIDs.ShouldNotBeNull();
+            settings.Sync.Selection.ServerIDs[0].ShouldBe("server1");
+            settings.Sync.Selection.LibraryIDs.ShouldNotBeNull();
+            settings.Sync.Selection.LibraryIDs[0].ServerID.ShouldBe("server1");
+            settings.Sync.Selection.LibraryIDs[0].Uuid.ShouldBe("uuid1");
 
             settings.Sync.Toggles.ShouldNotBeNull();
             settings.Sync.Toggles.Movie.ShouldNotBeNull();

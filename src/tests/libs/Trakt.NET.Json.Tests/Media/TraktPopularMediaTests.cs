@@ -18,7 +18,7 @@ namespace TraktNET.Json.Media
             IReadOnlyList<TraktPopularMedia>? media = await TestUtility.DeserializeJsonListAsync<TraktPopularMedia>("Media\\popularmedia.json");
 
             media.ShouldNotBeNull();
-            media!.Count.ShouldBe(2);
+            media.Count.ShouldBe(2);
 
             media[0].Type.ShouldBe(TraktSearchResultType.Movie);
             media[0].Movie.ShouldNotBeNull();

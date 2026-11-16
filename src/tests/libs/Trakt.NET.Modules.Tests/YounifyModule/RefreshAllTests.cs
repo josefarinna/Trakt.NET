@@ -6,15 +6,15 @@ namespace TraktNET.YounifyModule
 {
     public sealed class RefreshAllTests
     {
-        private const string ServiceId = "netflix";
-        private static readonly string RefreshAllTrueUri = $"younify/users/refresh/{ServiceId}/true";
-        private static readonly string RefreshAllFalseUri = $"younify/users/refresh/{ServiceId}/false";
+        private const string ServiceID = "netflix";
+        private static readonly string RefreshAllTrueUri = $"younify/users/refresh/{ServiceID}/true";
+        private static readonly string RefreshAllFalseUri = $"younify/users/refresh/{ServiceID}/false";
 
         [Fact]
         public async Task TestRefreshAll()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllTrueUri, HttpStatusCode.Created);
-            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -25,7 +25,7 @@ namespace TraktNET.YounifyModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllFalseUri, HttpStatusCode.Created);
             var post = new TraktYounifyRefreshPost { SkipSync = true };
-            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceId, false, post, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceID, false, post, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -49,7 +49,7 @@ namespace TraktNET.YounifyModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllTrueUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAllAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAllAsync(ServiceID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

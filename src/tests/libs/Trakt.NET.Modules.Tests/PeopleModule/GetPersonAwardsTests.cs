@@ -25,15 +25,15 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetPersonAwardsAsync(PersonID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktPersonAward> personAwards = response.Content!;
+            IReadOnlyList<TraktPersonAward> personAwards = response.Content;
 
             TraktPersonAward award = personAwards[0];
             award.Year.ShouldBe(2024U);
@@ -67,8 +67,8 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetAwardsAsync(PersonID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }
@@ -82,8 +82,8 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetPersonAwardsAsync(PersonSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -100,8 +100,8 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetAwardsAsync(PersonSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }
@@ -115,8 +115,8 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetPersonAwardsAsync(PersonIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -133,8 +133,8 @@ namespace TraktNET.PeopleModule
             TraktListResponse<TraktPersonAward> response = await client.People.GetAwardsAsync(PersonIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }

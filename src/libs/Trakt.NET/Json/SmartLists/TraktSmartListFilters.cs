@@ -55,7 +55,7 @@ namespace TraktNET
         public uint[]? Runtimes { get; set; }
 
         /// <summary>IMDb ratings range [min, max]. Max 2 items.</summary>
-        public float[]? ImdbRatings { get; set; }
+        public float[]? IMDBRatings { get; set; }
 
         /// <summary>Rotten Tomatoes tomatometer range [min, max]. Max 2 items.</summary>
         public uint[]? RtMeters { get; set; }
@@ -133,7 +133,7 @@ namespace TraktNET
         public uint? ReleasedWithinDays { get; set; }
 
         /// <summary>TMDb ratings range [min, max]. Max 2 items.</summary>
-        public float[]? TmdbRatings { get; set; }
+        public float[]? TMDBRatings { get; set; }
 
         /// <summary>Metascore range [min, max]. Max 2 items.</summary>
         public uint[]? Metascores { get; set; }
@@ -142,7 +142,7 @@ namespace TraktNET
         public uint[]? Votes { get; set; }
 
         /// <summary>IMDb votes range [min, max]. Max 2 items.</summary>
-        public uint[]? ImdbVotes { get; set; }
+        public uint[]? IMDBVotes { get; set; }
 
         /// <summary>Award slugs.</summary>
         public string[]? Awards { get; set; }

@@ -17,13 +17,13 @@
             TraktCalendarMovie? calendarMovie = await TestUtility.DeserializeJsonAsync<TraktCalendarMovie>("Calendars\\calendarmovie_minimal.json");
 
             calendarMovie.ShouldNotBeNull();
-            calendarMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
+            calendarMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
 
             calendarMovie.Movie.ShouldNotBeNull();
-            calendarMovie.Movie!.Title.ShouldBe("The Avengers");
+            calendarMovie.Movie.Title.ShouldBe("The Avengers");
             calendarMovie.Movie.Year.ShouldBe(2012U);
             calendarMovie.Movie.IDs.ShouldNotBeNull();
-            calendarMovie.Movie.IDs!.Trakt.ShouldBe(14701U);
+            calendarMovie.Movie.IDs.Trakt.ShouldBe(14701U);
             calendarMovie.Movie.IDs.Slug.ShouldBe("the-avengers-2012");
             calendarMovie.Movie.IDs.IMDB.ShouldBe("tt0848228");
             calendarMovie.Movie.IDs.TMDB.ShouldBe(24428U);
@@ -35,10 +35,10 @@
             TraktCalendarMovie? calendarMovie = await TestUtility.DeserializeJsonAsync<TraktCalendarMovie>("Calendars\\calendarmovie.json");
 
             calendarMovie.ShouldNotBeNull();
-            calendarMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
+            calendarMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
 
             calendarMovie.Movie.ShouldNotBeNull();
-            TraktMovie movie = calendarMovie.Movie!;
+            TraktMovie movie = calendarMovie.Movie;
 
             movie.Title.ShouldBe("The Avengers");
             movie.Tagline.ShouldBe("Some assembly required.");

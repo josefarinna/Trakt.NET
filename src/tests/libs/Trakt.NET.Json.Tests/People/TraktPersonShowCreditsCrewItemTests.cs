@@ -26,11 +26,11 @@
             creditsCrewItem.Show.Airs.ShouldBeNull();
             creditsCrewItem.Show.AvailableTranslations.ShouldBeNull();
             creditsCrewItem.Show.IDs.ShouldNotBeNull();
-            creditsCrewItem.Show.IDs!.Trakt.ShouldBe(1390U);
-            creditsCrewItem.Show.IDs!.Slug.ShouldBe("game-of-thrones");
-            creditsCrewItem.Show.IDs!.TVDB.ShouldBe(121361U);
-            creditsCrewItem.Show.IDs!.IMDB.ShouldBe("tt0944947");
-            creditsCrewItem.Show.IDs!.TMDB.ShouldBe(1399U);
+            creditsCrewItem.Show.IDs.Trakt.ShouldBe(1390U);
+            creditsCrewItem.Show.IDs.Slug.ShouldBe("game-of-thrones");
+            creditsCrewItem.Show.IDs.TVDB.ShouldBe(121361U);
+            creditsCrewItem.Show.IDs.IMDB.ShouldBe("tt0944947");
+            creditsCrewItem.Show.IDs.TMDB.ShouldBe(1399U);
             creditsCrewItem.Show.Genres.ShouldBeNull();
             creditsCrewItem.Show.Overview.ShouldBeNullOrEmpty();
             creditsCrewItem.Show.FirstAired.ShouldBeNull();

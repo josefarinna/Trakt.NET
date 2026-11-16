@@ -21,20 +21,20 @@
 
             movieCheckin.ShouldNotBeNull();
 
-            movieCheckin!.Movie.ShouldNotBeNull();
-            movieCheckin!.Movie!.Title.ShouldBe("Guardians of the Galaxy");
-            movieCheckin!.Movie!.Year.ShouldBe(2014U);
-            movieCheckin!.Movie!.IDs.ShouldNotBeNull();
-            movieCheckin!.Movie!.IDs!.Trakt.ShouldBe(28U);
-            movieCheckin!.Movie!.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-2014");
-            movieCheckin!.Movie!.IDs!.IMDB.ShouldBe("tt2015381");
-            movieCheckin!.Movie!.IDs!.TMDB.ShouldBe(118340U);
+            movieCheckin.Movie.ShouldNotBeNull();
+            movieCheckin.Movie.Title.ShouldBe("Guardians of the Galaxy");
+            movieCheckin.Movie.Year.ShouldBe(2014U);
+            movieCheckin.Movie.IDs.ShouldNotBeNull();
+            movieCheckin.Movie.IDs.Trakt.ShouldBe(28U);
+            movieCheckin.Movie.IDs.Slug.ShouldBe("guardians-of-the-galaxy-2014");
+            movieCheckin.Movie.IDs.IMDB.ShouldBe("tt2015381");
+            movieCheckin.Movie.IDs.TMDB.ShouldBe(118340U);
 
-            movieCheckin!.Sharing.ShouldNotBeNull();
-            movieCheckin!.Sharing!.Twitter.ShouldBe(true);
-            movieCheckin!.Sharing!.Tumblr.ShouldBe(false);
+            movieCheckin.Sharing.ShouldNotBeNull();
+            movieCheckin.Sharing.Twitter.ShouldBe(true);
+            movieCheckin.Sharing.Tumblr.ShouldBe(false);
 
-            movieCheckin!.Message.ShouldBe("Guardians of the Galaxy FTW!");
+            movieCheckin.Message.ShouldBe("Guardians of the Galaxy FTW!");
         }
     }
 }

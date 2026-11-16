@@ -18,15 +18,15 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetShowAwardsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktTitleAward> showAwards = response.Content!;
+            IReadOnlyList<TraktTitleAward> showAwards = response.Content;
 
             TraktTitleAward award = showAwards[0];
             award.Year.ShouldBe(2024U);
@@ -56,8 +56,8 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetAwardsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }
@@ -71,8 +71,8 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -89,8 +89,8 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetAwardsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }
@@ -104,8 +104,8 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
@@ -122,8 +122,8 @@ namespace TraktNET.ShowsModule
             TraktListResponse<TraktTitleAward> response = await client.Shows.GetAwardsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }

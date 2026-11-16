@@ -10,7 +10,7 @@ namespace TraktNET.Json.Younify
         {
             var post = new TraktYounifyRefreshServicePost();
 
-            post.ServiceId.ShouldBeNull();
+            post.ServiceID.ShouldBeNull();
             post.SkipSync.ShouldBeNull();
         }
 
@@ -19,23 +19,23 @@ namespace TraktNET.Json.Younify
         {
             var post = new TraktYounifyRefreshServicePost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 SkipSync = true
             };
 
             Action act = () => post.Validate();
             act.ShouldNotThrow();
 
-            post.ServiceId = null;
+            post.ServiceID = null;
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = string.Empty;
+            post.ServiceID = string.Empty;
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = "   ";
+            post.ServiceID = "   ";
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = "netflix";
+            post.ServiceID = "netflix";
             act.ShouldNotThrow();
         }
     }

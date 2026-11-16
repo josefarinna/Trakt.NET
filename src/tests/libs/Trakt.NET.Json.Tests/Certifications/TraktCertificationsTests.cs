@@ -17,17 +17,17 @@
 
             certifications.ShouldNotBeNull();
 
-            certifications!.US.ShouldNotBeNull();
-            certifications!.US!.Count.ShouldBe(2);
+            certifications.US.ShouldNotBeNull();
+            certifications.US.Count.ShouldBe(2);
 
-            TraktCertification certification = certifications!.US![0];
+            TraktCertification certification = certifications.US[0];
 
             certification.ShouldNotBeNull();
             certification.Name.ShouldBe("G");
             certification.Slug.ShouldBe("g");
             certification.Description.ShouldBe("All Ages");
 
-            certification = certifications!.US![1];
+            certification = certifications.US[1];
 
             certification.ShouldNotBeNull();
             certification.Name.ShouldBe("PG");

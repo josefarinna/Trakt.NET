@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.RefreshMovieJustWatchLinksAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -28,7 +28,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.RefreshMovieJustWatchLinksAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -41,7 +41,7 @@ namespace TraktNET.MoviesModule
             TraktResponse response = await client.Movies.RefreshMovieJustWatchLinksAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

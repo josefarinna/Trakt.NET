@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Younify
             {
                 TraktYounifyRefreshServicePost = new TraktYounifyRefreshServicePost
                 {
-                    ServiceId = "netflix",
+                    ServiceID = "netflix",
                     SkipSync = true
                 }
             };

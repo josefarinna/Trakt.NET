@@ -49,7 +49,7 @@
             item.Movie.Certification.ShouldBe("PG-13");
 
             item.Movie.AvailableTranslations.ShouldNotBeNull();
-            item.Movie.AvailableTranslations!.Count.ShouldBe(4);
+            item.Movie.AvailableTranslations.Count.ShouldBe(4);
             item.Movie.Genres.ShouldNotBeNull();
             item.Movie.Genres.Count.ShouldBe(4);
         }
@@ -151,7 +151,7 @@
             item.Episode.Number.ShouldBe(1U);
             item.Episode.Title.ShouldBe("Winter Is Coming");
             item.Episode.IDs.ShouldNotBeNull();
-            item.Episode.IDs!.Trakt.ShouldBe(73640U);
+            item.Episode.IDs.Trakt.ShouldBe(73640U);
 
             item.Show.ShouldNotBeNull();
             item.Show.Title.ShouldBe("Game of Thrones");
@@ -173,7 +173,7 @@
             item.Episode.Runtime.ShouldBe(55U);
 
             item.Episode.AvailableTranslations.ShouldNotBeNull();
-            item.Episode.AvailableTranslations!.Count.ShouldBe(2);
+            item.Episode.AvailableTranslations.Count.ShouldBe(2);
 
             item.Episode.Translations.ShouldNotBeNull();
             item.Episode.Translations.Count.ShouldBe(2);

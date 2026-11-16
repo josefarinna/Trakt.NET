@@ -15,21 +15,21 @@ namespace TraktNET.CertificationsModule
             TraktResponse<TraktCertifications> response = await client.Certifications.GetShowCertificationsAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktCertifications certifications = response.Content!;
+            TraktCertifications certifications = response.Content;
 
             TraktCertification certification = certifications!.US![0];
 
             certification.ShouldNotBeNull();
             certification.Name.ShouldBe("G");
 
-            certification = certifications!.US![1];
+            certification = certifications.US[1];
 
             certification.ShouldNotBeNull();
             certification.Name.ShouldBe("PG");

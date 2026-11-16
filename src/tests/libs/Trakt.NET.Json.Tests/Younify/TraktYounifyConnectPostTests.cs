@@ -10,7 +10,7 @@ namespace TraktNET.Json.Younify
         {
             var post = new TraktYounifyConnectPost();
 
-            post.ServiceId.ShouldBeNull();
+            post.ServiceID.ShouldBeNull();
             post.ReturnUrl.ShouldBeNull();
         }
 
@@ -19,7 +19,7 @@ namespace TraktNET.Json.Younify
         {
             var post = new TraktYounifyConnectPost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 ReturnUrl = "https://trakt.tv/return"
             };
 
@@ -27,17 +27,17 @@ namespace TraktNET.Json.Younify
             Action act = () => post.Validate();
             act.ShouldNotThrow();
 
-            // ServiceId validation
-            post.ServiceId = null;
+            // ServiceID validation
+            post.ServiceID = null;
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = string.Empty;
+            post.ServiceID = string.Empty;
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = "   ";
+            post.ServiceID = "   ";
             act.ShouldThrow<ArgumentException>();
 
-            post.ServiceId = "netflix";
+            post.ServiceID = "netflix";
 
             // ReturnUrl validation
             post.ReturnUrl = null;

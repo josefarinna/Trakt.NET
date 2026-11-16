@@ -22,8 +22,8 @@
             network.Country.ShouldBe("us");
 
             network.IDs.ShouldNotBeNull();
-            network.IDs!.Trakt.ShouldBe(22U);
-            network.IDs!.TMDB.ShouldBe(16U);
+            network.IDs.Trakt.ShouldBe(22U);
+            network.IDs.TMDB.ShouldBe(16U);
         }
     }
 }

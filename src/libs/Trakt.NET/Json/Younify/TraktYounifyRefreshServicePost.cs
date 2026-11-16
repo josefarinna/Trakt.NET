@@ -4,10 +4,10 @@ namespace TraktNET
     public record class TraktYounifyRefreshServicePost : TraktYounifyRefreshPost
     {
         /// <summary>Gets or sets the streaming service to re-sync (e.g. "netflix").</summary>
-        public string? ServiceId { get; set; }
+        public string? ServiceID { get; set; }
 
         /// <summary>Validates the post data.</summary>
         public void Validate()
-            => ArgumentValidator.ThrowIfNullOrWhiteSpace(ServiceId, "ServiceId must not be null or empty.");
+            => ArgumentValidator.ThrowIfNullOrWhiteSpace(ServiceID, "ServiceID must not be null or empty.");
     }
 }

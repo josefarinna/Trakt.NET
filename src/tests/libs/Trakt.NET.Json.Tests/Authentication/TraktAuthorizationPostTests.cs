@@ -9,7 +9,7 @@ namespace TraktNET.Json.Authentication
 
             post.Code.ShouldBeNull();
             post.CodeVerifier.ShouldBeNull();
-            post.ClientId.ShouldBeNull();
+            post.ClientID.ShouldBeNull();
             post.ClientSecret.ShouldBeNull();
             post.RedirectUri.ShouldBeNull();
             post.GrantType.ShouldBe("authorization_code");
@@ -21,7 +21,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationPost
             {
                 Code = "code",
-                ClientId = "clientId",
+                ClientID = "clientId",
                 ClientSecret = "clientSecret",
                 RedirectUri = "https://trakt.tv/callback"
             };
@@ -45,20 +45,20 @@ namespace TraktNET.Json.Authentication
 
             post.Code = "code";
 
-            // ClientId validation
-            post.ClientId = null;
+            // ClientID validation
+            post.ClientID = null;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = string.Empty;
+            post.ClientID = string.Empty;
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "   ";
+            post.ClientID = "   ";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId with spaces";
+            post.ClientID = "clientId with spaces";
             act.ShouldThrow<ArgumentException>();
 
-            post.ClientId = "clientId";
+            post.ClientID = "clientId";
 
             // ClientSecret validation (when CodeVerifier is null)
             post.ClientSecret = null;
@@ -98,7 +98,7 @@ namespace TraktNET.Json.Authentication
             var post = new TraktAuthorizationPost
             {
                 Code = "code",
-                ClientId = "clientId",
+                ClientID = "clientId",
                 CodeVerifier = "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
                 ClientSecret = null,
                 RedirectUri = "https://trakt.tv/callback"

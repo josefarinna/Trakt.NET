@@ -54,7 +54,7 @@ namespace TraktNET.Paramters
             var filter = new TraktFilter();
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -80,7 +80,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace TraktNET.Paramters
                 Years = new Range<uint>(0, 2024)
             };
 
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -135,7 +135,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -173,7 +173,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -192,7 +192,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -243,7 +243,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -346,7 +346,7 @@ namespace TraktNET.Paramters
                 TMDBRatings = new Range<float>(-1.0f, 7.5f)
             };
 
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -417,7 +417,7 @@ namespace TraktNET.Paramters
                 IMDBRatings = new Range<float>(-1.0f, 7.5f)
             };
 
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -552,7 +552,7 @@ namespace TraktNET.Paramters
                 Metascores = new Range<float>(-1.0f, 70.0f)
             };
 
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -571,7 +571,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -608,7 +608,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
 
             filter = new TraktFilter
             {
@@ -616,7 +616,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -642,7 +642,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
 
             filter = new TraktFilter
             {
@@ -650,7 +650,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -683,7 +683,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -833,7 +833,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -852,7 +852,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -878,7 +878,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -904,7 +904,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -941,7 +941,7 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldNotBeNull();
-            filter.ToString()!.ShouldBeEmpty();
+            filter.ToString().ShouldBeEmpty();
         }
 
         [Fact]

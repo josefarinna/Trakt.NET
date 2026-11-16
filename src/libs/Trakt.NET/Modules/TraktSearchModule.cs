@@ -74,10 +74,10 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
-        public Task<TraktPagedResponse<TraktSearchResult>> GetIdLookupResultsAsync(TraktSearchIDType searchIdType, string lookupId,
+        public Task<TraktPagedResponse<TraktSearchResult>> GetIDLookupResultsAsync(TraktSearchIDType searchIdType, string lookupId,
             TraktSearchResultType? searchResultTypes = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetIdLookupResultsImplAsync(searchIdType, lookupId, searchResultTypes, extendedInfo, page, limit, cancellationToken);
+            => GetIDLookupResultsImplAsync(searchIdType, lookupId, searchResultTypes, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Adds a recent search query to the history of the authenticated user.</summary>
         /// <param name="searchQuery">The search query to add.</param>

@@ -218,7 +218,7 @@ namespace TraktNET.Json.Shows
             collectionShow.IDs.TVDB.ShouldBe(121361U);
             collectionShow.IDs.IMDB.ShouldBe("tt0944947");
             collectionShow.IDs.TMDB.ShouldBe(1399U);
-            collectionShow.IDs.HasAnyID.ShouldBe(true);
+            collectionShow.IDs.HasAnyID.ShouldBeTrue();
             collectionShow.IDs.BestID.ShouldBe("game-of-thrones");
 
             collectionShow.ToString().ShouldBe("Game of Thrones (2011)");
@@ -241,7 +241,7 @@ namespace TraktNET.Json.Shows
             collectionShow.IDs.TVDB.ShouldBe(121361U);
             collectionShow.IDs.IMDB.ShouldBe("tt0944947");
             collectionShow.IDs.TMDB.ShouldBe(1399U);
-            collectionShow.IDs.HasAnyID.ShouldBe(true);
+            collectionShow.IDs.HasAnyID.ShouldBeTrue();
             collectionShow.IDs.BestID.ShouldBe("game-of-thrones");
 
             collectionShow.ToString().ShouldBe("Game of Thrones (2011)");

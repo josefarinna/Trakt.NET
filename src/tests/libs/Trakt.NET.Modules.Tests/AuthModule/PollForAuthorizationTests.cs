@@ -38,7 +38,7 @@ namespace TraktNET.AuthModule
             string mockDeviceJson = TestUtility.SerializeObject(new TraktAuthorizationPollPost
             {
                 Device = TestConstants.MockDevice,
-                ClientId = TestConstants.ClientID,
+                ClientID = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             });
 
@@ -68,7 +68,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestPollForAuthorizationWithDeviceAndClientId()
+        public async Task TestPollForAuthorizationWithDeviceAndClientID()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();

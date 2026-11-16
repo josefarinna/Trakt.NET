@@ -25,7 +25,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
+            response.Content.ResetAt.ShouldBe(ResetAt);
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
+            response.Content.ResetAt.ShouldBe(ResetAt);
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content!.ResetAt.ShouldBe(ResetAt);
+            response.Content.ResetAt.ShouldBe(ResetAt);
         }
 
         [Theory]

@@ -69,7 +69,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestRevokeAuthorizationWithTokenAndClientId()
+        public async Task TestRevokeAuthorizationWithTokenAndClientID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, HttpStatusCode.NoContent, true);
             client.Authorization = TestConstants.MockAuthorization;

@@ -10,7 +10,7 @@
             userIDs.Slug.ShouldBeNull();
             userIDs.UUID.ShouldBeNull();
 
-            userIDs.HasAnyID.ShouldBe(false);
+            userIDs.HasAnyID.ShouldBeFalse();
             userIDs.BestID.ShouldBeEmpty();
         }
 
@@ -68,11 +68,11 @@
 
             userIDs.ShouldNotBeNull();
 
-            userIDs!.Slug.ShouldBe("ixxus");
-            userIDs!.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            userIDs.Slug.ShouldBe("ixxus");
+            userIDs.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
 
-            userIDs!.HasAnyID.ShouldBe(true);
-            userIDs!.BestID.ShouldBe("ixxus");
+            userIDs.HasAnyID.ShouldBeTrue();
+            userIDs.BestID.ShouldBe("ixxus");
         }
     }
 }
