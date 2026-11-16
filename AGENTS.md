@@ -103,7 +103,8 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
    - The DocFX site is built on every CI run, but deployed to GitHub Pages (`gh-pages`) only from `v*` tags (`.github/workflows/documentation.yml`), so it always matches the released package. To redeploy it, run the CI workflow manually on the release tag.
 4. **Release Process**:
    - Day-to-day work (features, fixes, Dependabot) targets `develop`, whose `src/version.json` holds the next version.
-   - To close a version: update the changelog and the versioned links (`README.md`, `docs/`, `src/Trakt.NET.slnx`, `Postman/`), run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
+   - The version is not hard-coded anywhere else: the NuGet badge is dynamic, the install commands have no `--version`, the docs examples include the code instead of linking a tag, and `PackageReleaseNotes` is built from the computed version (`src/libs/Directory.Build.props`).
+   - To close a version: add `Changelogs/vx.y.z.md` (and reference it in `src/Trakt.NET.slnx`) and the `Postman/vx.y.z/` collection, run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
 
 ---
 

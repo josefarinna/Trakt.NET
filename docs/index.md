@@ -6,7 +6,7 @@
 ## Install latest Trakt.NET package
 
 ```ps
-dotnet add package Trakt.NET.Ex --version 2.3.0
+dotnet add package Trakt.NET.Ex
 ```
 
 ## Get basic info about the show "[The Last of Us](https://trakt.tv/shows/the-last-of-us)" (including media images)

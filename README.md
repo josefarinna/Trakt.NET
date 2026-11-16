@@ -78,7 +78,7 @@ Below is the list of supported API modules available via `TraktClient`:
 Install the package via the .NET CLI:
 
 ```bash
-dotnet add package Trakt.NET.Ex --version 2.3.0
+dotnet add package Trakt.NET.Ex
 ```
 
 #### Code Example
@@ -123,7 +123,7 @@ catch (TraktException ex)
 
 ### Documentation
 
-- [Changelogs](Changelogs/v2.3.0.md)
+- [Changelogs](https://github.com/josefarinna/Trakt.NET/tree/develop/Changelogs)
 - [Official Trakt API Documentation](https://docs.trakt.tv/)
 
 ### License

@@ -10,4 +10,6 @@ The following lines show how to create a favorites post and send it in a request
 
 [!code-csharp[](../../../codesnippets/examples/parameters/postbuilder/FavoritesPostBuilderExample.cs#L22-L30)]
 
-__The complete code for this example can be found at: [Trakt.NET/docs/codesnippets/examples/parameters/postbuilder/FavoritesPostBuilderExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/parameters/postbuilder/FavoritesPostBuilderExample.cs)__
+The complete code for this example:
+
+[!code-csharp[](../../../codesnippets/examples/parameters/postbuilder/FavoritesPostBuilderExample.cs)]

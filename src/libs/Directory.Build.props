@@ -34,7 +34,6 @@
     <PackageTags>trakt rest api dotnet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v2.3.0/Changelogs/v2.3.0.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
@@ -47,6 +46,13 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
     <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="All" />
   </ItemGroup>
+
+  <!-- Point the release notes to the changelog of the version being packed (computed by Nerdbank.GitVersioning). -->
+  <Target Name="SetPackageReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
+    <PropertyGroup>
+      <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v$(BuildVersion3Components)/Changelogs/v$(BuildVersion3Components).md</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 
   <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
     <PackageReference Include="System.Text.Json" />

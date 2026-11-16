@@ -14,4 +14,6 @@ Then, we use [`System.Text.Json.JsonSerializer`](https://learn.microsoft.com/dot
 
 [!code-csharp[](../../codesnippets/examples/serialization/SerializationExample.cs#L22-L36)]
 
-__The complete code for this example can be found at: [Trakt.NET/docs/codesnippets/examples/serialization/SerializationExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/serialization/SerializationExample.cs)__
+The complete code for this example:
+
+[!code-csharp[](../../codesnippets/examples/serialization/SerializationExample.cs)]
