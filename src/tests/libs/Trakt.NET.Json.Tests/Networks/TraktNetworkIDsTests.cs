@@ -15,7 +15,7 @@
         }
 
         [Fact]
-        public void TestTraktNetworkIDsHasAnyId()
+        public void TestTraktNetworkIDsHasAnyID()
         {
             var networkIDs = new TraktNetworkIDs { Trakt = 1 };
             networkIDs.HasAnyID.ShouldBeTrue();

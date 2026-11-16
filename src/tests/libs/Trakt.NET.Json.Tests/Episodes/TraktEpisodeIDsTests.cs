@@ -17,7 +17,7 @@ namespace TraktNET.Json.Episodes
         }
 
         [Fact]
-        public void TestTraktEpisodeIDsHasAnyId()
+        public void TestTraktEpisodeIDsHasAnyID()
         {
             var episodeIDs = new TraktEpisodeIDs { Trakt = 1 };
             episodeIDs.HasAnyID.ShouldBeTrue();
@@ -124,7 +124,7 @@ namespace TraktNET.Json.Episodes
         }
 
         [Fact]
-        public async Task TestTraktepisodeIDsFromJson()
+        public async Task TestTraktEpisodeIDsFromJson()
         {
             TraktEpisodeIDs? episodeIDs = await TestUtility.DeserializeJsonAsync<TraktEpisodeIDs>("Episodes\\episodeIDs.json");
 

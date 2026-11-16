@@ -87,11 +87,11 @@ namespace TraktNET.Json.Shows
             updatedShows.ShouldNotBeNull();
             updatedShows!.Count.ShouldBe(2);
 
-            // Primer Show: Medalist
+            // First show: Medalist
             updatedShows[0].Title.ShouldBe("Medalist");
             updatedShows[0].UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
 
-            // Segundo Show: Scrubs
+            // Second show: Scrubs
             updatedShows[1].Title.ShouldBe("Scrubs");
             updatedShows[1].Year.ShouldBe(2026U);
             updatedShows[1].IDs!.Slug.ShouldBe("scrubs-2026");
@@ -106,7 +106,7 @@ namespace TraktNET.Json.Shows
             updatedShows.ShouldNotBeNull();
             updatedShows!.Count.ShouldBe(2);
 
-            TraktUpdatedShow updatedShow = updatedShows![1]; // Probamos el segundo (Scrubs)
+            TraktUpdatedShow updatedShow = updatedShows![1]; // Test the second one (Scrubs)
 
             updatedShow.Title.ShouldBe("Scrubs");
             updatedShow.Year.ShouldBe(2026U);
