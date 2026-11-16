@@ -69,7 +69,8 @@ jobs:
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4
-        if: ${{ github.ref_name == 'main' || github.ref_name == 'develop' || (github.event_name == 'workflow_dispatch' && (github.ref_name == 'main' || github.ref_name == 'develop')) }}
+        # Publish only released versions: a pushed v* tag, or a manual run started on a v* tag.
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: 'docs/_site'
