@@ -15,7 +15,7 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
         }
 
         [Fact]
@@ -26,7 +26,7 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
         }
 
         [Fact]
@@ -37,24 +37,17 @@ namespace TraktNET.ShowsModule
             TraktResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        public async Task TestUndoResetShowWatchedProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestUndoResetShowWatchedProgressWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(UndoResetShowWatchedProgressUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UndoResetShowWatchedProgressUri, statusCode);
 
-            try
-            {
-                await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktResponse>> act = () => client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
         }
 
         [Fact]

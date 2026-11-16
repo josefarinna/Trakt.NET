@@ -16,7 +16,7 @@
         }
 
         [Fact]
-        public void TestTraktSeasonIDsHasAnyId()
+        public void TestTraktSeasonIDsHasAnyID()
         {
             var seasonIDs = new TraktSeasonIDs { Trakt = 1 };
             seasonIDs.HasAnyID.ShouldBeTrue();

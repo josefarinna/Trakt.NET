@@ -99,10 +99,10 @@ namespace TraktNET.Json.Shows
             shows.ShouldNotBeNull();
             shows!.Count.ShouldBe(2);
 
-            // Valida el primer elemento con todo el detalle posible
+            // Validate the first item in full detail
             ValidateMostAnticipatedShow(shows[0]);
 
-            // Valida el segundo elemento para asegurar que la iteración funciona
+            // Validate the second item to make sure the iteration works
             var show1 = shows[1];
             show1.Title.ShouldBe("Stranger Things");
             show1.Network.ShouldBe("Netflix");

@@ -96,10 +96,10 @@ namespace TraktNET.Json.Shows
             shows.ShouldNotBeNull();
             shows!.Count.ShouldBe(2);
 
-            // Valida el primer elemento exhaustivamente
+            // Validate the first item in full detail
             ValidateMostFavoritedShow(shows[0]);
 
-            // Valida el segundo elemento para asegurar la integridad de la lista
+            // Validate the second item to make sure the list is complete
             var show1 = shows[1];
             show1.UserCount.ShouldBe(37U);
             show1.Title.ShouldBe("Black Mirror");

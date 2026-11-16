@@ -15,7 +15,7 @@
         }
 
         [Fact]
-        public void TestTraktUserIDsHasAnyId()
+        public void TestTraktUserIDsHasAnyID()
         {
             var userIDs = new TraktUserIDs { Slug = "slug" };
             userIDs.HasAnyID.ShouldBeTrue();
