@@ -28,6 +28,7 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 ### Breaking Changes
 
 - Renamed `Id`/`Ids` to `ID`/`IDs` in the method and property names that still used them (e.g. `GetIDLookupResultsAsync`, `ClientID`). JSON property names are unchanged.
+- Renamed `RtMeters`, `RtUserMeters`, and `MalRatings` in `TraktSmartListFilters` to `RottenTomatoesMeters`, `RottenTomatoesUserMeters`, and `MALRatings`.
 
 ### Improvements & Fixes
 
