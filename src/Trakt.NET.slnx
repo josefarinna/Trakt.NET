@@ -1,14 +1,8 @@
 <Solution>
   <Folder Name="/SolutionItems/" />
   <Folder Name="/SolutionItems/Changelogs/">
-    <File Path="../Changelogs/old-versions.md" />
-    <File Path="../Changelogs/v1.2.0.md" />
-    <File Path="../Changelogs/v1.3.0.md" />
-    <File Path="../Changelogs/v1.4.0.md" />
-    <File Path="../Changelogs/v2.0.0.md" />
-    <File Path="../Changelogs/v2.1.0.md" />
-    <File Path="../Changelogs/v2.2.0.md" />
-    <File Path="../Changelogs/v2.3.0.md" />
+    <File Path="../CHANGELOG.md" />
+    <File Path="../Changelogs/CHANGELOG-v1.md" />
   </Folder>
   <Folder Name="/SolutionItems/Contributing/">
     <File Path="../CODE_OF_CONDUCT.md" />

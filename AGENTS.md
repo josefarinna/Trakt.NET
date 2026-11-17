@@ -23,7 +23,7 @@ This file provides comprehensive context regarding the architecture, code struct
 Trakt.NET/
 ├── .github/
 │   └── workflows/          # GitHub Actions workflows (ci.yml, build.yml)
-├── Changelogs/             # Release notes per version (v2.0.0-alpha.2.md, etc.)
+├── Changelogs/             # Frozen changelog of 1.x and older versions (CHANGELOG-v1.md)
 ├── docs/                   # Website and technical documentation (DocFX / Markdown)
 ├── src/
 │   ├── libs/
@@ -43,6 +43,7 @@ Trakt.NET/
 │   └── Trakt.NET.slnx      # Main .NET solution
 ├── .editorconfig           # C# formatting rules and code analyzers
 ├── AGENTS.md               # AI agent guidelines
+├── CHANGELOG.md            # Changelog of 2.x versions (current)
 └── coding_style.md         # C# coding style guide
 ```
 
@@ -99,6 +100,10 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
    - **NuGet.org Account**: `jose.farinna`
    - **Deployment Workflow**: `.github/workflows/ci.yml` -> `build.yml`
    - Requires `id-token: write` permission in CI jobs to generate ephemeral OIDC tokens.
+3. **Changelog**:
+   - All 2.x changes go in `CHANGELOG.md` (root). `Changelogs/CHANGELOG-v1.md` holds 1.x and older versions and is frozen.
+   - The version in progress is the top section, `## [x.y.z] - Unreleased`, with `###` subsections (`New Features & API Endpoints`, `Added & Updated Data Models`, `Breaking Changes`, `Removed / Deprecated`, `Improvements & Fixes`). Every user-visible change adds a short entry there.
+   - When releasing, replace `Unreleased` with the release date (`YYYY-MM-DD`). `PackageReleaseNotes` points to `CHANGELOG.md` at the version tag.
 
 ---
 
