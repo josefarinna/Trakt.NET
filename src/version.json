@@ -9,9 +9,15 @@
     "^refs/heads/develop$",
     "^refs/tags/v\\d+\\.\\d+\\.\\d+.*"
   ],
+  "release": {
+    "branchName": "release-{version}",
+    "versionIncrement": "minor",
+    "firstUnstableTag": "alpha"
+  },
   "cloudBuild": {
+    "setVersionVariables": false,
     "buildNumber": {
-      "enabled": true
+      "enabled": false
     }
   }
 }

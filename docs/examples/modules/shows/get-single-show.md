@@ -21,7 +21,9 @@ The following lines show how to get full information about a show using `TraktEx
 Here are the complete codes.
 
 Single Show without extended info:
-[Trakt.NET/docs/codesnippets/examples/modules/shows/SingleShowExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/modules/shows/SingleShowExample.cs)
+
+[!code-csharp[](../../../codesnippets/examples/modules/shows/SingleShowExample.cs)]
 
 Single Show with extended info:
-[Trakt.NET/docs/codesnippets/examples/modules/shows/SingleShowExtendedExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/modules/shows/SingleShowExtendedExample.cs)
+
+[!code-csharp[](../../../codesnippets/examples/modules/shows/SingleShowExtendedExample.cs)]

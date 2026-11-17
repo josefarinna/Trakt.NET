@@ -1,12 +1,12 @@
 # Quick Start
-[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.3.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.3.0) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT) 
+[![NuGet Package](https://img.shields.io/nuget/v/Trakt.NET.Ex.svg?label=Latest%20Version%20on%20NuGet&color=blue&style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT) 
 
 `Trakt.NET` is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the [Trakt.tv API](https://docs.trakt.tv/reference).
 
 ## Install latest Trakt.NET package
 
 ```ps
-dotnet add package Trakt.NET.Ex --version 2.3.0
+dotnet add package Trakt.NET.Ex
 ```
 
 ## Get basic info about the show "[The Last of Us](https://trakt.tv/shows/the-last-of-us)" (including media images)
@@ -92,7 +92,7 @@ To use **Trakt.NET**, you will need to [obtain an API key](https://trakt.tv/oaut
 - Completely asynchronous architecture
 
 ## Supported Platforms
-- .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0
+- .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0, .NET 11.0
 - .NET Standard 2.0, .NET Standard 2.1
 - .NET Framework >= 4.7.2
 - .NET MAUI / iOS / Android / macOS / Mac Catalyst
