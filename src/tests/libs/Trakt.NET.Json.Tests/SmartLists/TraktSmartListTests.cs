@@ -106,25 +106,25 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.IMDBRatings[0].ShouldBe(7.5f);
             smartList.Filters.IMDBRatings[1].ShouldBe(9.8f);
 
-            smartList.Filters.RtMeters.ShouldNotBeNull();
-            smartList.Filters.RtMeters.Length.ShouldBe(2);
-            smartList.Filters.RtMeters[0].ShouldBe(70U);
-            smartList.Filters.RtMeters[1].ShouldBe(100U);
+            smartList.Filters.RottenTomatoesMeters.ShouldNotBeNull();
+            smartList.Filters.RottenTomatoesMeters.Length.ShouldBe(2);
+            smartList.Filters.RottenTomatoesMeters[0].ShouldBe(70U);
+            smartList.Filters.RottenTomatoesMeters[1].ShouldBe(100U);
 
-            smartList.Filters.RtUserMeters.ShouldNotBeNull();
-            smartList.Filters.RtUserMeters.Length.ShouldBe(2);
-            smartList.Filters.RtUserMeters[0].ShouldBe(80U);
-            smartList.Filters.RtUserMeters[1].ShouldBe(100U);
+            smartList.Filters.RottenTomatoesUserMeters.ShouldNotBeNull();
+            smartList.Filters.RottenTomatoesUserMeters.Length.ShouldBe(2);
+            smartList.Filters.RottenTomatoesUserMeters[0].ShouldBe(80U);
+            smartList.Filters.RottenTomatoesUserMeters[1].ShouldBe(100U);
 
             smartList.Filters.LetterboxdRatings.ShouldNotBeNull();
             smartList.Filters.LetterboxdRatings.Length.ShouldBe(2);
             smartList.Filters.LetterboxdRatings[0].ShouldBe(3.5f);
             smartList.Filters.LetterboxdRatings[1].ShouldBe(5.0f);
 
-            smartList.Filters.MalRatings.ShouldNotBeNull();
-            smartList.Filters.MalRatings.Length.ShouldBe(2);
-            smartList.Filters.MalRatings[0].ShouldBe(7.0f);
-            smartList.Filters.MalRatings[1].ShouldBe(9.5f);
+            smartList.Filters.MALRatings.ShouldNotBeNull();
+            smartList.Filters.MALRatings.Length.ShouldBe(2);
+            smartList.Filters.MALRatings[0].ShouldBe(7.0f);
+            smartList.Filters.MALRatings[1].ShouldBe(9.5f);
 
             smartList.Filters.ParentalNudity.ShouldNotBeNull();
             smartList.Filters.ParentalNudity.Length.ShouldBe(2);
