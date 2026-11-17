@@ -62,6 +62,8 @@ Trakt.NET/
    - Private Fields: `_camelCase` for instance fields, `s_camelCase` for static fields.
    - Constants: `UPPER_CASE`.
    - Async Methods: Always include the `Async` suffix and accept `CancellationToken cancellationToken = default`.
+   - **Acronyms & Abbreviations**: Write identifiers in uppercase (`ID`, `IDs`, `IMDB`, `TMDB`, `TVDB`, `MAL`), e.g. `TraktMovieIDs`, `ClientID`, `IMDBRatings`, `GetIDLookupResultsAsync`. `Url` and `Uri` keep the .NET casing (`ReturnUrl`, `RequestUri`). Spell out abbreviations that are not well known (`RottenTomatoesMeters`, not `RtMeters`). Parameters follow the same rule in camelCase (`movieIDs`, `showID`); some older parameters still use `Id`/`Ids` and must not be taken as reference.
+   - **JSON Property Names**: The serializer uses the snake_case naming policy, which splits `IDs` into `i_ds` and joins `TMDBID` into `tmdbid`. When the property name does not convert to the Trakt API name (e.g. `ServerIDs` → `server_ids`, `RottenTomatoesMeters` → `rt_meters`), add `[JsonPropertyName("...")]` with the exact API name.
 4. **Modern C#**:
    - Always enable `#nullable enable`.
    - Use expression-bodied members (`=>`) for concise properties and methods.

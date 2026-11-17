@@ -26,13 +26,17 @@
             episode.ToString().ShouldBeEmpty();
         }
 
-        [Fact]
-        public void TestTraktEpisodeMinimalToString()
+        [Theory]
+        [InlineData(null, null, null, "")]
+        [InlineData(null, 1U, "Winter Is Coming", "Winter Is Coming")]
+        [InlineData(1U, null, "Winter Is Coming", "Winter Is Coming")]
+        [InlineData(1U, 1U, null, "S01E01")]
+        [InlineData(1U, 1U, " ", "S01E01")]
+        [InlineData(1U, 1U, "Winter Is Coming", "S01E01: Winter Is Coming")]
+        public void TestTraktEpisodeToString(uint? season, uint? number, string? title, string expected)
         {
-            new TraktEpisodeMinimal().ToString().ShouldBeEmpty();
-            new TraktEpisodeMinimal { Number = 1U, Title = "Winter Is Coming" }.ToString().ShouldBe("Winter Is Coming");
-            new TraktEpisodeMinimal { Season = 1U, Title = "Winter Is Coming" }.ToString().ShouldBe("Winter Is Coming");
-            new TraktEpisodeMinimal { Season = 1U, Number = 1U }.ToString().ShouldBe("S01E01: ");
+            new TraktEpisode { Season = season, Number = number, Title = title }.ToString().ShouldBe(expected);
+            new TraktEpisodeMinimal { Season = season, Number = number, Title = title }.ToString().ShouldBe(expected);
         }
 
         [Fact]

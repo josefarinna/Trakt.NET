@@ -24,6 +24,15 @@ namespace TraktNET.Json.Seasons
             season.ToString().ShouldBeEmpty();
         }
 
+        [Theory]
+        [InlineData(null, null, "")]
+        [InlineData(null, "Season 1", "Season 1")]
+        [InlineData(1U, null, "S01")]
+        [InlineData(1U, " ", "S01")]
+        [InlineData(1U, "Season 1", "S01: Season 1")]
+        public void TestTraktSeasonToString(uint? number, string? title, string expected)
+            => new TraktSeason { Number = number, Title = title }.ToString().ShouldBe(expected);
+
         [Fact]
         public async Task TestTraktSeasonFromJsonMinimal()
         {

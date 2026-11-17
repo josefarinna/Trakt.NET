@@ -35,6 +35,9 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - **Postman Collection**
   - Updated collection to v2.3.0 with anticipated recommendations and awards requests.
 
+- **Episodes & Seasons**
+  - `ToString()` of `TraktEpisode`, `TraktEpisodeMinimal`, and `TraktSeason` no longer ends with `": "` when there is no title (e.g. `S01E01`).
+
 ## [2.2.0] - 2026-11-09
 
 ### New Features & API Endpoints

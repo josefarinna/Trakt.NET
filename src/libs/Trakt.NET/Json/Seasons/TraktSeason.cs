@@ -59,7 +59,8 @@ namespace TraktNET
 
             if (Number.HasValue)
             {
-                title = $"S{Number.Value.ToInvariantCultureString("D2")}: {title}";
+                string season = $"S{Number.Value.ToInvariantCultureString("D2")}";
+                return title.Length > 0 ? $"{season}: {title}" : season;
             }
 
             return title;
