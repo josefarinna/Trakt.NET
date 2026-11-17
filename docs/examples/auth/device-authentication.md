@@ -50,4 +50,6 @@ Revoking an already existing authorization
 
 [!code-csharp[](../../codesnippets/examples/auth/DeviceAuthenticationExample.cs#L81-L88)]
 
-__The complete code for this example can be found at: [Trakt.NET/docs/codesnippets/examples/auth/DeviceAuthenticationExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.2.0/docs/codesnippets/examples/auth/DeviceAuthenticationExample.cs)__
+The complete code for this example:
+
+[!code-csharp[](../../codesnippets/examples/auth/DeviceAuthenticationExample.cs)]

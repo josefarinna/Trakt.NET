@@ -18,23 +18,12 @@ body:
       placeholder: Detailed description of the issue.
     validations:
       required: true
-  - type: dropdown
+  - type: input
     id: version
     attributes:
       label: Version
-      description: What version of Trakt.NET are you using?
-      options:
-        - 2.2.0 (Latest)
-        - 2.1.0
-        - 2.0.0
-        - 1.4.0
-        - 1.3.0
-        - 1.2.0
-        - 1.1.1
-        - 1.1.0
-        - 1.0.2
-        - 1.0.1
-        - 1.0.0
+      description: What version of Trakt.NET are you using? You can find it in your project file or in the NuGet package manager.
+      placeholder: e.g. 2.3.0
     validations:
       required: true
   - type: textarea

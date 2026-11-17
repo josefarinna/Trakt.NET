@@ -2,7 +2,7 @@
 
 > **Note**: This repository is a modernized, high-performance fork of `Trakt.NET`. It introduces full support for media image retrieval across Trakt.tv endpoints, source-generated `System.Text.Json` serialization, Native AOT & Trimming compatibility, concrete C# record data models (no interfaces), support for modern .NET runtimes (.NET 6 through .NET 10), and new API modules (Smart Lists, Social Recommendations, Notes, Team, WatchNow, Younify, Plex integration).
 
-[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.2.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.2.0)
+[![NuGet Package](https://img.shields.io/nuget/v/Trakt.NET.Ex.svg?label=Latest%20Version%20on%20NuGet&color=blue&style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/github/josefarinna/Trakt.NET/graph/badge.svg?token=R66P6V55FL)](https://codecov.io/github/josefarinna/Trakt.NET)
 
@@ -66,7 +66,7 @@ Below is the list of supported API modules available via `TraktClient`:
 
 | Platform | Supported Versions |
 |---|---|
-| **.NET Runtimes** | .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0 |
+| **.NET Runtimes** | .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0, .NET 11.0 |
 | **.NET Standard** | .NET Standard 2.0, .NET Standard 2.1 |
 | **.NET Framework** | .NET Framework >= 4.7.2 |
 | **Mobile & Cross-Platform** | .NET MAUI, Android, iOS, macOS, Mac Catalyst |
@@ -78,7 +78,7 @@ Below is the list of supported API modules available via `TraktClient`:
 Install the package via the .NET CLI:
 
 ```bash
-dotnet add package Trakt.NET.Ex --version 2.2.0
+dotnet add package Trakt.NET.Ex
 ```
 
 #### Code Example
@@ -123,8 +123,8 @@ catch (TraktException ex)
 
 ### Documentation
 
-- [Changelogs](Changelogs/v2.2.0.md)
-- [Official Trakt API Documentation](https://docs.trakt.tv/)
+- [Changelog](https://github.com/josefarinna/Trakt.NET/blob/develop/CHANGELOG.md)
+- [Official Trakt API Documentation](https://developer.trakt.tv/)
 
 ### License
 
