@@ -15,8 +15,9 @@
     "firstUnstableTag": "alpha"
   },
   "cloudBuild": {
+    "setVersionVariables": false,
     "buildNumber": {
-      "enabled": true
+      "enabled": false
     }
   }
 }
