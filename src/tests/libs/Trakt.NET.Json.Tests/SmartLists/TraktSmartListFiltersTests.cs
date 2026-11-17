@@ -23,10 +23,10 @@ namespace TraktNET.Json.SmartLists
             filters.Ratings.ShouldBeNull();
             filters.Runtimes.ShouldBeNull();
             filters.IMDBRatings.ShouldBeNull();
-            filters.RtMeters.ShouldBeNull();
-            filters.RtUserMeters.ShouldBeNull();
+            filters.RottenTomatoesMeters.ShouldBeNull();
+            filters.RottenTomatoesUserMeters.ShouldBeNull();
             filters.LetterboxdRatings.ShouldBeNull();
-            filters.MalRatings.ShouldBeNull();
+            filters.MALRatings.ShouldBeNull();
             filters.ParentalNudity.ShouldBeNull();
             filters.ParentalViolence.ShouldBeNull();
             filters.ParentalProfanity.ShouldBeNull();

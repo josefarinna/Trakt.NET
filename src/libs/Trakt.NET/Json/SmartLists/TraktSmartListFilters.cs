@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>Filter constraints applied to the source of a smart list.</summary>
@@ -58,16 +60,18 @@ namespace TraktNET
         public float[]? IMDBRatings { get; set; }
 
         /// <summary>Rotten Tomatoes tomatometer range [min, max]. Max 2 items.</summary>
-        public uint[]? RtMeters { get; set; }
+        [JsonPropertyName("rt_meters")]
+        public uint[]? RottenTomatoesMeters { get; set; }
 
         /// <summary>Rotten Tomatoes audience score range [min, max]. Max 2 items.</summary>
-        public uint[]? RtUserMeters { get; set; }
+        [JsonPropertyName("rt_user_meters")]
+        public uint[]? RottenTomatoesUserMeters { get; set; }
 
         /// <summary>Letterboxd ratings range [min, max]. Max 2 items.</summary>
         public float[]? LetterboxdRatings { get; set; }
 
         /// <summary>MyAnimeList ratings range [min, max]. Max 2 items.</summary>
-        public float[]? MalRatings { get; set; }
+        public float[]? MALRatings { get; set; }
 
         /// <summary>Parental guide nudity severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
         public uint[]? ParentalNudity { get; set; }
