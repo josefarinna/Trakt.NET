@@ -104,7 +104,7 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
 4. **Release Process**:
    - Day-to-day work (features, fixes, Dependabot) targets `develop`, whose `src/version.json` holds the next version.
    - The version is not hard-coded anywhere else: the NuGet badge is dynamic, the install commands have no `--version`, the docs examples include the code instead of linking a tag, and `PackageReleaseNotes` is built from the computed version (`src/libs/Directory.Build.props`).
-   - To close a version: add `Changelogs/vx.y.z.md` (and reference it in `src/Trakt.NET.slnx`) and the `Postman/vx.y.z/` collection, run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
+   - To close a version: set the release date in the `## [x.y.z]` section of `CHANGELOG.md`, add the `Postman/vx.y.z/` collection, run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
 
 ---
 

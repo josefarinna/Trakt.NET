@@ -50,7 +50,7 @@
   <!-- Point the release notes to the changelog of the version being packed (computed by Nerdbank.GitVersioning). -->
   <Target Name="SetPackageReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
-      <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v$(BuildVersion3Components)/Changelogs/v$(BuildVersion3Components).md</PackageReleaseNotes>
+      <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v$(BuildVersion3Components)/CHANGELOG.md</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
 
