@@ -100,7 +100,13 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
    - **NuGet.org Account**: `jose.farinna`
    - **Deployment Workflow**: `.github/workflows/ci.yml` -> `build.yml`
    - Requires `id-token: write` permission in CI jobs to generate ephemeral OIDC tokens.
-3. **Changelog**:
+3. **Documentation Publishing**:
+   - The DocFX site is built on every CI run, but deployed to GitHub Pages (`gh-pages`) only from `v*` tags (`.github/workflows/documentation.yml`), so it always matches the released package. To redeploy it, run the CI workflow manually on the release tag.
+4. **Release Process**:
+   - Day-to-day work (features, fixes, Dependabot) targets `develop`, whose `src/version.json` holds the next version.
+   - The version is not hard-coded anywhere else: the NuGet badge is dynamic, the install commands have no `--version`, the docs examples include the code instead of linking a tag, and `PackageReleaseNotes` is built from the computed version (`src/libs/Directory.Build.props`).
+   - To close a version: set the release date in the `## [x.y.z]` section of `CHANGELOG.md`, add the `Postman/vx.y.z/` collection, run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
+5. **Changelog**:
    - All 2.x changes go in `CHANGELOG.md` (root). `Changelogs/CHANGELOG-v1.md` holds 1.x and older versions and is frozen.
    - The version in progress is the top section, `## [x.y.z] - Unreleased`, with `###` subsections (`New Features & API Endpoints`, `Added & Updated Data Models`, `Breaking Changes`, `Removed / Deprecated`, `Improvements & Fixes`). Every user-visible change adds a short entry there.
    - When releasing, replace `Unreleased` with the release date (`YYYY-MM-DD`). `PackageReleaseNotes` points to `CHANGELOG.md` at the version tag.
