@@ -52,7 +52,7 @@ jobs:
           echo "Target branch is: ${target_br_name}"
           if [[ "${EVENT_NAME}" == "pull_request" ]]; then
             environment=Development
-          elif [[ "${REF}" == refs/tags/v* ]]; then
+          elif [[ "${REF}" == refs/tags/v* || "${branch_name}" == "main" ]]; then
             environment=Production
           elif [[ "${branch_name}" == release-* ]]; then
             environment=Release-Previews
