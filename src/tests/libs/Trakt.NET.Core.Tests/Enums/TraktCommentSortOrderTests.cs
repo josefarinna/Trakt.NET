@@ -15,7 +15,6 @@ namespace TraktNET.Enums
             TraktCommentSortOrder.Highest.ToJson().ShouldBe("highest");
             TraktCommentSortOrder.Lowest.ToJson().ShouldBe("lowest");
             TraktCommentSortOrder.Plays.ToJson().ShouldBe("plays");
-            TraktCommentSortOrder.Watched.ToJson().ShouldBe("watched");
             ((TraktCommentSortOrder)99).ToJson().ShouldBeNull();
         }
 
@@ -30,7 +29,6 @@ namespace TraktNET.Enums
             "highest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Highest);
             "lowest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Lowest);
             "plays".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Plays);
-            "watched".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Watched);
 
             string? nullValue = null;
             nullValue.ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
@@ -49,7 +47,6 @@ namespace TraktNET.Enums
             TraktCommentSortOrder.Highest.ToURI().ShouldBe("highest");
             TraktCommentSortOrder.Lowest.ToURI().ShouldBe("lowest");
             TraktCommentSortOrder.Plays.ToURI().ShouldBe("plays");
-            TraktCommentSortOrder.Watched.ToURI().ShouldBe("watched");
             ((TraktCommentSortOrder)99).ToURI().ShouldBe(string.Empty);
         }
 
@@ -64,7 +61,6 @@ namespace TraktNET.Enums
             TraktCommentSortOrder.Highest.AsPathParameter().ShouldBe("highest");
             TraktCommentSortOrder.Lowest.AsPathParameter().ShouldBe("lowest");
             TraktCommentSortOrder.Plays.AsPathParameter().ShouldBe("plays");
-            TraktCommentSortOrder.Watched.AsPathParameter().ShouldBe("watched");
             ((TraktCommentSortOrder)99).AsPathParameter().ShouldBe(string.Empty);
         }
 
@@ -79,7 +75,6 @@ namespace TraktNET.Enums
             TraktCommentSortOrder.Highest.DisplayName().ShouldBe("Highest");
             TraktCommentSortOrder.Lowest.DisplayName().ShouldBe("Lowest");
             TraktCommentSortOrder.Plays.DisplayName().ShouldBe("Plays");
-            TraktCommentSortOrder.Watched.DisplayName().ShouldBe("Watched");
             ((TraktCommentSortOrder)99).DisplayName().ShouldBe("99");
         }
 

@@ -34,6 +34,7 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - Renamed `Id`/`Ids` to `ID`/`IDs` in the method and property names that still used them (e.g. `GetIDLookupResultsAsync`, `ClientID`). JSON property names are unchanged.
 - Renamed `RtMeters`, `RtUserMeters`, and `MalRatings` in `TraktSmartListFilters` to `RottenTomatoesMeters`, `RottenTomatoesUserMeters`, and `MALRatings`.
 - `TraktUserComment` no longer inherits from `TraktCommentItem` and declares its own properties directly.
+- Removed `TraktCommentSortOrder.Watched`, which is rejected with `400 invalid_sort` by the Trakt API on all comment endpoints.
 
 ### Improvements & Fixes
 
