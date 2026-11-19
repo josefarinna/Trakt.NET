@@ -28,6 +28,8 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
   - Added `WatchedAt`, `CollectedAt`, `RatedAt`, and `Rating` to `TraktNoteAttachedTo`.
   - Added `Person`, `Comment`, and `User` to `TraktCommentItem` (and `Person`, `Comment`, `User` values to `TraktCommentObjectType`).
   - Added optional `HiddenAt` to `TraktUserHiddenItemsPostMovie`, `TraktUserHiddenItemsPostShow`, `TraktUserHiddenItemsPostSeason`, and `TraktUserHiddenItemsPostShowSeason`.
+- **Not Found Response Models**
+  - Added optional `Title`, `Year`, and `Seasons` (`TraktPostResponseNotFoundShowSeason`, `TraktPostResponseNotFoundShowEpisode`) to `TraktPostResponseNotFoundShow`, `TraktPostResponseNotFoundSeason`, and `TraktPostResponseNotFoundEpisode`, and `Title`/`Year` to `TraktSyncRatingsPostResponseNotFoundShow`, to preserve show-shaped `not_found` entries returned by the Trakt API.
 
 ### Breaking Changes
 
