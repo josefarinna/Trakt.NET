@@ -6,16 +6,19 @@ namespace TraktNET.SyncModule
     {
         private readonly string UpdateWatchlistUri = $"sync/watchlist";
         private const string NewDescription = "new description";
-        private readonly TraktSortBy NewSortBy = TraktSortBy.Rank;
-        private readonly TraktSortHow NewSortHow = TraktSortHow.Descending;
 
-        [Fact]
-        public async Task TestUpdateWatchlist()
+        [Theory]
+        [InlineData(NewDescription, null, null, null, "sync/watchlist")]
+        [InlineData(null, TraktSortBy.Rank, null, null, "sync/watchlist")]
+        [InlineData(null, null, TraktSortHow.Descending, null, "sync/watchlist")]
+        [InlineData(NewDescription, null, null, TraktExtendedInfo.Images, "sync/watchlist?extended=images")]
+        [InlineData(NewDescription, TraktSortBy.Rank, TraktSortHow.Descending, TraktExtendedInfo.Images, "sync/watchlist?extended=images")]
+        public async Task TestUpdateWatchlist(string? description, TraktSortBy? sortBy, TraktSortHow? sortHow, TraktExtendedInfo? extendedInfo, string expectedUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateWatchlistUri, responseContent);
-            TraktResponse<TraktList> response = await client.Sync.UpdateWatchlistAsync(NewDescription, NewSortBy, NewSortHow, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent);
+            TraktResponse<TraktList> response = await client.Sync.UpdateWatchlistAsync(description, sortBy, sortHow, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -38,9 +41,7 @@ namespace TraktNET.SyncModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateWatchlistUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktList>>> act = () => client.Sync.UpdateWatchlistAsync(default, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse<TraktList>>> act = () => client.Sync.UpdateWatchlistAsync(cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktPostValidationException>();
         }
     }

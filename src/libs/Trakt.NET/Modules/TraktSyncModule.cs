@@ -891,6 +891,10 @@ namespace TraktNET
         /// <param name="description">Description for the watchlist.</param>
         /// <param name="sortBy">Sort by value for the watchlist.</param>
         /// <param name="sortHow">Sort how value for the watchlist.</param>
+        /// <param name="extendedInfo">
+        /// The extended info, which determines how much data about the list should be queried.
+        /// See also <seealso cref="TraktExtendedInfo" />.
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -908,8 +912,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktList>> UpdateWatchlistAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
-            CancellationToken cancellationToken = default)
-            => UpdateWatchlistImplAsync(description, sortBy, sortHow, cancellationToken);
+        public Task<TraktResponse<TraktList>> UpdateWatchlistAsync(string? description = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => UpdateWatchlistImplAsync(description, sortBy, sortHow, extendedInfo, cancellationToken);
     }
 }
