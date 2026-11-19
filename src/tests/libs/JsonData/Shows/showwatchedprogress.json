@@ -50,7 +50,7 @@
             "stats": {
                 "play_count": 10,
                 "minutes_watched": 567,
-                "minutes_left": 0
+                "minutes_left": -12
             },
             "episodes": [
                 {
