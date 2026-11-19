@@ -19,16 +19,13 @@
         /// <summary>Comments will be sorted by the number of replies first.</summary>
         Replies,
 
-        /// <summary>Comments will be sorted by highest comments first.</summary>
+        /// <summary>Comments will be sorted by highest author rating first (only supported for movie, show, season, and episode comments).</summary>
         Highest,
 
-        /// <summary>Comments will be sorted by lowest comments first.</summary>
+        /// <summary>Comments will be sorted by lowest author rating first (only supported for movie, show, season, and episode comments).</summary>
         Lowest,
 
-        /// <summary>Comments will be sorted by the number of plays first.</summary>
-        Plays,
-
-        /// <summary>Comments will be sorted by most watched first.</summary>
-        Watched
+        /// <summary>Comments will be sorted by the author's number of plays first (only supported for movie, show, season, and episode comments).</summary>
+        Plays
     }
 }
