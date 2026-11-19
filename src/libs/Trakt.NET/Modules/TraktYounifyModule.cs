@@ -17,6 +17,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getyounifyconnections">
         /// Trakt API Documentation: Younify - Get streaming connections
         /// </see></para>
@@ -37,6 +38,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/postyounifyconnect">
         /// Trakt API Documentation: Younify - Create a streaming connection
         /// </see></para>
@@ -56,6 +58,7 @@ namespace TraktNET
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para>Free accounts only sync the service within their limit.</para>
         /// <para><see href="https://docs.trakt.tv/reference/postyounifyrefreshservice">
         /// Trakt API Documentation: Younify - Refresh a streaming service (service in the body)
@@ -76,6 +79,7 @@ namespace TraktNET
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/postyounifyrefresh">
         /// Trakt API Documentation: Younify - Refresh a streaming service
         /// </see></para>
@@ -96,6 +100,7 @@ namespace TraktNET
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/postyounifyrefreshall">
         /// Trakt API Documentation: Younify - Refresh a streaming service (full re-sync)
         /// </see></para>
@@ -114,6 +119,7 @@ namespace TraktNET
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/deleteyounifydisconnect">
         /// Trakt API Documentation: Younify - Unlink a streaming service
         /// </see></para>
