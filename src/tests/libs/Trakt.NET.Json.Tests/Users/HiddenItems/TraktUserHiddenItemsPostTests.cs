@@ -46,5 +46,55 @@
             userHiddenItemsPost.Users.Add(new TraktUser());
             act.ShouldNotThrow();
         }
+
+        [Fact]
+        public void TestTraktUserHiddenItemsPostHiddenAtSerialization()
+        {
+            DateTime hiddenAt = TestUtility.ParseUTCDateTime("2024-06-01T12:30:00.000Z");
+
+            var post = new TraktUserHiddenItemsPost
+            {
+                Movies =
+                [
+                    new TraktUserHiddenItemsPostMovie
+                    {
+                        IDs = new TraktMovieIDs { Trakt = 1U },
+                        HiddenAt = hiddenAt
+                    }
+                ],
+                Shows =
+                [
+                    new TraktUserHiddenItemsPostShow
+                    {
+                        IDs = new TraktShowIDs { Trakt = 2U },
+                        HiddenAt = hiddenAt,
+                        Seasons =
+                        [
+                            new TraktUserHiddenItemsPostShowSeason
+                            {
+                                Number = 1,
+                                HiddenAt = hiddenAt
+                            }
+                        ]
+                    }
+                ],
+                Seasons =
+                [
+                    new TraktUserHiddenItemsPostSeason
+                    {
+                        IDs = new TraktSeasonIDs { Trakt = 3U },
+                        HiddenAt = hiddenAt
+                    }
+                ]
+            };
+
+            string json = TestUtility.SerializeObject(post);
+            json.ShouldContain("\"hidden_at\":\"2024-06-01T12:30:00Z\"");
+
+            post.Movies[0].HiddenAt.ShouldBe(hiddenAt);
+            post.Shows[0].HiddenAt.ShouldBe(hiddenAt);
+            post.Shows[0].Seasons![0].HiddenAt.ShouldBe(hiddenAt);
+            post.Seasons[0].HiddenAt.ShouldBe(hiddenAt);
+        }
     }
 }

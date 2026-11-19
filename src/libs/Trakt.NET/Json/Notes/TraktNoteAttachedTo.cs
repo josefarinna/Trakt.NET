@@ -15,5 +15,17 @@ namespace TraktNET
         /// </summary>
         [JsonPropertyName("id")]
         public ulong? ID { get; set; }
+
+        /// <summary>Gets or sets the UTC datetime when the item was watched, if attached to a history item.</summary>
+        public DateTime? WatchedAt { get; set; }
+
+        /// <summary>Gets or sets the UTC datetime when the item was collected, if attached to a collection item.</summary>
+        public DateTime? CollectedAt { get; set; }
+
+        /// <summary>Gets or sets the UTC datetime when the item was rated, if attached to a rating.</summary>
+        public DateTime? RatedAt { get; set; }
+
+        /// <summary>Gets or sets the rating value, if attached to a rating.</summary>
+        public int? Rating { get; set; }
     }
 }

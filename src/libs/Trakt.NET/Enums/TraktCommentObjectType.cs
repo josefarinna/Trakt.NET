@@ -27,6 +27,18 @@
         [TraktEnumMember(UriValue = "lists")]
         List,
 
+        /// <summary>The comment contains a person.</summary>
+        [TraktEnumMember(UriValue = "people")]
+        Person,
+
+        /// <summary>The comment contains a comment.</summary>
+        [TraktEnumMember(UriValue = "comments")]
+        Comment,
+
+        /// <summary>The comment contains a user.</summary>
+        [TraktEnumMember(UriValue = "users")]
+        User,
+
         /// <summary>The comment contains a movie, show, season, list or an episode.</summary>
         All
     }

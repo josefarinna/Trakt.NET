@@ -24,11 +24,16 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
   - Added `TraktAnticipatedMovieRecommendation`, `TraktAnticipatedShowRecommendation`, and `TraktAnticipatedMediaRecommendation`.
 - **Smart List Models**
   - Added `Awards`, `AwardYears`, and `AwardWon` to `TraktSmartListFilters`.
+- **Notes, Comments & Hidden Items Models**
+  - Added `WatchedAt`, `CollectedAt`, `RatedAt`, and `Rating` to `TraktNoteAttachedTo`.
+  - Added `Person`, `Comment`, and `User` to `TraktCommentItem` (and `Person`, `Comment`, `User` values to `TraktCommentObjectType`).
+  - Added optional `HiddenAt` to `TraktUserHiddenItemsPostMovie`, `TraktUserHiddenItemsPostShow`, `TraktUserHiddenItemsPostSeason`, and `TraktUserHiddenItemsPostShowSeason`.
 
 ### Breaking Changes
 
 - Renamed `Id`/`Ids` to `ID`/`IDs` in the method and property names that still used them (e.g. `GetIDLookupResultsAsync`, `ClientID`). JSON property names are unchanged.
 - Renamed `RtMeters`, `RtUserMeters`, and `MalRatings` in `TraktSmartListFilters` to `RottenTomatoesMeters`, `RottenTomatoesUserMeters`, and `MALRatings`.
+- `TraktUserComment` no longer inherits from `TraktCommentItem` and declares its own properties directly.
 
 ### Improvements & Fixes
 

@@ -13,6 +13,9 @@ namespace TraktNET.Enums
             TraktCommentObjectType.Season.ToJson().ShouldBe("season");
             TraktCommentObjectType.Episode.ToJson().ShouldBe("episode");
             TraktCommentObjectType.List.ToJson().ShouldBe("list");
+            TraktCommentObjectType.Person.ToJson().ShouldBe("person");
+            TraktCommentObjectType.Comment.ToJson().ShouldBe("comment");
+            TraktCommentObjectType.User.ToJson().ShouldBe("user");
             TraktCommentObjectType.All.ToJson().ShouldBe("all");
             ((TraktCommentObjectType)99).ToJson().ShouldBeNull();
         }
@@ -26,6 +29,9 @@ namespace TraktNET.Enums
             "season".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Season);
             "episode".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Episode);
             "list".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.List);
+            "person".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Person);
+            "comment".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Comment);
+            "user".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.User);
             "all".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.All);
 
             string? nullValue = null;
@@ -43,6 +49,9 @@ namespace TraktNET.Enums
             TraktCommentObjectType.Season.ToURI().ShouldBe("seasons");
             TraktCommentObjectType.Episode.ToURI().ShouldBe("episodes");
             TraktCommentObjectType.List.ToURI().ShouldBe("lists");
+            TraktCommentObjectType.Person.ToURI().ShouldBe("people");
+            TraktCommentObjectType.Comment.ToURI().ShouldBe("comments");
+            TraktCommentObjectType.User.ToURI().ShouldBe("users");
             TraktCommentObjectType.All.ToURI().ShouldBe("all");
             ((TraktCommentObjectType)99).ToURI().ShouldBe(string.Empty);
         }
@@ -56,6 +65,9 @@ namespace TraktNET.Enums
             TraktCommentObjectType.Season.AsPathParameter().ShouldBe("seasons");
             TraktCommentObjectType.Episode.AsPathParameter().ShouldBe("episodes");
             TraktCommentObjectType.List.AsPathParameter().ShouldBe("lists");
+            TraktCommentObjectType.Person.AsPathParameter().ShouldBe("people");
+            TraktCommentObjectType.Comment.AsPathParameter().ShouldBe("comments");
+            TraktCommentObjectType.User.AsPathParameter().ShouldBe("users");
             TraktCommentObjectType.All.AsPathParameter().ShouldBe("all");
             ((TraktCommentObjectType)99).AsPathParameter().ShouldBe(string.Empty);
         }
@@ -69,6 +81,9 @@ namespace TraktNET.Enums
             TraktCommentObjectType.Season.DisplayName().ShouldBe("Season");
             TraktCommentObjectType.Episode.DisplayName().ShouldBe("Episode");
             TraktCommentObjectType.List.DisplayName().ShouldBe("List");
+            TraktCommentObjectType.Person.DisplayName().ShouldBe("Person");
+            TraktCommentObjectType.Comment.DisplayName().ShouldBe("Comment");
+            TraktCommentObjectType.User.DisplayName().ShouldBe("User");
             TraktCommentObjectType.All.DisplayName().ShouldBe("All");
             ((TraktCommentObjectType)99).DisplayName().ShouldBe("99");
         }
