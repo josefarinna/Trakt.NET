@@ -6,6 +6,9 @@ namespace TraktNET
     /// </summary>
     public record class TraktUserHiddenItemsPostShow : TraktUserRemovePostShow
     {
+        /// <summary>Gets or sets the optional UTC datetime when the show was hidden.</summary>
+        public DateTime? HiddenAt { get; set; }
+
         /// <summary>
         /// An optional list of <see cref="TraktUserHiddenItemsPostShowSeason" />s.
         /// <para>

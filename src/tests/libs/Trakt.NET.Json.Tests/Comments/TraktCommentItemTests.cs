@@ -13,6 +13,9 @@
             commentItem.Season.ShouldBeNull();
             commentItem.Episode.ShouldBeNull();
             commentItem.List.ShouldBeNull();
+            commentItem.Person.ShouldBeNull();
+            commentItem.Comment.ShouldBeNull();
+            commentItem.User.ShouldBeNull();
         }
 
         [Fact]
@@ -83,6 +86,35 @@
             commentItem.List.User.VIPEP.ShouldBe(false);
             commentItem.List.User.IDs.ShouldNotBeNull();
             commentItem.List.User.IDs.Slug.ShouldBe("sean");
+
+            commentItem.Person.ShouldNotBeNull();
+            commentItem.Person.Name.ShouldBe("Bryan Cranston");
+            commentItem.Person.IDs.ShouldNotBeNull();
+            commentItem.Person.IDs.Trakt.ShouldBe(297737U);
+            commentItem.Person.IDs.Slug.ShouldBe("bryan-cranston");
+            commentItem.Person.IDs.IMDB.ShouldBe("nm0186505");
+            commentItem.Person.IDs.TMDB.ShouldBe(17419U);
+
+            commentItem.Comment.ShouldNotBeNull();
+            commentItem.Comment.ID.ShouldBe(76957U);
+            commentItem.Comment.Comment.ShouldBe("I hate they made The flash a kids show. Could else be much better. And with a better flash offcourse.");
+            commentItem.Comment.Spoiler.ShouldBe(false);
+            commentItem.Comment.Review.ShouldBe(false);
+            commentItem.Comment.ParentID.ShouldBe(0U);
+            commentItem.Comment.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2016-04-01T12:44:40.000Z"));
+            commentItem.Comment.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2016-04-03T08:23:38.000Z"));
+            commentItem.Comment.Replies.ShouldBe(1U);
+            commentItem.Comment.Likes.ShouldBe(2U);
+            commentItem.Comment.UserRating.ShouldBe(8U);
+
+            commentItem.User.ShouldNotBeNull();
+            commentItem.User.Username.ShouldBe("sean");
+            commentItem.User.Private.ShouldBe(false);
+            commentItem.User.Name.ShouldBe("Sean Rudford");
+            commentItem.User.VIP.ShouldBe(true);
+            commentItem.User.VIPEP.ShouldBe(false);
+            commentItem.User.IDs.ShouldNotBeNull();
+            commentItem.User.IDs.Slug.ShouldBe("sean");
         }
     }
 }

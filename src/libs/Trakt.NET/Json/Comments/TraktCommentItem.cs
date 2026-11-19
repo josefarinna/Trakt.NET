@@ -20,5 +20,14 @@
 
         /// <summary>Gets or sets the comment list item, if <see cref="Type" /> is set to <see cref="TraktCommentObjectType.List" />.</summary>
         public TraktList? List { get; set; }
+
+        /// <summary>Gets or sets the comment person item, if <see cref="Type" /> is set to <see cref="TraktCommentObjectType.Person" />.</summary>
+        public TraktPerson? Person { get; set; }
+
+        /// <summary>Gets or sets the comment item, if <see cref="Type" /> is set to <see cref="TraktCommentObjectType.Comment" />.</summary>
+        public TraktComment? Comment { get; set; }
+
+        /// <summary>Gets or sets the comment user item, if <see cref="Type" /> is set to <see cref="TraktCommentObjectType.User" />.</summary>
+        public TraktUser? User { get; set; }
     }
 }
