@@ -51,6 +51,7 @@
             season1.Stats.ShouldNotBeNull();
             season1.Stats.PlayCount.ShouldBe(10U);
             season1.Stats.MinutesWatched.ShouldBe(567U);
+            season1.Stats.MinutesLeft.ShouldBe(-12);
 
             season1.Episodes.ShouldNotBeNull();
             season1.Episodes.Count.ShouldBe(10);

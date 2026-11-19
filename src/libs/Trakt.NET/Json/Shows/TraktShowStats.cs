@@ -10,6 +10,7 @@
         public uint? MinutesWatched { get; set; }
 
         /// <summary>Gets or sets the number of minutes remaining to complete the show based on aired episodes.</summary>
-        public uint? MinutesLeft { get; set; }
+        /// <remarks>Trakt can return a negative value when the watched minutes exceed the runtime of the aired episodes.</remarks>
+        public int? MinutesLeft { get; set; }
     }
 }

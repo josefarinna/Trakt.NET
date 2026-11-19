@@ -35,6 +35,7 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - Renamed `RtMeters`, `RtUserMeters`, and `MalRatings` in `TraktSmartListFilters` to `RottenTomatoesMeters`, `RottenTomatoesUserMeters`, and `MALRatings`.
 - `TraktUserComment` no longer inherits from `TraktCommentItem` and declares its own properties directly.
 - Removed `TraktCommentSortOrder.Watched`, which is rejected with `400 invalid_sort` by the Trakt API on all comment endpoints.
+- Changed `MinutesLeft` in `TraktShowStats` and `TraktSeasonStats` from `uint?` to `int?`, because the Trakt API can return negative values (e.g. in `GET /sync/progress/watched`), which made deserialization throw a `JsonException`.
 
 ### Improvements & Fixes
 
