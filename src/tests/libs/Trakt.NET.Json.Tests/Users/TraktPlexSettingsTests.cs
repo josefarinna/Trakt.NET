@@ -74,56 +74,5 @@ namespace TraktNET.Json.Users
             settings.Scrobbler.Toggles.Episode.Rated.ShouldBeTrue();
             settings.Scrobbler.Toggles.Episode.Collected.ShouldBeTrue();
         }
-
-        [Fact]
-        public async Task TestTraktPlexConnectResponseFromJson()
-        {
-            TraktPlexConnectResponse? response = await TestUtility.DeserializeJsonAsync<TraktPlexConnectResponse>("Users\\plexconnect.json");
-
-            response.ShouldNotBeNull();
-            response.Url.ShouldBe("https://plex.tv/auth");
-        }
-
-        [Fact]
-        public async Task TestTraktPlexServersResponseFromJson()
-        {
-            TraktPlexServersResponse? response = await TestUtility.DeserializeJsonAsync<TraktPlexServersResponse>("Users\\plexservers.json");
-
-            response.ShouldNotBeNull();
-            response.Servers.ShouldNotBeNull();
-            response.Servers.Count.ShouldBe(1);
-            response.Servers[0].ID.ShouldBe("server1");
-            response.Servers[0].Name.ShouldBe("My Server");
-            response.Servers[0].ConnectionCount.ShouldBe(1);
-            response.Servers[0].ConnectionTimeout.ShouldBe(5);
-            response.Servers[0].Ports.ShouldNotBeNull();
-            response.Servers[0].Ports!.Count.ShouldBe(1);
-            response.Servers[0].Ports![0].ShouldBe(32400);
-            response.Servers[0].Owned.ShouldBeTrue();
-            response.Servers[0].Url.ShouldBe("http://127.0.0.1:32400");
-        }
-
-        [Fact]
-        public async Task TestTraktPlexServerAccountsAndLibrariesFromJson()
-        {
-            TraktPlexServerAccountsAndLibraries? response = await TestUtility.DeserializeJsonAsync<TraktPlexServerAccountsAndLibraries>("Users\\plexserveraccounts.json");
-
-            response.ShouldNotBeNull();
-            response.Accounts.ShouldNotBeNull();
-            response.Accounts.Count.ShouldBe(1);
-            response.Accounts[0].ID.ShouldBe(1);
-            response.Accounts[0].Name.ShouldBe("account1");
-
-            response.Libraries.ShouldNotBeNull();
-            response.Libraries.Count.ShouldBe(1);
-            response.Libraries[0].ID.ShouldBe(10);
-            response.Libraries[0].Uuid.ShouldBe("uuid10");
-            response.Libraries[0].Type.ShouldBe("movie");
-            response.Libraries[0].Title.ShouldBe("Movies");
-            response.Libraries[0].Agent.ShouldBe("plex");
-            response.Libraries[0].Scanner.ShouldBe("plex");
-            response.Libraries[0].Selected.ShouldBeTrue();
-            response.Libraries[0].Url.ShouldBe("http://url");
-        }
     }
 }

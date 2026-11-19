@@ -289,16 +289,6 @@ namespace TraktNET
     {
     }
 
-    [TraktGetRequest("users/settings/plex/servers", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserPlexServersGetRequest
-    {
-    }
-
-    [TraktGetRequest("users/settings/plex/servers/{server_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserPlexServerAccountsGetRequest
-    {
-    }
-
     [TraktGetRequest("users/{id!!}/smart-lists", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserSmartListsGetRequest
     {
@@ -478,20 +468,6 @@ namespace TraktNET
     {
         [TraktRequestPayload]
         internal required TraktReportPost TraktReportPost { get; set; }
-    }
-
-    [TraktPostRequest("users/settings/plex/connect", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserPlexConnectPostRequest
-    {
-        [TraktRequestPayload]
-        internal required TraktPlexConnectPost TraktPlexConnectPost { get; set; }
-    }
-
-    [TraktPostRequest("users/settings/plex/sync", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserPlexSyncPostRequest
-    {
-        [TraktRequestPayload]
-        internal required TraktPlexSyncPost TraktPlexSyncPost { get; set; }
     }
 
     [TraktPostRequest("users/{id!!}/smart-lists", OAuthRequirement = TraktOAuthRequirement.Required)]
