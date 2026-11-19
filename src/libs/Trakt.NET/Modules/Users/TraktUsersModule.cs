@@ -1221,6 +1221,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getuserssyncs">
         /// Trakt API Documentation: Users: Get data syncs
         /// </see></para>
@@ -1246,6 +1247,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getuserssyncstype">
         /// Trakt API Documentation: Users: Get data syncs by type
         /// </see></para>
@@ -1267,6 +1269,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getuserssyncsid">
         /// Trakt API Documentation: Users: Get data sync
         /// </see></para>
@@ -1314,6 +1317,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getuserssyncspaused">
         /// Trakt API Documentation: Users: Get paused items
         /// </see></para>
@@ -1340,6 +1344,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>Limited Access: this endpoint is only available to official first-party Trakt apps (third-party apps receive 403).</para>
         /// <para><see href="https://docs.trakt.tv/reference/getuserssyncsskipped">
         /// Trakt API Documentation: Users: Get skipped items
         /// </see></para>

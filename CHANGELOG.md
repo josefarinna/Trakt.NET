@@ -35,6 +35,7 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - Renamed `RtMeters`, `RtUserMeters`, and `MalRatings` in `TraktSmartListFilters` to `RottenTomatoesMeters`, `RottenTomatoesUserMeters`, and `MALRatings`.
 - `TraktUserComment` no longer inherits from `TraktCommentItem` and declares its own properties directly.
 - Removed `TraktCommentSortOrder.Watched`, which is rejected with `400 invalid_sort` by the Trakt API on all comment endpoints.
+- Removed deprecated Plex endpoints (`ConnectPlexAsync`, `GetPlexServersAsync`, `GetPlexServerAccountsAsync`, `SyncPlexAsync`) and their models (`TraktPlexConnectPost`, `TraktPlexConnectResponse`, `TraktPlexServer`, `TraktPlexServersResponse`, `TraktPlexServerAccountsAndLibraries`, `TraktPlexAccount`, `TraktPlexLibraryInfo`, `TraktPlexSyncPost`) as they are no longer served by the Trakt API.
 
 ### Improvements & Fixes
 
