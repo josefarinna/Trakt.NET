@@ -253,7 +253,6 @@ namespace TraktNET
         {
             typeof(TraktBoxOfficeMovie),
             typeof(TraktCollectionMovie),
-            typeof(TraktHotMovie),
             typeof(TraktMostAnticipatedMovie),
             typeof(TraktMostCollectedMovie),
             typeof(TraktMostFavoritedMovie),
@@ -269,7 +268,6 @@ namespace TraktNET
             typeof(TraktMovieSocialIDs),
             typeof(TraktMovieStatistics),
             typeof(TraktMovieTranslation),
-            typeof(TraktStreamingMovie),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         });
@@ -366,7 +364,6 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_showsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktCollectionShow),
-            typeof(TraktHotShow),
             typeof(TraktMostAnticipatedShow),
             typeof(TraktMostCollectedShow),
             typeof(TraktMostFavoritedShow),
@@ -388,7 +385,6 @@ namespace TraktNET
             typeof(TraktShowStats),
             typeof(TraktShowTranslation),
             typeof(TraktShowWatchedProgress),
-            typeof(TraktStreamingShow),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
         });
@@ -867,7 +863,6 @@ namespace TraktNET
         private static readonly HashSet<Type> s_movieJsonTypes = [
             typeof(TraktBoxOfficeMovie),
             typeof(TraktCollectionMovie),
-            typeof(TraktHotMovie),
             typeof(TraktMostAnticipatedMovie),
             typeof(TraktMostCollectedMovie),
             typeof(TraktMostFavoritedMovie),
@@ -883,7 +878,6 @@ namespace TraktNET
             typeof(TraktMovieSocialIDs),
             typeof(TraktMovieStatistics),
             typeof(TraktMovieTranslation),
-            typeof(TraktStreamingMovie),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         ];
@@ -970,7 +964,6 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_showsJsonTypes = [
             typeof(TraktCollectionShow),
-            typeof(TraktHotShow),
             typeof(TraktMostAnticipatedShow),
             typeof(TraktMostCollectedShow),
             typeof(TraktMostFavoritedShow),
@@ -992,7 +985,6 @@ namespace TraktNET
             typeof(TraktShowStats),
             typeof(TraktShowTranslation),
             typeof(TraktShowWatchedProgress),
-            typeof(TraktStreamingShow),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
         ];
