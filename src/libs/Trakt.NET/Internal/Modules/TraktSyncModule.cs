@@ -615,8 +615,8 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncWatchlistRemovePostResponse>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktList>> UpdateWatchlistImplAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktList>> UpdateWatchlistImplAsync(string? description = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktUpdateListPost
             {
@@ -627,7 +627,8 @@ namespace TraktNET
 
             var request = new SyncWatchlistUpdatePostRequest
             {
-                TraktUpdateListPost = content
+                TraktUpdateListPost = content,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktList>(_context, request, cancellationToken);

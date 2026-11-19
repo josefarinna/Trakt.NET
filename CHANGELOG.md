@@ -38,6 +38,9 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - **Episodes & Seasons**
   - `ToString()` of `TraktEpisode`, `TraktEpisodeMinimal`, and `TraktSeason` no longer ends with `": "` when there is no title (e.g. `S01E01`).
 
+- **Sync (`client.Sync`)**
+  - Added optional `extendedInfo` parameter support (`extended=images`) and made `description` optional/nullable in `UpdateWatchlistAsync` (`PUT /sync/watchlist`).
+
 ## [2.2.0] - 2026-11-09
 
 ### New Features & API Endpoints

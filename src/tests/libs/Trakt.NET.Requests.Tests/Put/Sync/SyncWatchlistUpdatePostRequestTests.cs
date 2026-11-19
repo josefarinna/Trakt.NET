@@ -8,16 +8,21 @@ namespace TraktNET.PutRequests.Sync
     {
         private const string URIPath = "sync/watchlist";
 
-        [Fact]
-        public void TestSyncWatchlistUpdatePostRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(TraktExtendedInfo.None, URIPath)]
+        [InlineData(TraktExtendedInfo.Images, $"{URIPath}?extended=images")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        public void TestSyncWatchlistUpdatePostRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var syncWatchlistUpdatePostRequest = new SyncWatchlistUpdatePostRequest
             {
-                TraktUpdateListPost = new TraktUpdateListPost()
+                TraktUpdateListPost = new TraktUpdateListPost(),
+                ExtendedInfo = extendedInfo
             };
 
             syncWatchlistUpdatePostRequest.BuildUri();
-            syncWatchlistUpdatePostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            syncWatchlistUpdatePostRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
