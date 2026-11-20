@@ -11,6 +11,10 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktPostResponseNotFoundPerson))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundSeason))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundShow))]
+    [JsonSerializable(typeof(TraktPostResponseNotFoundShowSeason))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktPostResponseNotFoundShowSeason>))]
+    [JsonSerializable(typeof(TraktPostResponseNotFoundShowEpisode))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktPostResponseNotFoundShowEpisode>))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundUser))]
     public sealed partial class ResponsesJsonSerializerContext : JsonSerializerContext
     {

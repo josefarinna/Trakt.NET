@@ -327,6 +327,8 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundPerson),
             typeof(TraktPostResponseNotFoundSeason),
             typeof(TraktPostResponseNotFoundShow),
+            typeof(TraktPostResponseNotFoundShowSeason),
+            typeof(TraktPostResponseNotFoundShowEpisode),
             typeof(TraktPostResponseNotFoundUser)
         });
 
@@ -923,6 +925,8 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundPerson),
             typeof(TraktPostResponseNotFoundSeason),
             typeof(TraktPostResponseNotFoundShow),
+            typeof(TraktPostResponseNotFoundShowSeason),
+            typeof(TraktPostResponseNotFoundShowEpisode),
             typeof(TraktPostResponseNotFoundUser)
         ];
 

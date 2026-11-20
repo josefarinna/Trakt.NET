@@ -5,6 +5,12 @@ namespace TraktNET
     /// <summary>A rated Trakt show, which was not found.</summary>
     public record class TraktSyncRatingsPostResponseNotFoundShow
     {
+        /// <summary>Gets or sets the optional title of the not found show.</summary>
+        public string? Title { get; set; }
+
+        /// <summary>Gets or sets the optional release year of the not found show.</summary>
+        public uint? Year { get; set; }
+
         /// <summary>Gets or sets the rating of the not found show.</summary>
         public int? Rating { get; set; }
 
