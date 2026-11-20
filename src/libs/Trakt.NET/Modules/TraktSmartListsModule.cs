@@ -84,7 +84,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(listIds);
 
-            if (!listIds.HasAnyID)
+            if (string.IsNullOrEmpty(listIds.BestID))
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
             return GetSmartListAsync(listIds.BestID, extendedInfo, cancellationToken);
@@ -225,7 +225,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(listIds);
 
-            if (!listIds.HasAnyID)
+            if (string.IsNullOrEmpty(listIds.BestID))
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
             return GetSmartListItemsAsync(listIds.BestID, type, sortBy, sortHow, filter, watchnow, watchnowCountry, extendedInfo, page, limit, cancellationToken);

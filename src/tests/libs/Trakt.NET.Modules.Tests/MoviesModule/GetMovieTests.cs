@@ -107,6 +107,11 @@ namespace TraktNET.MoviesModule
 
             act = () => client.Movies.GetMovieAsync(movieIDs);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            movieIDs = new TraktMovieIDs { TMDB = 1771 };
+
+            act = () => client.Movies.GetMovieAsync(movieIDs);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

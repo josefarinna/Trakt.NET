@@ -69,7 +69,7 @@
             movieIDs = new TraktMovieIDs { TMDB = 1 };
 
             bestID = movieIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             movieIDs = new TraktMovieIDs { TMDB = 0 };
 
@@ -112,7 +112,7 @@
             };
 
             bestID = movieIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

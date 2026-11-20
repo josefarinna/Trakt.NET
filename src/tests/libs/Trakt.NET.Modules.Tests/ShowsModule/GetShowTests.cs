@@ -78,6 +78,10 @@ namespace TraktNET.ShowsModule
             var showIDs = new TraktShowIDs();
             act = () => client.Shows.GetShowAsync(showIDs);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            showIDs = new TraktShowIDs { TVDB = 121361, TMDB = 1399 };
+            act = () => client.Shows.GetShowAsync(showIDs);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

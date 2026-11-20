@@ -77,7 +77,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(movieIds);
 
-            if (!movieIds.HasAnyID)
+            if (string.IsNullOrEmpty(movieIds.BestID))
                 throw new ArgumentException($"{nameof(movieIds)} has not any IDs set", nameof(movieIds));
 
             return ReportMovieAsync(movieIds.BestID, reason, message, cancellationToken);

@@ -54,7 +54,7 @@
             studioIDs = new TraktStudioIDs { TMDB = 1 };
 
             bestID = studioIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             studioIDs = new TraktStudioIDs { TMDB = 0 };
 
@@ -86,7 +86,7 @@
             };
 
             bestID = studioIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

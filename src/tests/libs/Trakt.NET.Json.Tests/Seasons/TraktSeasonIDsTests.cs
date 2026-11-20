@@ -58,7 +58,7 @@
             seasonIDs = new TraktSeasonIDs { TVDB = 1 };
 
             bestID = seasonIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             seasonIDs = new TraktSeasonIDs { TVDB = 0 };
 
@@ -68,7 +68,7 @@
             seasonIDs = new TraktSeasonIDs { TMDB = 1 };
 
             bestID = seasonIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             seasonIDs = new TraktSeasonIDs { TMDB = 0 };
 
@@ -92,7 +92,7 @@
             };
 
             bestID = seasonIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             seasonIDs = new TraktSeasonIDs
             {
@@ -100,7 +100,7 @@
             };
 
             bestID = seasonIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

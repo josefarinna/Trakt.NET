@@ -38,6 +38,7 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
 - Removed deprecated hot and streaming chart endpoints (`GetHotMoviesAsync`, `GetStreamingMoviesAsync`, `GetHotShowsAsync`, `GetStreamingShowsAsync`) and their models (`TraktHotMovie`, `TraktStreamingMovie`, `TraktHotShow`, `TraktStreamingShow`) as they are no longer served by the Trakt API.
 - Removed deprecated Plex endpoints (`ConnectPlexAsync`, `GetPlexServersAsync`, `GetPlexServerAccountsAsync`, `SyncPlexAsync`) and their models (`TraktPlexConnectPost`, `TraktPlexConnectResponse`, `TraktPlexServer`, `TraktPlexServersResponse`, `TraktPlexServerAccountsAndLibraries`, `TraktPlexAccount`, `TraktPlexLibraryInfo`, `TraktPlexSyncPost`) as they are no longer served by the Trakt API.
 - Changed `MinutesLeft` in `TraktShowStats` and `TraktSeasonStats` from `uint?` to `int?`, because the Trakt API can return negative values (e.g. in `GET /sync/progress/watched`), which made deserialization throw a `JsonException`.
+- `BestID` of `TraktShowIDs`, `TraktMovieIDs`, `TraktPersonIDs`, `TraktSeasonIDs`, `TraktEpisodeIDs`, `TraktNetworkIDs`, and `TraktStudioIDs` no longer falls back to the TMDB or TVDB ID, because the Trakt API does not accept them in request URLs and interpreted them as Trakt IDs, returning a different item. Methods that take an IDs object now throw an `ArgumentException` if only TMDB or TVDB IDs are set; use `client.Search.GetIDLookupResultsAsync` to resolve them first.
 
 ### Improvements & Fixes
 

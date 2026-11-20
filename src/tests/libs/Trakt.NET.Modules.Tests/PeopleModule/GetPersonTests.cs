@@ -177,6 +177,9 @@ namespace TraktNET.PeopleModule
             act = () => client.People.GetPersonAsync(new TraktPersonIDs(), cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
+            act = () => client.People.GetPersonAsync(new TraktPersonIDs { TMDB = 287 }, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
             act = () => client.People.GetPersonAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 

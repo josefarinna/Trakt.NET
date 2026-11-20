@@ -116,7 +116,7 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(showIds);
-            if (!showIds.HasAnyID)
+            if (string.IsNullOrEmpty(showIds.BestID))
                 throw new ArgumentException($"{nameof(showIds)} has not any ids set", nameof(showIds));
 
             return GetEpisodeCommentsImplAsync(showIds.BestID, seasonNumber, episodeNumber, commentSortOrder,
