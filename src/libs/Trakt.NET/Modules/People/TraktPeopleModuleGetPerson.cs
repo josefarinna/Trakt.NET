@@ -101,7 +101,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(personIds);
 
-            if (!personIds.HasAnyID)
+            if (string.IsNullOrEmpty(personIds.BestID))
                 throw new ArgumentException($"{nameof(personIds)} has not any ids set", nameof(personIds));
 
             return GetPersonImplAsync(personIds.BestID, language, extendedInfo, cancellationToken);

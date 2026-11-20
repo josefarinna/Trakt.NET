@@ -65,7 +65,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(movieIds);
 
-            if (!movieIds.HasAnyID)
+            if (string.IsNullOrEmpty(movieIds.BestID))
                 throw new ArgumentException($"{nameof(movieIds)} has not any ids set", nameof(movieIds));
 
             return HideMovieRecommendationAsync(movieIds.BestID, cancellationToken);

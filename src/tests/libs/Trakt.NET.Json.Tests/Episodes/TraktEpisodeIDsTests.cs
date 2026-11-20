@@ -62,7 +62,7 @@ namespace TraktNET.Json.Episodes
             episodeIDs = new TraktEpisodeIDs { TVDB = 1 };
 
             bestID = episodeIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             episodeIDs = new TraktEpisodeIDs { TVDB = 0 };
 
@@ -77,7 +77,7 @@ namespace TraktNET.Json.Episodes
             episodeIDs = new TraktEpisodeIDs { TMDB = 1 };
 
             bestID = episodeIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             episodeIDs = new TraktEpisodeIDs { TMDB = 0 };
 
@@ -103,7 +103,7 @@ namespace TraktNET.Json.Episodes
             };
 
             bestID = episodeIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("imdb");
 
             episodeIDs = new TraktEpisodeIDs
             {
@@ -120,7 +120,7 @@ namespace TraktNET.Json.Episodes
             };
 
             bestID = episodeIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

@@ -66,7 +66,7 @@
             showIDs = new TraktShowIDs { TVDB = 1 };
 
             bestID = showIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             showIDs = new TraktShowIDs { TVDB = 0 };
 
@@ -86,7 +86,7 @@
             showIDs = new TraktShowIDs { TMDB = 1 };
 
             bestID = showIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             showIDs = new TraktShowIDs { TMDB = 0 };
 
@@ -124,24 +124,16 @@
             };
 
             bestID = showIDs.BestID;
-            bestID.ShouldBe("1");
-
-            showIDs = new TraktShowIDs
-            {
-                IMDB = "imdb",
-                TMDB = 1
-            };
-
-            bestID = showIDs.BestID;
             bestID.ShouldBe("imdb");
 
             showIDs = new TraktShowIDs
             {
+                TVDB = 1,
                 TMDB = 1
             };
 
             bestID = showIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

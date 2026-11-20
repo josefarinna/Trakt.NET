@@ -122,7 +122,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(listIds);
 
-            if (!listIds.HasAnyID)
+            if (string.IsNullOrEmpty(listIds.BestID))
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
             return GetPersonalListItemsAsync(usernameOrSlug, listIds.BestID, listItemType, filter, extendedInfo,
