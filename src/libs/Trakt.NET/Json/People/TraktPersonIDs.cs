@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -33,7 +32,7 @@ namespace TraktNET
                     return Slug!;
 
                 if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
+                    return Trakt.Value.ToInvariantCultureString();
 
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;
