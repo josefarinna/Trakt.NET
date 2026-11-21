@@ -77,9 +77,11 @@ jobs:
       
   stable:
     needs: [init]
+    # Upper bound for build.yml: each of its jobs only requests what it needs
+    # (build: contents read; publish: id-token and packages write; release: contents write).
     permissions:
       id-token: write
-      contents: read
+      contents: write
       packages: write
     uses: ./.github/workflows/build.yml
     secrets: inherit
