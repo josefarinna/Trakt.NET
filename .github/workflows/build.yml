@@ -40,18 +40,19 @@ on:
         required: true
         type: boolean
 
+env:
+  NUGET_PACKAGES_ARTIFACT: nuget-packages-${{ github.run_number }}-${{ github.sha }}
+
 jobs:
   build:
     if: ${{ inputs.should_run }}
     runs-on: windows-latest
     environment: ${{ inputs.environment_name }}
     permissions:
-      id-token: write
       contents: read
-      packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -71,7 +72,7 @@ jobs:
           echo "Upload Codecov reports: ${{ inputs.upload_codecov }}"
 
       - name: Setup environment variables
-        uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2
+        uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2.2.3
         with:
           envFile: './.github/constants.env'  
 
@@ -166,29 +167,110 @@ jobs:
 
       - name: Upload artifacts
         if: ${{ github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
           retention-days: 14
           path: '${{ inputs.artifacts_root_directory }}/'
 
-      - name: Push NuGet packages to Github Package Registry
+      # Only the packages, handed over to the publish and release jobs.
+      - name: Upload NuGet packages
         if: ${{ inputs.push_nuget_package && github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ env.NUGET_PACKAGES_ARTIFACT }}
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            ${{ inputs.artifacts_root_directory }}/Trakt.NET*.nupkg
+            ${{ inputs.artifacts_root_directory }}/Trakt.NET*.snupkg
+
+  # Publishing runs apart from the build, so the job that restores, builds and runs the tests
+  # never holds the OIDC token or the package write permission.
+  publish:
+    needs: build
+    if: ${{ inputs.should_run && inputs.push_nuget_package && github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment_name }}
+    permissions:
+      id-token: write
+      packages: write
+    steps:
+      - name: Download NuGet packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ${{ env.NUGET_PACKAGES_ARTIFACT }}
+          path: packages
+
+      - name: Push NuGet packages to Github Package Registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: pwsh
-        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
-        working-directory: ${{ inputs.artifacts_root_directory }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+        shell: bash
+        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key "$GITHUB_TOKEN" --source "https://nuget.pkg.github.com/${REPOSITORY_OWNER}/index.json" --skip-duplicate
+        working-directory: packages
 
       - name: NuGet Login (Trusted Publishing via OIDC)
         id: login
-        if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
-        uses: nuget/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        uses: nuget/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
         with:
           user: jose.farinna
-  
+
       - name: Push packages to NuGet
-        if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
-        shell: pwsh
-        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-        working-directory: ${{ inputs.artifacts_root_directory }}
+        if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+        env:
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+        shell: bash
+        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        working-directory: packages
+
+  # Creates the GitHub release of a pushed v* tag once its packages are on NuGet.
+  release:
+    needs: publish
+    if: ${{ inputs.should_run && inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: CHANGELOG.md
+          sparse-checkout-cone-mode: false
+
+      - name: Download NuGet packages
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ${{ env.NUGET_PACKAGES_ARTIFACT }}
+          path: packages
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          version="${TAG#v}"
+          base_version="${version%%-*}"
+          # Section "## [x.y.z] - date" of CHANGELOG.md, without its heading.
+          awk -v heading="## [${base_version}]" '
+            index($0, heading) == 1 { found = 1; next }
+            found && /^## \[/ { exit }
+            found { print }
+          ' CHANGELOG.md > release-notes.md
+          if [[ ! -s release-notes.md ]]; then
+            echo "::warning::CHANGELOG.md has no section for ${base_version}"
+          fi
+          printf '\n**Full changelog**: https://github.com/%s/blob/%s/CHANGELOG.md\n' "${REPOSITORY}" "${TAG}" >> release-notes.md
+          prerelease=()
+          if [[ "${version}" == *-* ]]; then
+            prerelease=(--prerelease)
+          fi
+          gh release create "${TAG}" packages/*.nupkg \
+            --repo "${REPOSITORY}" \
+            --title "Trakt.NET ${version}" \
+            --notes-file release-notes.md \
+            --verify-tag \
+            "${prerelease[@]}"
