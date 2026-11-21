@@ -66,6 +66,9 @@ namespace TraktNET.SeasonsModule
             act = () => client.Seasons.ReportSeasonAsync(new TraktSeasonIDs(), TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
+            act = () => client.Seasons.ReportSeasonAsync(new TraktSeasonIDs { TVDB = 364731, TMDB = 3624 }, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
             act = () => client.Seasons.ReportSeasonAsync(0, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 

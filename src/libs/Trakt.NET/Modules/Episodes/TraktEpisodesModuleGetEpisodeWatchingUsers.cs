@@ -95,7 +95,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(showIds);
 
-            if (!showIds.HasAnyID)
+            if (string.IsNullOrEmpty(showIds.BestID))
                 throw new ArgumentException($"{nameof(showIds)} has not any ids set", nameof(showIds));
 
             return GetEpisodeWatchingUsersAsync(showIds.BestID, seasonNumber, episodeNumber, extendedInfo, cancellationToken);

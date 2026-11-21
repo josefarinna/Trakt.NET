@@ -69,7 +69,7 @@
             personIDs = new TraktPersonIDs { TMDB = 1 };
 
             bestID = personIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             personIDs = new TraktPersonIDs { TMDB = 0 };
 
@@ -112,7 +112,7 @@
             };
 
             bestID = personIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]

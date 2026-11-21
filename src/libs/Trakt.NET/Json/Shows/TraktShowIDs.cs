@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -32,22 +31,16 @@ namespace TraktNET
         {
             get
             {
-                if (!HasAnyID)
-                    return string.Empty;
-
                 if (!string.IsNullOrWhiteSpace(Slug))
                     return Slug!;
 
                 if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
-
-                if (TVDB.HasValue && TVDB.Value > 0)
-                    return TVDB.Value.ToString(CultureInfo.InvariantCulture);
+                    return Trakt.Value.ToInvariantCultureString();
 
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;
 
-                return TMDB!.Value.ToString(CultureInfo.InvariantCulture);
+                return string.Empty;
             }
         }
     }

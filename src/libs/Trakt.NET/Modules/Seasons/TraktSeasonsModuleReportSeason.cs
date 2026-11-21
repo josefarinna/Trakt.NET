@@ -77,7 +77,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(seasonIDs);
 
-            if (!seasonIDs.HasAnyID)
+            if (string.IsNullOrEmpty(seasonIDs.BestID))
                 throw new ArgumentException($"{nameof(seasonIDs)} has not any IDs set", nameof(seasonIDs));
 
             return ReportSeasonAsync(seasonIDs.BestID, reason, message, cancellationToken);

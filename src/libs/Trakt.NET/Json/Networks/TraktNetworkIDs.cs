@@ -21,13 +21,10 @@ namespace TraktNET
         {
             get
             {
-                if (!HasAnyID)
-                    return string.Empty;
-
                 if (Trakt.HasValue && Trakt.Value > 0)
                     return Trakt.Value.ToInvariantCultureString();
 
-                return TMDB!.Value.ToInvariantCultureString();
+                return string.Empty;
             }
         }
     }

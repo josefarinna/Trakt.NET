@@ -28,9 +28,6 @@ namespace TraktNET
         {
             get
             {
-                if (!HasAnyID)
-                    return string.Empty;
-
                 if (!string.IsNullOrWhiteSpace(Slug))
                     return Slug!;
 
@@ -40,7 +37,7 @@ namespace TraktNET
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;
 
-                return TMDB!.Value.ToInvariantCultureString();
+                return string.Empty;
             }
         }
     }

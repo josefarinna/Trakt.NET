@@ -101,7 +101,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
-            if (!movieIDs.HasAnyID)
+            if (string.IsNullOrEmpty(movieIDs.BestID))
             {
                 throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
@@ -184,7 +184,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
-            if (!movieIDs.HasAnyID)
+            if (string.IsNullOrEmpty(movieIDs.BestID))
             {
                 throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }

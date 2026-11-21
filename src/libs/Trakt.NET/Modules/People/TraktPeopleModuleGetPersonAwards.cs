@@ -68,7 +68,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(personIDs);
 
-            if (!personIDs.HasAnyID)
+            if (string.IsNullOrEmpty(personIDs.BestID))
             {
                 throw new ArgumentException($"{nameof(personIDs)} has not any IDs set", nameof(personIDs));
             }

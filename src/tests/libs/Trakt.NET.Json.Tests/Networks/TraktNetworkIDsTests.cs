@@ -51,7 +51,7 @@
             networkIDs = new TraktNetworkIDs { TMDB = 1 };
 
             bestID = networkIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
 
             networkIDs = new TraktNetworkIDs { TMDB = 0 };
 
@@ -73,7 +73,7 @@
             };
 
             bestID = networkIDs.BestID;
-            bestID.ShouldBe("1");
+            bestID.ShouldBe("");
         }
 
         [Fact]
