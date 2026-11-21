@@ -2,17 +2,51 @@ name: "Code Scan"
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - develop
+      - 'release-**'
+    paths:
+      - '.github/**'
+      - 'src/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'release-**'
+    paths:
+      - '.github/**'
+      - 'src/**'
   schedule:
     - cron: '0 22 * * 5'
 
+permissions:
+  contents: read
+
+concurrency:
+  group: code-scan-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   codeql:
-    name: "Code-QL"
-    runs-on: windows-latest
+    name: "Code-QL (${{ matrix.language }})"
+    runs-on: ${{ matrix.runs-on }}
     permissions:
       actions: read
       contents: read
       security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: csharp
+            build-mode: manual
+            runs-on: windows-latest
+          # Analyzes the GitHub Actions workflows themselves (e.g. expression injection, excessive permissions).
+          - language: actions
+            build-mode: none
+            runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -21,11 +55,13 @@ jobs:
         fetch-depth: 0
 
     - name: Setup environment variables
+      if: ${{ matrix.language == 'csharp' }}
       uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2
       with:
         envFile: './.github/constants.env'
 
     - name: Setup .NET
+      if: ${{ matrix.language == 'csharp' }}
       uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
       with:
         dotnet-version: ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
@@ -33,16 +69,20 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
       with:
-        languages: 'csharp'
-        build-mode: manual
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
 
     - name: Restore dependencies
+      if: ${{ matrix.language == 'csharp' }}
       run: dotnet restore
       working-directory: 'src'
 
     - name: Build solution
+      if: ${{ matrix.language == 'csharp' }}
       run: dotnet build --configuration Release --no-restore
       working-directory: 'src'
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+      with:
+        category: '/language:${{ matrix.language }}'

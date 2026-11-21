@@ -5,17 +5,22 @@
     <LibraryCopyright>© 2016 - 2025 by Henrik Fröhling and Contributors; © 2025 by José Fariña and Contributors</LibraryCopyright>
 
     <!-- NET (Framework | Standard) Targets -->
-    <LibraryNETFrameworkTargets>net472;net481</LibraryNETFrameworkTargets>
+    <!-- Only used by the test projects: every .NET Framework 4.x target runs on the same in-place CLR and
+         consumes the same netstandard2.0 library build, so the minimum supported version is enough. -->
+    <LibraryNETFrameworkTargets>net472</LibraryNETFrameworkTargets>
     <LibraryNETStandardTargets>netstandard2.0;netstandard2.1</LibraryNETStandardTargets>
     <LibraryCommonNETTargets>net6.0;net7.0;net8.0;net9.0;net10.0;net11.0</LibraryCommonNETTargets>
     <LibraryCommonNETPreviewTargets></LibraryCommonNETPreviewTargets>
 
     <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets)</LibraryTargetFrameworks>
     <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets)</HttpClientFactoryLibraryTargetFrameworks>
-    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);net8.0;net9.0;net10.0;net11.0</TestTargetFrameworks>
+    <!-- Tests run only on the supported .NET versions: the library has no conditional code above NET8_0_OR_GREATER,
+         so net10.0 and net11.0 cover every code path of the net8.0+ builds. -->
+    <SupportedNETTestTargets>net10.0;net11.0</SupportedNETTestTargets>
+    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(SupportedNETTestTargets)</TestTargetFrameworks>
 
-    <!-- These tests use Verify packages which only support these .NET versions >= 8 in combination with xUnit v3. -->
-    <SourceGenerationTestTargetFrameworks>net8.0;net9.0;net10.0;net11.0</SourceGenerationTestTargetFrameworks>
+    <!-- These tests use Verify packages which only support .NET versions >= 8 in combination with xUnit v3. -->
+    <SourceGenerationTestTargetFrameworks>$(SupportedNETTestTargets)</SourceGenerationTestTargetFrameworks>
 
     <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
     <IsTestUtilityProject>$(MSBuildProjectName.EndsWith('Tests.Utility'))</IsTestUtilityProject>
