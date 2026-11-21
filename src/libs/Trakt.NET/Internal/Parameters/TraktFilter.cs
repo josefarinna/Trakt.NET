@@ -189,11 +189,11 @@ namespace TraktNET
 
                 if (firstValue <= secondValue)
                 {
-                    values.Add($"{name}={firstValue.ToString(CultureInfo.InvariantCulture)}-{secondValue.ToString(CultureInfo.InvariantCulture)}");
+                    values.Add($"{name}={firstValue.ToInvariantCultureString()}-{secondValue.ToInvariantCultureString()}");
                 }
                 else
                 {
-                    values.Add($"{name}={secondValue.ToString(CultureInfo.InvariantCulture)}-{firstValue.ToString(CultureInfo.InvariantCulture)}");
+                    values.Add($"{name}={secondValue.ToInvariantCultureString()}-{firstValue.ToInvariantCultureString()}");
                 }
             }
         }

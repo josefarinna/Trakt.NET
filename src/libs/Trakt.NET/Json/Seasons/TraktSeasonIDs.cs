@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -26,7 +25,7 @@ namespace TraktNET
             get
             {
                 if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
+                    return Trakt.Value.ToInvariantCultureString();
 
                 return string.Empty;
             }
