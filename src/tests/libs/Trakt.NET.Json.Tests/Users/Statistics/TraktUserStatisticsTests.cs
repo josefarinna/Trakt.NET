@@ -15,6 +15,7 @@ namespace TraktNET.Json.Users
             userStatistics.Ratings.ShouldBeNull();
             userStatistics.Progress.ShouldBeNull();
             userStatistics.Lists.ShouldBeNull();
+            userStatistics.ListComments.ShouldBeNull();
             userStatistics.TotalMinutes.ShouldBeNull();
             userStatistics.TotalPlays.ShouldBeNull();
         }
@@ -82,6 +83,7 @@ namespace TraktNET.Json.Users
             userStatistics.Progress.Dropped.ShouldBe(22U);
 
             userStatistics.Lists.ShouldBe(31U);
+            userStatistics.ListComments.ShouldBe(12U);
             userStatistics.TotalMinutes.ShouldBe(618949U);
             userStatistics.TotalPlays.ShouldBe(12473U);
         }
@@ -101,6 +103,7 @@ namespace TraktNET.Json.Users
 
             userStatistics.Progress.ShouldBeNull();
             userStatistics.Lists.ShouldBeNull();
+            userStatistics.ListComments.ShouldBeNull();
             userStatistics.TotalMinutes.ShouldBeNull();
             userStatistics.TotalPlays.ShouldBeNull();
         }
@@ -120,6 +123,7 @@ namespace TraktNET.Json.Users
 
             userStatistics.Progress.ShouldBeNull();
             userStatistics.Lists.ShouldBeNull();
+            userStatistics.ListComments.ShouldBeNull();
             userStatistics.TotalMinutes.ShouldBeNull();
             userStatistics.TotalPlays.ShouldBeNull();
         }

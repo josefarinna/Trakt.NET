@@ -48,6 +48,9 @@ namespace TraktNET
         /// <summary>Gets or sets the number of lists an user has created.</summary>
         public uint? Lists { get; set; }
 
+        /// <summary>Gets or sets the number of list comments a user has posted.</summary>
+        public uint? ListComments { get; set; }
+
         /// <summary>Gets or sets the total number of minutes an user has watched.</summary>
         public uint? TotalMinutes { get; set; }
 

@@ -30,6 +30,8 @@ All notable changes to Trakt.NET are documented in this file. Changes for 1.x an
   - Added optional `HiddenAt` to `TraktUserHiddenItemsPostMovie`, `TraktUserHiddenItemsPostShow`, `TraktUserHiddenItemsPostSeason`, and `TraktUserHiddenItemsPostShowSeason`.
 - **Not Found Response Models**
   - Added optional `Title`, `Year`, and `Seasons` (`TraktPostResponseNotFoundShowSeason`, `TraktPostResponseNotFoundShowEpisode`) to `TraktPostResponseNotFoundShow`, `TraktPostResponseNotFoundSeason`, and `TraktPostResponseNotFoundEpisode`, and `Title`/`Year` to `TraktSyncRatingsPostResponseNotFoundShow`, to preserve show-shaped `not_found` entries returned by the Trakt API.
+- **User Statistics Model**
+  - Added optional `ListComments` (`list_comments`) to `TraktUserStatistics`.
 
 ### Breaking Changes
 

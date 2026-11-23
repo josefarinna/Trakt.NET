@@ -73,6 +73,7 @@ namespace TraktNET.UsersModule
             responseValue.Progress.Dropped.ShouldBe(22U);
 
             responseValue.Lists.ShouldBe(31U);
+            responseValue.ListComments.ShouldBe(12U);
             responseValue.TotalMinutes.ShouldBe(618949U);
             responseValue.TotalPlays.ShouldBe(12473U);
         }
@@ -144,6 +145,7 @@ namespace TraktNET.UsersModule
             responseValue.Progress.Dropped.ShouldBe(22U);
 
             responseValue.Lists.ShouldBe(31U);
+            responseValue.ListComments.ShouldBe(12U);
             responseValue.TotalMinutes.ShouldBe(618949U);
             responseValue.TotalPlays.ShouldBe(12473U);
         }
@@ -214,6 +216,7 @@ namespace TraktNET.UsersModule
             responseValue.Progress.Dropped.ShouldBe(22U);
 
             responseValue.Lists.ShouldBe(31U);
+            responseValue.ListComments.ShouldBe(12U);
             responseValue.TotalMinutes.ShouldBe(618949U);
             responseValue.TotalPlays.ShouldBe(12473U);
         }
