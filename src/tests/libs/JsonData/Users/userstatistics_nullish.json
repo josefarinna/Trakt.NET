@@ -47,6 +47,7 @@
     },
     "progress": null,
     "lists": null,
+    "list_comments": null,
     "total_minutes": null,
     "total_plays": null
 }
