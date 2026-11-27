@@ -1147,30 +1147,6 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktPlexSettings>> GetPlexSettingsImplAsync(CancellationToken cancellationToken = default)
-        {
-            var request = new UserPlexSettingsGetRequest();
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktPlexSettings>(_context, request, cancellationToken);
-        }
-
-        private Task<TraktResponse> UpdatePlexSettingsImplAsync(TraktPlexSettingsUpdate settingsUpdate, CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(settingsUpdate);
-
-            var request = new UserPlexSettingsPutRequest
-            {
-                TraktPlexSettingsUpdate = settingsUpdate
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
-
-        private Task<TraktResponse> DisconnectPlexImplAsync(CancellationToken cancellationToken = default)
-        {
-            var request = new UserPlexDisconnectDeleteRequest();
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
-
         private Task<TraktResponse<TraktUserMonthInReview>> GetMonthInReviewImplAsync(string usernameOrSlug, uint year, uint month,
             string? slurm = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
